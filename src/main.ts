@@ -251,27 +251,27 @@ import './style.css'
 // рианта ответа. За каждый правильный ответ начисляется 2
 // балла. После вопросов выведите пользователю количество
 // набранных баллов.
-const answers = {
-    answerFirst: prompt('Сколько у человека хромосом?', 'Варианты ответов: 46, 48, 44'),
-    answerSecond: prompt('Сколько у человека ребер в теле?', 'Варианты ответов: 18, 16, 24'),
-    answerThird: prompt('Сколько часовых поясов в мире?', 'Варианты ответов: 23, 7, 24, 9')
-}
-let points = 0
-if (answers.answerFirst == '46'){
-    points += 2
-}
+// const answers = {
+//     answerFirst: prompt('Сколько у человека хромосом?', 'Варианты ответов: 46, 48, 44'),
+//     answerSecond: prompt('Сколько у человека ребер в теле?', 'Варианты ответов: 18, 16, 24'),
+//     answerThird: prompt('Сколько часовых поясов в мире?', 'Варианты ответов: 23, 7, 24, 9')
+// }
+// let points = 0
+// if (answers.answerFirst == '46'){
+//     points += 2
+// }
 
-if (answers.answerSecond == '24'){
-    points += 2
-}
+// if (answers.answerSecond == '24'){
+//     points += 2
+// }
 
-if (answers.answerThird == '24'){
-    points += 2
-}
-if(points > 0){
-    alert(`Вы набрали ${points} Очка(ов)`)
-}
-else {
-    alert('К сожалению вы не набрали ни одного очка, попробуйте еще раз')
-}
+// if (answers.answerThird == '24'){
+//     points += 2
+// }
+// if(points > 0){
+//     alert(`Вы набрали ${points} Очка(ов)`)
+// }
+// else {
+//     alert('К сожалению вы не набрали ни одного очка, попробуйте еще раз')
+// }
 
