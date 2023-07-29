@@ -358,13 +358,96 @@ import './style.css'
 //             alert('Введи нормально идиот')
 // }
 
-let age  = +prompt('Введите свой возраст', ' 15')
-if (age >= 14 || age <= 90){
-    alert(true)
-}
-else if(age < 14){
-    alert(false)
-}
-else{
-    alert('Введи нормально')
-}
+// let age  = +prompt('Введите свой возраст', ' 15')
+// if (age >= 14 && age <= 90){
+//     alert(true)
+// }
+// else if(age < 14 || age > 90){
+//     alert(false)
+// }
+// else{
+//     alert('Введи нормально')
+// }
+
+
+
+// 1
+// Запросить у пользователя номер месяца и вывести на экран
+// его название.
+
+// let monthInt = parseFloat(prompt('Введите месяц цифрой', '1')as string)
+// switch(monthInt){
+//     case 1:
+//         alert('Январь')
+//         break
+//         case 2:
+//         alert('Февраль')
+//         break
+//         case 3:
+//         alert('Март')
+//         break
+//         case 4:
+//         alert('Апрель')
+//         break
+//         case 5:
+//         alert('Май')
+//         break
+//         case 6:
+//         alert('Июнь')
+//         break
+//         case 7:
+//         alert('Июль')
+//         break
+//         case 8:
+//         alert('Август')
+//         break
+//         case 9:
+//         alert('Сентябрь')
+//         break
+//         case 10:
+//         alert('Октябрь')
+//         break
+//         case 11:
+//         alert('Ноябрь')
+//         break
+//         case 12:
+//         alert('Декабрь')
+//         break
+//         default:
+//             alert('Дурак?????????????????????')
+// }
+
+
+// 2
+// Реализовать калькулятор. Пользователь вводит 2 числа и
+// знак (+ - * /). В зависимости от введенного знака решить
+// пример и вывести результат.
+
+// let calcPrompt1 = parseFloat(prompt('Введите число или цифру для вычислений','2')as string)
+// let symbolInt = prompt('Ввдеите знак, который будет производить вычисление', ' +, /, *, -')
+// let calcPrompt2 = parseFloat(prompt('Введите число или цифру для вычислений','10')as string)
+// switch(symbolInt){
+//     case '+':
+//         alert(calcPrompt1 + calcPrompt2)
+//         break
+//         case '-':
+//             alert(calcPrompt1 - calcPrompt2)
+//             break
+//             case '*':
+//                 alert(calcPrompt1 * calcPrompt2)
+//                 break
+//                 case '/':
+//         alert(calcPrompt1 / calcPrompt2)
+//         break
+//         default:
+//             alert('Дурак?????????????????????')
+// }
+
+
+// 1
+// Запросить 2 числа и вывести большее из них.
+let intNumb = parseFloat(prompt('Введите число', '30')as string)
+let intNumb2 = parseFloat(prompt('Введите число', '10')as string)
+
+let difference = (intNumb > intNumb2 || intNumb < intNumb2) ? 'Первое число больше второго': 'Второе число больше первого' 
+alert(difference)
