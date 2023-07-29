@@ -275,3 +275,96 @@ import './style.css'
 //     alert('К сожалению вы не набрали ни одного очка, попробуйте еще раз')
 // }
 
+
+// Запросить дату (день, месяц, год) и вывести следующую
+// за ней дату. Учтите возможность перехода на следующий
+// месяц, год, а также високосный год.
+
+
+
+// let intDay = parseFloat(prompt('Введите сегодняшнее число', '22')as string)
+// let intMonth = parseFloat(prompt('Введите сегодняшнее число', '05')as string)
+// let intYear = parseFloat(prompt('Введите сегодняшнее число', '2023')as string)
+
+// let zero = '0'
+// if (intMonth == 1 || intMonth == 3 || intMonth == 5 || intMonth == 7 || intMonth == 8 || intMonth == 10 || intMonth == 12){
+//     if (intDay == 31) {
+//         intDay = 0
+//         intMonth++
+//     }
+//     if (intMonth == 12) intMonth = 1
+// } else {
+//     if (intDay == 30) {
+//         intDay = 0
+//         intMonth++
+//     }
+//     if (intMonth == 2) {
+//         if (intDay == 29) {
+//             intDay = 0
+//             intMonth++
+//         }
+//         if (intDay == 28) {
+//             if ((intYear%4==0 && intYear%100!=0) || intYear%400==0 ) {
+                
+//             } else {
+//                 intDay = 0
+//                 intMonth++
+//             }
+//         }
+//     }
+// }
+
+
+
+// intDay += 1
+// let resultDate =  intDay + ' ' + zero + intMonth + ' ' + intYear
+// alert(resultDate)
+
+// let password
+
+// let login = prompt('Кто там','')
+
+// if (login == 'Админ') {
+//     password = prompt('Пароль','')
+
+//     if(password == 'Я главный'){
+//         alert('Здравствуйте')
+//     }
+//     else if(login  === null){
+//         alert('Отменено')
+//     }
+//     else {
+//         alert('Неверный пароль')
+//     }
+// }
+// if (login != 'Админ'){
+//     alert('Я вас не знаю')
+// }
+
+// const number = +prompt('Введите число между 0 и 3', '')
+// switch (number){
+//     case 0:
+        
+//         alert('Вы ввели число 0')
+//     break
+//     case 1:
+//         alert('Вы ввели число 1')
+//     break
+
+//     case 3:
+//         alert('Вы ввели число 2 а может и 3')
+//         break
+//         default:
+//             alert('Введи нормально идиот')
+// }
+
+let age  = +prompt('Введите свой возраст', ' 15')
+if (age >= 14 || age <= 90){
+    alert(true)
+}
+else if(age < 14){
+    alert(false)
+}
+else{
+    alert('Введи нормально')
+}
