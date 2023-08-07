@@ -501,29 +501,76 @@ import './style.css'
 // чет ли он решить еще один пример. И так до тех пор, пока
 // пользователь не откажется.
 
-let intNumb1 = parseFloat(prompt('Введите число/цифру, которое хотите вычислить','12')as string)
-let intSign = prompt('Введите знак, который будет вычислять','+ - * /')
-let intNumb2 = parseFloat(prompt('Введите число/цыфру, которое хотите вычислить','12')as string)
-let result
-while(intNumb1){
-    if (intSign == '-'){
-        result = intNumb1 - intNumb2
-    }
-    
-    else if (intSign == '+'){
-        result = intNumb1 + intNumb2
-    }
-    else if (intSign == '*'){
-        result = intNumb1 * intNumb2
-    }
-    else if (intSign == '/'){
-        result = intNumb1 + intNumb2
-    }
-    // let request = prompt('если хотите продолжить, напишите в строку "хочу"','хочу')
-    // if (request == 'хочу'){
-        
-    // }
-    
-    
+// let answer = true
+// while (answer) {
+//   let intNumb1 = parseFloat(prompt('Введите число/цифру, которое хотите вычислить', '12') as string)
+//   let intSign = prompt('Введите знак, который будет вычислять', '+ - * /')
+//   let intNumb2 = parseFloat(prompt('Введите число/цыфру, которое хотите вычислить', '12') as string)
+//   let res = 0
+//   switch (intSign) {
+//     case '-':
+//       res = intNumb1 - intNumb2
+//       break
+//     case '+':
+//       res = intNumb1 + intNumb2
+//       break
+//     case '*':
+//       res = intNumb1 * intNumb2
+//       break
+//     case '/':
+//       res = intNumb1 / intNumb2
+//       break
+//   }
+//   answer = confirm(`Результат ${res}. Посчитать что-нибудь ещё?`)
+// }
+
+// 8
+// Зациклить вывод дней недели таким образом: «День недели.
+// Хотите увидеть следующий день?» и так до тех пор, пока
+// пользователь нажимает OK.
+
+
+
+// let day = true
+// let nextDay:any
+// while(day){
+//     let dayRequest = prompt('Напишите сегодняшний день, чтобы увидеть следующий','Пятница')as string
+//     switch(nextDay){
+//         case 'Понедельник':
+//             dayRequest = nextDay
+//             break
+//         case 'Вторник':
+//             dayRequest = nextDay
+//             break
+//         case 'Среда':
+//             dayRequest = nextDay
+//             break
+//         case 'Четверг':
+//             dayRequest = nextDay
+//             break
+//         case 'Пятница':
+//             dayRequest = nextDay
+//             break
+//         case 'Суббота':
+//             dayRequest = nextDay
+//              break
+//         case 'Воскресенье':
+//             dayRequest = nextDay
+//             break
+//     }
+//     day = confirm(`Cледующий день ${nextDay}, хотите узнать следующий день?`)
+// }
+
+
+let day = true;
+let nextDay: any;
+
+while (day) {
+  let dayRequest = prompt('Напишите сегодняшний день, чтобы увидеть следующий', 'Пятница') as string;
+
+  // Assign the value of dayRequest to nextDay based on the user input
+  nextDay = dayRequest;
+
+  day = confirm(`Cледующий день ${nextDay}, хотите узнать следующий день?`);
 }
-alert(result)
+
