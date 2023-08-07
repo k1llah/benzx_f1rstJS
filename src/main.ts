@@ -446,8 +446,81 @@ import './style.css'
 
 // 1
 // Запросить 2 числа и вывести большее из них.
-let intNumb = parseFloat(prompt('Введите число', '30')as string)
-let intNumb2 = parseFloat(prompt('Введите число', '10')as string)
+// let intNumb = parseFloat(prompt('Введите число', '30')as string)
+// let intNumb2 = parseFloat(prompt('Введите число', '10')as string)
 
-let difference = (intNumb > intNumb2 || intNumb < intNumb2) ? 'Первое число больше второго': 'Второе число больше первого' 
-alert(difference)
+// let difference = (intNumb > intNumb2 || intNumb < intNumb2) ? 'Первое число больше второго': 'Второе число больше первого' 
+// alert(difference)
+
+// let i = 0 
+// while (i < 3){
+//     alert(`number ${i}!`)
+//     i++
+// }
+
+// let intNumber = +(prompt('Введите число >100', '0') as string)
+// for (intNumber; intNumber>100; ){
+//     if(intNumber!>100) {
+//         alert(intNumber) 
+//         continue
+//     }
+//     else{
+//        alert('thanks') 
+//     }
+// }
+// let i = 2
+// let n = 10
+// for(i; i<=n; i++){
+//     let isSimple = true
+//     for (let j = 2; j<i;j++){
+//         if (i%j > 0) {
+//             isSimple = false
+//             break
+//         }
+//     }
+//     if (isSimple)
+// }
+
+
+
+// Подсчитать сумму всех чисел в заданном пользователем
+// диапазоне.
+
+
+// let a = parseFloat(prompt('Введите число в любом диапазоне от нуля', '')as string)
+// let n = parseFloat(prompt('Введите число в любом диапазоне от нуля', '')as string)
+// let sum = 0
+// while (a<=n){
+//     sum+=a
+//     a++
+// }
+// alert(sum)
+
+// Зациклить калькулятор. Запросить у пользователя 2 числа
+// и знак, решить пример, вывести результат и спросить, хо-
+// чет ли он решить еще один пример. И так до тех пор, пока
+// пользователь не откажется.
+
+let intNumb1 = parseFloat(prompt('Введите число/цифру, которое хотите вычислить','12')as string)
+let intSign = prompt('Введите знак, который будет вычислять','+ - * /')
+let intNumb2 = parseFloat(prompt('Введите число/цыфру, которое хотите вычислить','12')as string)
+let result
+while(intNumb1){
+    if (intSign == '-'){
+        result = intNumb1 - intNumb2
+    }
+    else if (intSign == '+'){
+        result = intNumb1 + intNumb2
+    }
+    else if (intSign == '*'){
+        result = intNumb1 * intNumb2
+    }
+    else if (intSign == '/'){
+        result = intNumb1 + intNumb2
+    }
+    alert(result)
+    let request = prompt('если хотите продолжить, напишите в строку "хочу"','хочу')
+    if (request == 'хочу'){
+        
+    }
+}
