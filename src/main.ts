@@ -509,6 +509,7 @@ while(intNumb1){
     if (intSign == '-'){
         result = intNumb1 - intNumb2
     }
+    
     else if (intSign == '+'){
         result = intNumb1 + intNumb2
     }
@@ -518,9 +519,11 @@ while(intNumb1){
     else if (intSign == '/'){
         result = intNumb1 + intNumb2
     }
-    alert(result)
-    let request = prompt('если хотите продолжить, напишите в строку "хочу"','хочу')
-    if (request == 'хочу'){
+    // let request = prompt('если хотите продолжить, напишите в строку "хочу"','хочу')
+    // if (request == 'хочу'){
         
-    }
+    // }
+    
+    
 }
+alert(result)
