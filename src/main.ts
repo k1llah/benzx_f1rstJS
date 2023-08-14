@@ -175,11 +175,11 @@ import './style.css'
 //     case 4:
 //         alert('$')
 //         break
-    
+
 //     case 5:
 //         alert('%')
 //         break
-    
+
 //     case 6:
 //         alert('^')
 //         break
@@ -189,7 +189,7 @@ import './style.css'
 //     case 8:
 //         alert('*')
 //         break
-    
+
 //     case 9:
 //         alert('(')
 //         break
@@ -305,7 +305,7 @@ import './style.css'
 //         }
 //         if (intDay == 28) {
 //             if ((intYear%4==0 && intYear%100!=0) || intYear%400==0 ) {
-                
+
 //             } else {
 //                 intDay = 0
 //                 intMonth++
@@ -344,7 +344,7 @@ import './style.css'
 // const number = +prompt('Введите число между 0 и 3', '')
 // switch (number){
 //     case 0:
-        
+
 //         alert('Вы ввели число 0')
 //     break
 //     case 1:
@@ -531,46 +531,214 @@ import './style.css'
 
 
 
-// let day = true
-// let nextDay:any
-// while(day){
-//     let dayRequest = prompt('Напишите сегодняшний день, чтобы увидеть следующий','Пятница')as string
-//     switch(nextDay){
-//         case 'Понедельник':
-//             dayRequest = nextDay
-//             break
-//         case 'Вторник':
-//             dayRequest = nextDay
-//             break
-//         case 'Среда':
-//             dayRequest = nextDay
-//             break
-//         case 'Четверг':
-//             dayRequest = nextDay
-//             break
-//         case 'Пятница':
-//             dayRequest = nextDay
-//             break
-//         case 'Суббота':
-//             dayRequest = nextDay
-//              break
-//         case 'Воскресенье':
-//             dayRequest = nextDay
-//             break
-//     }
-//     day = confirm(`Cледующий день ${nextDay}, хотите узнать следующий день?`)
+
+// let day = true;
+// let nextDay = prompt('Напишите сегодняшний день, чтобы увидеть следующий', 'Пятница') as string;
+// while (day) {
+
+//   switch (nextDay) {
+//     case 'Понедельник':
+//       nextDay = 'Вторник'
+//       break
+//     case 'Вторник':
+//       nextDay = 'Среда'
+//       break
+//     case 'Среда':
+//       nextDay = 'Четверг'
+//       break
+//     case 'Четверг':
+//       nextDay = 'Пятница'
+//       break
+//     case 'Пятница':
+//       nextDay = 'Суббота'
+//       break
+//     case 'Суббота':
+//       nextDay = 'Воскресенье'
+//       break
+//     case 'Воскресенье':
+//       nextDay = 'Понедельник'
+//       break
+//     default:
+//       nextDay = 'Понедельник'
+// }
+
+//   day = confirm(`Cледующий день ${nextDay}, хотите узнать следующий день?`);
 // }
 
 
-let day = true;
-let nextDay: any;
 
-while (day) {
-  let dayRequest = prompt('Напишите сегодняшний день, чтобы увидеть следующий', 'Пятница') as string;
 
-  // Assign the value of dayRequest to nextDay based on the user input
-  nextDay = dayRequest;
 
-  day = confirm(`Cледующий день ${nextDay}, хотите узнать следующий день?`);
+// 3
+// Запросить число и степень. Возвести число в указанную
+// степень и вывести результат.
+// let intNumber = parseFloat(prompt('Введите число, которое будете возводить в степень','22')as string)
+// let degreeInt = parseFloat(prompt('Введите степень, в которую будете возводить число','2')as string)
+// let resultOfCalc = 1;
+
+// while (degreeInt > 0) {
+//     resultOfCalc *= intNumber;
+//     degreeInt--;
+// }
+
+// alert(resultOfCalc)
+
+
+
+
+
+// 1
+// Предлагать пользователю решить пример 2 + 2 * 2 до тех
+// пор, пока он не решит его правильно.
+
+// let intAnswer
+// do{
+//     intAnswer = parseFloat(prompt('Решите пример 2 + 2 * 2, введите ответ в строку','')as string)
+//     if(intAnswer == 6){
+//         alert('Молодчина')
+//     } else if(intAnswer != 6){
+//        alert('Все плохо, пробуем еще раз')
+//     }
+// } while(intAnswer != 6)
+
+
+// 3
+// Вывести все числа от 1 до 100, которые кратные указанному
+// пользователем числу.
+// let intNumb = parseFloat(prompt('Введите число, а я выведу все кратные числа от 0 до 100', '30')as string)
+// for(let i = 1; i<=100;  i++){
+//     if(i % intNumb == 0){
+//         alert(i)
+//     }
+// }
+
+
+// 5
+// Запросить число и проверить, простое ли оно. Простое
+// число делится без остатка только на себя и на единицу.
+
+// let intNumber = parseFloat(prompt('Введите число, а я проверю простое ли оно','25')as string)
+// let isPrime = true
+// for (let i = 2; i<=intNumber / 2; i++){
+//     if(intNumber/i == 0){
+//         isPrime = false
+//         break
+//     }
+//     if (isPrime) {
+//         alert('Ваше число простое');
+//     } else {
+//         alert('Вы ввели не простое число');
+// }
+// }
+
+// 1
+// Написать функцию, которая принимает 2 числа и возвра-
+// щает меньшее из них.
+
+
+// let a:any = prompt('Введите число, а я выведу то, которое больше','10')
+// let b:any = prompt('Введите число, а я выведу то, которое больше','22')
+// function defference(a:any,b:any){
+//     if(a<b){
+//         alert(`${b} больше`)
+//     }
+//     else{
+//         alert(`${a} больше`)
+//     }
+//     return
+// }
+// defference(a,b)
+
+// 2
+// Написать функцию, которая возводит переданное число
+// в указанную степень.
+
+// let numbToDegree = parseFloat(prompt('Введите число, а я возведу его в степень','3')as string)
+// let degree = parseFloat(prompt('Введите степень, в которую надо возвести число, которое вы ввели выше','2')as string)
+// function degreeCalculation(numbToDegree:any, degree:any){
+//     let resultOfCalculation = numbToDegree**degree
+//     alert(`Ответ: ${resultOfCalculation}`)
+//     return
+// }
+// degreeCalculation(numbToDegree,degree)
+
+// 3
+// Написать функцию, которая принимает 2 числа и знак
+// (+ - * /), считает пример и возвращает результат.
+
+// let intNumber = parseFloat(prompt('Введите число/цифру, а я посчитаю его', '12')as string)
+// let intSign = prompt('Введите знак, для дальнейших вычислений', '-, +, /, *')
+// let intNumber2 = parseFloat(prompt('Введите число/цифру, а я посчитаю его', '22')as string)
+// function userCalculation(intNumber: any, intSign:any, intNumber2: any) {
+//     let resultOf;
+//     switch (intSign) {
+//         case '-':
+//             resultOf = intNumber - intNumber2
+//             break
+//         case '+':
+//             resultOf = intNumber + intNumber2
+//             break
+//         case '/':
+//             resultOf = intNumber / intNumber2
+//             break
+//         case '*':
+//             resultOf = intNumber * intNumber2
+//             break
+//     }
+//     alert(resultOf)
+//     return
+// }
+// userCalculation(intNumber,intSign,intNumber2)
+
+
+
+// 8
+// Написать функцию, которая принимает от 1 до 5 чисел и
+// возвращает большее из них.
+
+
+// let intNumbers = 0
+// let intNumbers2 = 0 
+// let intNumbers3 =  0
+// let intNumbers4 = 0
+// let intNumbers5 = 0
+// function booleanResult(intNumbers,intNumbers2,intNumbers3,intNumbers4,intNumbers5){
+//     return intNumbers + intNumbers2
+// }
+
+
+
+//Функция, которая может принимать неограниченное количество переменных
+// function getNmax(...args:any){
+//     let sum = 0
+//     for (let i = 0;i<args.lenght;i++){
+//         sum+=args[i]
+//     }
+//     return sum
+// }
+// console.log(getN)
+
+// 9
+// Написать функцию, которая выводит все четные или не-
+// четные числа, в указанном пользователем диапазоне. Какие
+// числа выводить, определяется третьим параметром типа
+// bool (true – четные, false – нечетные).
+
+let inputNumber = parseFloat(prompt('Введите диапазон чисел, а я выведу все четные или нечетные','10')as string)
+let inputNumber2 = parseFloat(prompt('Введите второе число в диапазоне','20')as string)
+let oddEven = prompt('Четные или нечетные??')
+let resultOf;
+function oddOrEven (inputNumber:any, inputNumber2:any, oddEven:any){
+    for(let i = inputNumber; i<=inputNumber2; i++ ){
+        if(oddEven == 'Четные'){
+            resultOf = i+=2
+            alert(resultOf)
+        }
+        else{
+          resultOf = i++
+          alert(resultOf)  
+        }
+    }
+    return
 }
-
+oddOrEven(inputNumber,inputNumber2,oddEven)
