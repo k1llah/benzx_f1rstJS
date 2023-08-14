@@ -724,21 +724,50 @@ import './style.css'
 // числа выводить, определяется третьим параметром типа
 // bool (true – четные, false – нечетные).
 
-let inputNumber = parseFloat(prompt('Введите диапазон чисел, а я выведу все четные или нечетные','10')as string)
-let inputNumber2 = parseFloat(prompt('Введите второе число в диапазоне','20')as string)
-let oddEven = prompt('Четные или нечетные??')
-let resultOf;
-function oddOrEven (inputNumber:any, inputNumber2:any, oddEven:any){
-    for(let i = inputNumber; i<=inputNumber2; i++ ){
-        if(oddEven == 'Четные'){
-            resultOf = i+=2
-            alert(resultOf)
-        }
-        else{
-          resultOf = i++
-          alert(resultOf)  
-        }
+// let inputNumber = parseFloat(prompt('Введите диапазон чисел, а я выведу все четные или нечетные', '10') as string)
+// let inputNumber2 = parseFloat(prompt('Введите второе число в диапазоне', '20') as string)
+// let oddEven = !!prompt('Четные (1) или нечетные (отмена)??')
+
+// function showOddOrEven(inputNumber: any, inputNumber2: any, oddEven: any) {
+//   for (let i = inputNumber; i <= inputNumber2; i++) {
+//     if (oddEven) {
+//       if (i % 2 !== 0) {
+//         console.log(i)
+//       }
+//     } else {
+//       if (oddEven % 2 == 0) {
+//         console.log(i)
+//       }
+//     }
+//   }
+//   return
+// }
+// showOddOrEven(inputNumber, inputNumber2, oddEven)
+
+
+// 10 Написать функцию, которая принимает дату (день, месяц,
+//   год) и возвращает дату следующего дня в виде строки
+//   «дд.мм.гггг». Проверку на високосный год желательно
+//   написать отдельной функцией.
+
+let day = parseFloat(prompt('Введите текущее число, месяц, год, а я выведу следующий','10')as string)
+let month = parseFloat(prompt('Месяц,','11')as string)
+let year = parseFloat(prompt('Год,','2023')as string)
+function shownextDate(day:number, month:number,year:number){
+  day++
+  if(day == 31){
+    month++
+    day = 1
+    if(month == 12){
+      month = 1
+      year++
     }
-    return
+  } if(month == 4 || 6 || 9 || 11 ){
+    day <= 30
+    if(day == 30){
+      day = 1
+    }
+  }
+  alert(`${day}.${month}.${year}`)
 }
-oddOrEven(inputNumber,inputNumber2,oddEven)
+shownextDate(day,month,year)
