@@ -756,18 +756,18 @@ let year = parseFloat(prompt('Год,','2023')as string)
 function shownextDate(day:number, month:number,year:number){
   day++
   if(day == 31){
-    month++
     day = 1
+    month++
     if(month == 12){
       month = 1
       year++
     }
   } if(month == 4 || 6 || 9 || 11 ){
-    day <= 30
     if(day == 30){
       day = 1
     }
   }
   alert(`${day}.${month}.${year}`)
+  return
 }
 shownextDate(day,month,year)
