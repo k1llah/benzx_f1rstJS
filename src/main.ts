@@ -750,24 +750,47 @@ import './style.css'
 //   «дд.мм.гггг». Проверку на високосный год желательно
 //   написать отдельной функцией.
 
-let day = parseFloat(prompt('Введите текущее число, месяц, год, а я выведу следующий','10')as string)
-let month = parseFloat(prompt('Месяц,','11')as string)
-let year = parseFloat(prompt('Год,','2023')as string)
-function shownextDate(day:number, month:number,year:number){
-  day++
-  if(day == 31){
-    day = 1
-    month++
-    if(month == 12){
-      month = 1
-      year++
-    }
-  } if(month == 4 || 6 || 9 || 11 ){
-    if(day == 30){
-      day = 1
-    }
-  }
-  alert(`${day}.${month}.${year}`)
-  return
-}
-shownextDate(day,month,year)
+// let day = parseFloat(prompt('Введите текущее число, месяц, год, а я выведу следующий', '10') as string)
+// let month = parseFloat(prompt('Месяц,', '11') as string)
+// let year = parseFloat(prompt('Год,', '2023') as string)
+
+
+// function isLeapYear(year: number): boolean {
+//   if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+
+//   }
+//   return 
+// }
+
+// function shownextDate(day: number, month: number, year: number) {
+//   if (month == 2) {
+//     if (isLeapYear(year) && day == 28) {
+//       day = 1;
+//     } else if (!isLeapYear(year) && day == 28) {
+//       day = 1;
+//       month = 3;
+//     } else if (day === 29) {
+//       day = 1;
+//       month = 3;
+//     } else {
+//       day++;
+//     }
+//   } else if ((month === 4 || month === 6 || month === 9 || month === 11) && day === 30) {
+//     day = 1;
+//     month++;
+//   } else if (day === 31) {
+//     day = 1;
+//     if (month === 12) {
+//       month = 1;
+//       year++;
+//     } else {
+//       month++;
+//     }
+//   } else {
+//     day++;
+//   }
+
+//   alert(`${day}.${month}.${year}`);
+// }
+
+// shownextDate(day, month, year);
