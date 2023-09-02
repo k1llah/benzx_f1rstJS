@@ -794,3 +794,75 @@ import './style.css'
 // }
 
 // shownextDate(day, month, year);
+
+
+
+// 1
+// Написать функцию, которая вычисляет факториал задан-
+// ного числа.
+
+
+// let intNumber = parseFloat(prompt('Введите число, а я посчитаю его факториал','')as string)
+// function factorial(intNumber:number){
+//     return (intNumber == 1) ? intNumber : intNumber * factorial(intNumber - 1)
+// }
+// alert(factorial(intNumber))
+
+
+// let uName = ''
+// let toDos = [] as string[]
+
+// const appDiv = document.getElementById('app')
+// // if (appDiv) appDiv.innerHTML += `<p>Добро пожаловать на сайт</p>`
+// function render() {
+//   let isLogin = Boolean(uName)
+//   if (appDiv) appDiv.innerHTML = ''
+//   const pElelement = document.createElement('p')
+//   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
+//   if (appDiv) appDiv.appendChild(pElelement) 
+  
+//   const button = document.createElement('button')
+//   button.textContent = isLogin ? 'LogOut' : 'Login'
+//   button.addEventListener('click', ()=>{
+//     uName = isLogin ? '' : 'Niko'
+//     toDos = !isLogin ? ['проснуться', 'позавтракать', 'умыться', 'работать', 'лечь спать'] : []
+//     render()
+//   })
+//   if (appDiv) appDiv.appendChild(button) 
+//   if (isLogin) {
+//     const olElement = document.createElement('ol')
+//     // for (let i=0;i<toDos.length;i++) {
+//     //   const listElement = document.createElement('li')
+//     //   listElement.textContent = toDos[i]
+//     //   olElement.appendChild(listElement)
+//     // }
+//     for (let el of toDos) {
+//       const listElement = document.createElement('li')
+//       listElement.textContent = el
+//       olElement.appendChild(listElement)
+//     }
+//     if (appDiv) appDiv.appendChild(olElement)
+//   }
+// }
+
+// render()
+
+
+
+// 3
+// Написать функцию, которая выводит переданное ей число
+// задом наперед.
+// Например: число 1234 вывести как 4321
+let userNumbInt = parseFloat(prompt('Введите любое число, а я выведу его наоборот','1234')as string)
+let revertNumbers = [] 
+function revertFunction (num){
+  const numStr = num.toString()
+  const reversedStr = numStr.split('').reverse('').join('')
+  const reversedNum = parseFloat(reversedStr)
+  return reversedNum as any
+  
+}
+const reversed = revertFunction(userNumbInt);
+alert('Вот ваше число наоборот: ' + reversed);
+
+
