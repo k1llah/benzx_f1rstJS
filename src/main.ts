@@ -831,11 +831,11 @@ import './style.css'
 //   if (appDiv) appDiv.appendChild(button) 
 //   if (isLogin) {
 //     const olElement = document.createElement('ol')
-//     // for (let i=0;i<toDos.length;i++) {
-//     //   const listElement = document.createElement('li')
-//     //   listElement.textContent = toDos[i]
-//     //   olElement.appendChild(listElement)
-//     // }
+    // for (let i=0;i<toDos.length;i++) {
+    //   const listElement = document.createElement('li')
+    //   listElement.textContent = toDos[i]
+    //   olElement.appendChild(listElement)
+    // }
 //     for (let el of toDos) {
 //       const listElement = document.createElement('li')
 //       listElement.textContent = el
@@ -853,16 +853,112 @@ import './style.css'
 // Написать функцию, которая выводит переданное ей число
 // задом наперед.
 // Например: число 1234 вывести как 4321
-let userNumbInt = parseFloat(prompt('Введите любое число, а я выведу его наоборот','1234')as string)
-let revertNumbers = [] 
-function revertFunction (num){
-  const numStr = num.toString()
-  const reversedStr = numStr.split('').reverse('').join('')
-  const reversedNum = parseFloat(reversedStr)
-  return reversedNum as any
+// let userNumbInt = parseFloat(prompt('Введите любое число, а я выведу его наоборот','1234')as string)
+// let revertNumbers = [] 
+// function revertFunction (num){
+//   const numStr = num.toString()
+//   const reversedStr = numStr.split('').reverse('').join('')
+//   const reversedNum = parseFloat(reversedStr)
+//   return reversedNum as any
   
+// }
+// const reversed = revertFunction(userNumbInt);
+// alert('Вот ваше число наоборот: ' + reversed);
+
+
+// 1
+// Написать функцию возведения числа в степень.
+// let number = 4
+// let result:any
+// function solveDegree (result:any){
+//   if(number == 1){
+    
+//   } else{
+//     result = number**number
+//   }
+//   return result
+// }
+// console.log(solveDegree(result))
+
+// Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+// let feauters = {}as any
+// function isEmpty(feauters:any){
+//   for(let keys in feauters){
+//     keys
+//     return false 
+//   }
+//  return true
+// }
+// alert (isEmpty(feauters))
+// feauters['age'] = 22
+// alert(isEmpty(feauters))
+
+// Сумма свойств объекта
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pette: 130
+// } as any
+// let result=0;
+// for (let key in salaries){
+//   result += salaries[key]
+// }
+// console.log(result)
+
+
+// Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.
+// const objectOfNumbers = {
+//   salaryGuy: 1_200,
+//   anotherSalary: 1_000,
+//   title: 'My salary',
+// }
+// function multiplyNumeric(objectOfNumbers:any){
+//   for(let key in objectOfNumbers){
+//     if(typeof objectOfNumbers[key] === 'number'){
+//       objectOfNumbers[key] *= 2
+//     }
+//   }
+//   console.log(objectOfNumbers)
+// }
+// multiplyNumeric(objectOfNumbers)
+
+// Создать объект, описывающий прямоугольник (хранит коор-
+//   динаты левой верхней и правой нижней точек), и написать следу-
+//   ющие функции для работы с таким объектом.
+
+// 1
+// Функция принимает объект-прямоугольник и выводит
+// информацию о нем (где какая точка расположена).
+
+// let rectangleSides = {
+//   topLeft: 20,
+//   bottomRight: 20,
+// }
+// function infoRectangle(rectangleSides){
+//   for(let key in rectangleSides){
+
+//   }
+// }
+// infoRectangle(rectangleSides)
+
+
+// Создайте объект library, который будет представлять библиотеку. Библиотека должна хранить информацию о книгах.
+
+const library = {
+
 }
-const reversed = revertFunction(userNumbInt);
-alert('Вот ваше число наоборот: ' + reversed);
+library.book1 = {
+  title: 'Красаная таблетка',
+  author: 'Курпатов',
+  year: '2017',
+}
+library.book2 = {
+  title: 'Хирург',
+  author: 'Тесс Геритсен',
+  year: 2001
+}
+function listBooks
+
 
 
