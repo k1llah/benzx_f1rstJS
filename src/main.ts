@@ -958,7 +958,12 @@ library.book2 = {
   author: 'Тесс Геритсен',
   year: 2001
 }
-function listBooks
+function listBooks(library:any){
+  for (let key in library){
+    console.log(library.book1, library.book2)
+  }
+}
+listBooks(library)
 
 
 
