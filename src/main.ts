@@ -927,43 +927,250 @@ import './style.css'
 //   динаты левой верхней и правой нижней точек), и написать следу-
 //   ющие функции для работы с таким объектом.
 
-// 1
-// Функция принимает объект-прямоугольник и выводит
-// информацию о нем (где какая точка расположена).
-
-// let rectangleSides = {
-//   topLeft: 20,
-//   bottomRight: 20,
+// type Rect = {
+//   x0:number,
+//   y0:number,
+//   x1:number,
+//   y1:number,
 // }
-// function infoRectangle(rectangleSides){
-//   for(let key in rectangleSides){
 
+// const rect:Rect = {
+//   x0:50,
+//   y0:50,
+//   x1:100,
+//   y1:100,
+// }
+
+// const rectDiv = document.getElementById('rect')
+
+// const moveLeftTopButton = document.getElementById('moveLeftTop')
+// moveLeftTopButton?.addEventListener('click', () => { changeRectPosition(rect, -10, -10) })
+// const moveTopButton = document.getElementById('moveTop')
+// moveTopButton?.addEventListener('click', () => { changeRectPositionY(rect, -10) })
+// const moveRightTopButton = document.getElementById('moveRightTop')
+// moveRightTopButton?.addEventListener('click', () => { changeRectPosition(rect, 10, -10) })
+// const moveLeftButton = document.getElementById('moveLeft')
+// moveLeftButton?.addEventListener('click', () => { changeRectPositionX(rect, -10) })
+// const moveRightButton = document.getElementById('moveRight')
+// moveRightButton?.addEventListener('click', () => { changeRectPositionX(rect, 10) })
+// const moveLeftBottomButton = document.getElementById('moveLeftBottom')
+// moveLeftBottomButton?.addEventListener('click', () => { changeRectPosition(rect, -10, 10) })
+// const moveBottomButton = document.getElementById('moveBottom')
+// moveBottomButton?.addEventListener('click', () => { changeRectPositionY(rect, 10) })
+// const moveRightBottomButton = document.getElementById('moveRightBottom')
+// moveRightBottomButton?.addEventListener('click', () => { changeRectPosition(rect, 10, 10) })
+
+// const squeezeX = document.getElementById('squeezeX')
+// squeezeX?.addEventListener('click', () => { changeRectWidth(rect, -10) })
+// const expandX = document.getElementById('expandX')
+// expandX?.addEventListener('click', () => { changeRectWidth(rect, 10) })
+// const squeezeY = document.getElementById('squeezeY')
+// squeezeY?.addEventListener('click', () => { changeRectHeight(rect, -10) })
+// const expandY = document.getElementById('expandY')
+// expandY?.addEventListener('click', () => { changeRectHeight(rect, 10) })
+
+
+// console.log(rectDiv)
+// function renderRect(rect:Rect) {
+//   if (rectDiv) {
+//     rectDiv.style.top = rect.y0 + 'px'
+//     rectDiv.style.left = rect.x0 + 'px'
+//     rectDiv.style.width = getRectWidth(rect) + 'px'
+//     rectDiv.style.height = getRectHeight(rect) + 'px'
 //   }
 // }
-// infoRectangle(rectangleSides)
+// renderRect(rect)
 
+// // 1 Функция принимает объект - прямоугольник и выводит
+// // информацию о нем(где какая точка расположена).
+
+// function showRectInfo(rect: Rect) {
+//   console.log(`top-left (${rect.x0}, ${rect.y0}) bootom-rigth (${rect.x1}, ${rect.y1})`)
+// }
+// showRectInfo(rect)
+
+// // 2 Функция принимает объект - прямоугольник и возвращает
+// // его ширину.
+
+// function getRectWidth(rect: Rect) {
+//   return rect.x1 - rect.x0
+// }
+
+// // 3 Функция принимает объект - прямоугольник и возвращает
+// // его высоту.
+
+// function getRectHeight(rect: Rect) {
+//   return rect.y1 - rect.y0
+// }
+
+// // 4 Функция принимает объект - прямоугольник и возвращает
+// // его площадь.
+
+// function getRectArea(rect: Rect) {
+//   return getRectWidth(rect) * getRectHeight(rect)
+// }
+// console.log(`площадь прямоугольника ${getRectArea(rect)}px`)
+
+// // 5 Функция принимает объект - прямоугольник и возвращает
+// // его периметр.
+
+// function getRectPerimetr(rect: Rect) {
+//   return getRectWidth(rect) * 2 + getRectHeight(rect) * 2 
+// }
+// console.log(`периметр прямоугольника ${getRectPerimetr(rect)}px`)
+
+// // 6 Функция изменения ширины прямоугольника.Она прини -
+// // мает объект - прямоугольник и на сколько единиц изменить
+// // ширину.
+
+// function changeRectWidth(rect: Rect, n:number) {
+//   rect.x1 += n
+//   renderRect(rect)
+// }
+
+// // 7 Функция изменения высоты прямоугольника.Она прини -
+// // мает объект - прямоугольник и на сколько единиц изменить
+// // высоту.
+
+// function changeRectHeight(rect: Rect, n: number) {
+//   rect.y1 += n
+//   renderRect(rect)
+// }
+
+// // 8 Функция изменения ширины и высоты прямоугольника.
+// // Она принимает объект - прямоугольник и два значения –
+// // для изменения ширины и высоты.
+
+// function changeRectWidthAndHeight(rect: Rect, x: number, y:number) {
+//   changeRectWidth(rect, x)
+//   changeRectHeight(rect, y)
+//   renderRect(rect)
+// }
+
+// // 9 Функция смещения прямоугольника по оси X.Она при -
+// // нимает объект - прямоугольник и на сколько единиц его
+// // сдвинуть.
+
+// function changeRectPositionX(rect: Rect, n: number) {
+//   rect.x0 += n
+//   rect.x1 += n
+//   renderRect(rect)
+// }
+
+// // 10 Функция смещения прямоугольника по оси Y.Она при -
+// // нимает объект - прямоугольник и на сколько единиц его
+// // сдвинуть.
+
+// function changeRectPositionY(rect: Rect, n: number) {
+//   rect.y0 += n
+//   rect.y1 += n
+//   renderRect(rect)
+// }
+
+// // 11 Функция смещения прямоугольника и по оси X и по
+// // оси Y.Она принимает объект - прямоугольник и два значе -
+// // ния: сдвиг по оси X и сдвиг по оси Y.
+
+// function changeRectPosition(rect: Rect, x: number, y: number) {
+//   changeRectPositionX(rect, x)
+//   changeRectPositionY(rect, y)
+//   renderRect(rect)
+// }
+
+// 12 Функция для проверки, находится ли точка внутри пря -
+// моугольника.Она принимает объект - прямоугольник и
+// координаты точки.
 
 // Создайте объект library, который будет представлять библиотеку. Библиотека должна хранить информацию о книгах.
 
-const library = {
+// const library = {
 
+// }
+// library.book1 = {
+//   title: 'Красаная таблетка',
+//   author: 'Курпатов',
+//   year: '2017',
+// }
+// library.book2 = {
+//   title: 'Хирург',
+//   author: 'Тесс Геритсен',
+//   year: 2001
+// }
+// function listBooks(library:any) {
+//   for (let bookKey in library) {
+//     if (library.hasOwnProperty(bookKey)) {
+//       const book = library[bookKey];
+//       console.log(`Название: ${book.title}, Автор: ${book.author}, Год издания: ${book.year}`);
+//     }
+//   }
+// }
+// listBooks(library)
+
+
+// function addBook(library, title, author, year){
+//   const newBookKey = `book${Object.keys(library).length + 1}`;
+//   library[newBookKey] = {
+//     title: title,
+//     author: author,
+//     year: year,
+//   }
+// }
+// addBook(library,'Гарри Поттер и филосовский камень','Джоан Роулинг',1997)
+// listBooks(library)
+
+
+
+// Создать объект, описывающий автомобиль (производитель,
+//   модель, год выпуска, средняя скорость), и следующие функции
+//   для работы с этим объектом.
+const carInfo:any = {
+  car0:{
+  manufacturer: 'Ferrari',
+  model:'Spyder',
+  yearOfRelease: 1999,
+  averageSpeed: 150, 
+  },
+  car1: {
+    manufacturer: 'Toyota',
+    model: 'Camry',
+    yearOfRelease: 2020,
+    averageSpeed: 60,
+  },
+  car2: {
+    manufacturer: 'Honda',
+    model: 'Civic',
+    yearOfRelease: 2019,
+    averageSpeed: 55,
+  },
 }
-library.book1 = {
-  title: 'Красаная таблетка',
-  author: 'Курпатов',
-  year: '2017',
-}
-library.book2 = {
-  title: 'Хирург',
-  author: 'Тесс Геритсен',
-  year: 2001
-}
-function listBooks(library:any){
-  for (let key in library){
-    console.log(library.book1, library.book2)
+
+//   1
+//   Функция для вывода на экран информации об автомобиле.
+function showInfoAboutCar(carInfo:any){
+  for(let infoCar in carInfo){
+    if(carInfo.hasOwnProperty(infoCar)){
+      const car = carInfo[infoCar]
+      console.log(`Производитель ${car.manufacturer}, Модель ${car.model}, Год производства ${car.yearOfRelease}, Средняя скорость ${car.averageSpeed} `)
+    }
   }
 }
-listBooks(library)
+showInfoAboutCar(carInfo)
+//   2
+//   Функция для подсчета необходимого времени для пре-
+//   одоления переданного расстояния со средней скоростью.
+//   Учтите, что через каждые 4 часа дороги водителю необхо-
+//   димо делать перерыв на 1 час.
+let distance = 20
+function caclOvercomingTheDistance(distance:any,carInfo:any){
+  let intermidiateRes = Math.floor(distance/4)
+  let findTimeToOvercoming = distance/carInfo.car0.averageSpeed*100
+  if(findTimeToOvercoming>60){
+    findTimeToOvercoming/10
+  }
+  let result = intermidiateRes+findTimeToOvercoming
+  console.log(result)
+}
+caclOvercomingTheDistance(distance,)
 
 
 
