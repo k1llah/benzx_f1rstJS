@@ -1168,9 +1168,9 @@ function caclOvercomingTheDistance(distance:any,carInfo:any){
     findTimeToOvercoming/10
   }
   let result = intermidiateRes+findTimeToOvercoming
-  console.log(result)
+  console.log(Math.floor(result))
 }
-caclOvercomingTheDistance(distance,)
+caclOvercomingTheDistance(distance,carInfo)
 
 
 
