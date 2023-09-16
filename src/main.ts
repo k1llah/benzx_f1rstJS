@@ -1169,5 +1169,87 @@ import './style.css'
 //   }  
 // }
 // caclOvercomingTheDistance(800, carInfo)
+// Создать массив «Список покупок». Каждый элемент массива
+// является объектом, который содержит название продукта, необ-
+// ходимое количество и куплен или нет. Написать несколько функ-
+// ций для работы с таким массивом.
+const listProducts = [
+  {
+    name: 'Pasta',
+    quantity: 2,
+    purchased: true,
+  },
+  {
+    name: 'Meat',
+    quantity: 3,
+    purchased: false,
+  },
+  {
+    name: 'Sauce',
+    quantity: 1,
+    purchased: false,
+  },
+];
+
+
+
+
+function showProducts(listProducts:any) {
+  const wasPurchased = [];
+  const notPurchased = [];
+  
+  // Вывод некупленных продуктов
+  console.log('Некупленные продукты:');
+  for (let product of notPurchased) {
+    console.log(`Название: ${product.name}, Количество: ${product.quantity}`);
+  }
+  
+  // Вывод купленных продуктов
+  console.log('Купленные продукты:');
+  for (let product of wasPurchased) {
+    console.log(`Название: ${product.name}, Количество: ${product.quantity}`);
+  }
+  }
+  showProducts(listProducts);
+
+  
+  
+  // 2
+  // Добавление покупки в список. Учтите, что при добавлении
+  // покупки с уже существующим в списке продуктом, необ-
+  // ходимо увеличивать количество в существующей покупке,
+  // а не добавлять новую.    
+    function addPurchase(productName){
+      let existingProduct = listProducts.find(product => product.name == productName)
+      for (let product of listProducts) {
+        if (existingProduct) {
+          existingProduct += 1
+        } else {
+          listProducts.push({
+            name: 'productName',
+            quantity: 1,
+            purchased: false,
+          });
+        }
+      }
+    }
+addPurchase('Cheese',listProducts)
+showProducts(listProducts)
+// 3
+// Покупка продукта. Функция принимает название продукта
+// и отмечает его как купленный.
+function detectedOfPurchased(productName:any,listProducts:any,wasPurchased:any,){
+  for(let product of listProducts){
+    if(product.name == productName && !product.purchased){
+      product.purchased = true
+      wasPurchased.push(product)
+      return wasPurchased
+    }
+  }
+  console.log(`Продукт "${productName}" не найден или уже куплен.`);
+  return wasPurchased
+}
+// const updatedWasPurchased = detectedOfPurchased('Meat', listProducts, wasPurchased);
+
 
 
