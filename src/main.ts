@@ -1189,67 +1189,142 @@ const listProducts = [
     quantity: 1,
     purchased: false,
   },
-];
+]
 
+const nameInput = document.getElementById('name') as HTMLInputElement
+const quantityInput = document.getElementById('quantity') as HTMLInputElement
+const addButton = document.getElementById('add') as HTMLElement
+const purshasesDiv = document.getElementById('purshases') as HTMLElement
 
+purshasesDiv.addEventListener('click', (event)=>{
+  const target = event.target as HTMLElement
+  if (target.tagName != 'BUTTON') return
+  togglePurchased(listProducts, target.dataset.name)
+})
 
+addButton.addEventListener('click', ()=>{
+  addPurchase(listProducts, nameInput.value, +quantityInput.value)
+  nameInput.value = ''
+  quantityInput.value = ''
+})
 
-function showProducts(listProducts:any) {
-  const wasPurchased = [];
-  const notPurchased = [];
-  
-  // Вывод некупленных продуктов
-  console.log('Некупленные продукты:');
-  for (let product of notPurchased) {
-    console.log(`Название: ${product.name}, Количество: ${product.quantity}`);
+function showProducts(listProducts: any) {
+  purshasesDiv.innerHTML = ''
+   // Вывод некупленных продуктов
+  purshasesDiv.innerHTML += '<p>Некупленные продукты:</p><ol>'
+  for (let product of listProducts) {
+    if (!product.purchased)
+      purshasesDiv.innerHTML += `<li>Название: ${product.name}, Количество: ${product.quantity} 
+    <button data-name="${product.name}">V</button></li>`
   }
+  purshasesDiv.innerHTML += '</ol>'
   
   // Вывод купленных продуктов
-  console.log('Купленные продукты:');
-  for (let product of wasPurchased) {
-    console.log(`Название: ${product.name}, Количество: ${product.quantity}`);
+  purshasesDiv.innerHTML += '<p>Купленные продукты:</p><ol>'
+  for (let product of listProducts) {
+    if (product.purchased)
+      purshasesDiv.innerHTML += `<li>Название: ${product.name}, Количество: ${product.quantity}
+    <button data-name="${product.name}">X</button></li>`
   }
-  }
-  showProducts(listProducts);
-
-  
-  
-  // 2
-  // Добавление покупки в список. Учтите, что при добавлении
-  // покупки с уже существующим в списке продуктом, необ-
-  // ходимо увеличивать количество в существующей покупке,
-  // а не добавлять новую.    
-    function addPurchase(productName){
-      let existingProduct = listProducts.find(product => product.name == productName)
-      for (let product of listProducts) {
-        if (existingProduct) {
-          existingProduct += 1
-        } else {
-          listProducts.push({
-            name: 'productName',
-            quantity: 1,
-            purchased: false,
-          });
-        }
-      }
-    }
-addPurchase('Cheese',listProducts)
+  purshasesDiv.innerHTML += '</ol>'
+}
 showProducts(listProducts)
+
+
+
+// 2
+// Добавление покупки в список. Учтите, что при добавлении
+// покупки с уже существующим в списке продуктом, необ-
+// ходимо увеличивать количество в существующей покупке,
+// а не добавлять новую.    
+function addPurchase(listProducts: any, productName: string, quantity:number) {
+  for (let product of listProducts) {
+    if (product.name == productName) {
+      product.quantity += quantity
+      showProducts(listProducts)
+      return
+    }
+  }
+  listProducts.push({
+    name: productName,
+    quantity,
+    purchased: false,
+  })
+  showProducts(listProducts)
+}
 // 3
 // Покупка продукта. Функция принимает название продукта
 // и отмечает его как купленный.
-function detectedOfPurchased(productName:any,listProducts:any,wasPurchased:any,){
-  for(let product of listProducts){
-    if(product.name == productName && !product.purchased){
-      product.purchased = true
-      wasPurchased.push(product)
-      return wasPurchased
+function togglePurchased(listProducts: any, productName: string | undefined) {
+  for (let product of listProducts) {
+    if (product.name == productName) {
+      product.purchased = !product.purchased
+      showProducts(listProducts)
     }
   }
-  console.log(`Продукт "${productName}" не найден или уже куплен.`);
-  return wasPurchased
 }
-// const updatedWasPurchased = detectedOfPurchased('Meat', listProducts, wasPurchased);
+
+
+
+
+
+let styles = ['Джаз', 'Блюз']
+
+
+styles.push('Рок-н-ролл')
+console.log(styles)
+
+
+function findCenter(styles){
+  let centerIndex = Math.floor(styles.lenght/2)
+  styles[centerIndex] = 'Классика'
+}
+findCenter(styles)
+// Удалите первый элемент массива и покажите его.
+
+
+console.log(styles.shift())
+
+// Вставьте Рэп и Регги в начало массива.
+
+styles.unshift('Реп и Регги')
+console.log(styles)
+
+
+
+
+
+// Сортировать в порядке по убыванию
+
+let arr = [5, 2, 1, -10, 8]
+arr.sort(function(a,b){
+  return b - a
+})
+console.log(arr)
+
+
+// Отсортировать пользователей по возрасту
+// важность: 5
+// Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
+let arrayOfData = [
+{ name: "Вася", age: 25 },
+{ name: "Петя", age: 30 },
+{ name: "Маша", age: 28 },
+]
+
+
+
+function sortByAge(arrayOfData:any){
+  arrayOfData.sort((a,b) => a.age - b.age)
+  console.log(arrayOfData)
+}
+sortByAge(arrayOfData)
+
+
+
+
+
+
 
 
 
