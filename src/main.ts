@@ -1268,57 +1268,274 @@ function togglePurchased(listProducts: any, productName: string | undefined) {
 
 
 
-let styles = ['Джаз', 'Блюз']
+// let styles = ['Джаз', 'Блюз']
 
 
-styles.push('Рок-н-ролл')
-console.log(styles)
+// styles.push('Рок-н-ролл')
+// console.log(styles)
 
 
-function findCenter(styles){
-  let centerIndex = Math.floor(styles.lenght/2)
-  styles[centerIndex] = 'Классика'
+// function findCenter(styles){
+//   let centerIndex = Math.floor(styles.lenght/2)
+//   styles[centerIndex] = 'Классика'
+// }
+// findCenter(styles)
+// // Удалите первый элемент массива и покажите его.
+
+
+// console.log(styles.shift())
+
+// // Вставьте Рэп и Регги в начало массива.
+
+// styles.unshift('Реп и Регги')
+// console.log(styles)
+
+
+
+
+
+// // Сортировать в порядке по убыванию
+
+// let arr = [5, 2, 1, -10, 8]
+// arr.sort(function(a,b){
+//   return b - a
+// })
+// console.log(arr)
+
+
+// // Отсортировать пользователей по возрасту
+// // важность: 5
+// // Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
+// let arrayOfData = [
+// { name: "Вася", age: 25 },
+// { name: "Петя", age: 30 },
+// { name: "Маша", age: 28 },
+// ]
+
+
+
+// function sortByAge(arrayOfData:any){
+//   arrayOfData.sort((a,b) => a.age - b.age)
+//   console.log(arrayOfData)
+// }
+// sortByAge(arrayOfData)
+
+
+
+// Оставить уникальные элементы массива
+// важность: 4
+// Пусть arr – массив строк.
+
+// Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+// let arrR = ["кришна", "кришна", "харе", "харе","харе", "харе", "кришна", "кришна", ":-O"]
+
+// function unique(arr:string[]) {
+//   let newArr = [] as any
+//   for(let i = 0; i<arr.length; i++){
+//    if (!newArr.includes(arr[i])){
+//     newArr.push(arr[i])
+//    }
+//   }
+//   return newArr;
+// }
+// let uniqueArr = unique(arrR)
+// console.log(uniqueArr)
+
+
+
+
+
+// let users = [
+//   {id: 'john', name: "John Smith", age: 20},
+//   {id: 'ann', name: "Ann Smith", age: 24},
+//   {id: 'pete', name: "Pete Peterson", age: 31},
+// ];
+// function reduceFunc(users:any){
+//   const newObj = {} as any
+//   for(let el of users){
+//     newObj[el.id] = el
+//   }
+//   return newObj
+// }
+// const reduceObj = users.reduce((a:any,el) => {
+//   a[el.id]=el
+//   return a
+// },{})
+// // const reduceObj = users.reduce((a:any,el:any) => {
+// //   a[el.id] = el
+// //   return a
+// // },{})
+// console.log(reduceObj)
+// console.log(reduceFunc(users))
+
+
+// Перемешайте массив
+// важность: 3
+// Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива.
+
+// Многократные прогоны через shuffle могут привести к разным последовательностям элементов. 
+
+function shuffle(arr:any){
+  for(let i = arr.length-1; i>0; i--){
+    let j = Math.floor(Math.random() * (i+1));
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
 }
-findCenter(styles)
-// Удалите первый элемент массива и покажите его.
+let arr2 = [1,2,3]
+shuffle(arr2)
+console.log(arr2)
 
-
-console.log(styles.shift())
-
-// Вставьте Рэп и Регги в начало массива.
-
-styles.unshift('Реп и Регги')
-console.log(styles)
-
-
-
-
-
-// Сортировать в порядке по убыванию
-
-let arr = [5, 2, 1, -10, 8]
-arr.sort(function(a,b){
-  return b - a
-})
-console.log(arr)
-
-
-// Отсортировать пользователей по возрасту
+// Скопировать и отсортировать массив
 // важность: 5
-// Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
-let arrayOfData = [
-{ name: "Вася", age: 25 },
-{ name: "Петя", age: 30 },
-{ name: "Маша", age: 28 },
-]
+// У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
 
+// Создайте функцию copySorted(arr), которая будет возвращать такую копию.
 
+let arr3 = ["HTML", "JavaScript", "CSS"];
 
-function sortByAge(arrayOfData:any){
-  arrayOfData.sort((a,b) => a.age - b.age)
-  console.log(arrayOfData)
+function copySortedArr(arr3:any){
+  const newArray = arr3.slice().sort()
+  console.log(newArray)
+    return newArray
+
 }
-sortByAge(arrayOfData)
+copySortedArr(arr3)
+
+  // Сортировать в порядке по убыванию
+  // важность: 4
+let arrToSort = [5, 2, 1, -10, 8];
+function sorting(arrToSort:any){
+  arrToSort.sort(function(a,b){
+    return b-a
+  })
+  console.log(arrToSort)
+}
+sorting(arrToSort)
+
+// Фильтрация по диапазону
+// важность: 4
+// Напишите функцию filterRange(arr, a, b), которая принимает массив arr, ищет элементы со значениями больше или равными a и меньше или равными b и возвращает результат в виде массива.
+
+// Функция должна возвращать новый массив и не изменять исходный.
+
+let arrToFilter = [5, 3, 8, 1];
+let a = 2
+let b = 5
+function filterFunc(arrToFilter:any,a:any,b:any){
+  let filtered = arrToFilter.filter(function(item:any){
+    return item >=a && item <= b;
+  })
+  
+  console.log(filtered)
+}
+filterFunc(arrToFilter,a,b)
+console.log(arrToFilter)
+
+
+// Слияние массивов с условием: У вас есть два массива чисел. Создайте новый массив, в котором будут только те элементы, которые есть и в первом, и во втором массиве.
+let arrNumbs = [1,2,3,4,5,6,7,8,9,29,14,30,25,90]
+let arrNumbs2 = [2,5,7,20,25,29,30,70,87]
+
+let newArrOfNumbs = []as any
+function mergeArrays(arrNumbs:any,arrNumbs2:any){
+   arrNumbs.forEach(element => {
+   if(arrNumbs2.includes(element) && !newArrOfNumbs.includes(element)){
+    newArrOfNumbs.push(element)
+   }
+  });
+  // или можно юзать indexOf
+  console.log(newArrOfNumbs)
+}
+mergeArrays(arrNumbs,arrNumbs2)
+
+// Обратный порядок: Создайте функцию, которая принимает массив и возвращает новый массив, элементы которого идут в обратном порядке.
+
+let arrRev = [1,2,3,4,5,6,7]
+function reverse(arrRev){
+  arrRev.reverse()
+  console.log(arrRev)
+}
+reverse(arrRev)
+
+// Карта объектов в массив: Преобразуйте массив объектов в массив значений определенного свойства объектов. Например, если у вас есть массив объектов с свойством "возраст", создайте массив, содержащий все значения возрастов.
+let users = [
+  {
+    name:'john',
+    city:'sochi',
+    age:15,
+    sex:'male',
+  },
+  {
+    name:'Roman',
+    city:'Krasnodar',
+    age: 19,
+    sex:'male',
+  },
+  {
+    name:'Ann',
+    city:'Italy',
+    age: 30,
+    sex:'female',
+  },
+  {
+    name:'James',
+    city:'new york',
+    age: 20,
+    sex:'male',
+  }
+]
+let ageArr = [] as any
+function pushAgeArr(users:any){
+  ageArr = users.map(el => el.age)
+    console.log(ageArr)
+}
+pushAgeArr(users)
+
+
+
+
+// Поиск наиболее часто встречающегося элемента: Напишите функцию, которая находит элемент, который встречается наибольшее количество раз в массиве.
+// Слияние и фильтрация массивов объектов: У вас есть два массива объектов
+
+
+
+
+
+// // Агрегирование данных: У вас есть массив объектов с числовыми значениями (например, продажами товаров за месяц). 
+// Найдите сумму, среднее и максимальное значение этих числовых данных.
+let arrayOfGoods = [
+  {
+    name:'vans knew school',
+    quantity: 1,
+    price: 15600
+  },
+  {
+    name:'adidas campus',
+    quantity: 1,
+    price: 17400
+  },
+  {
+    name:'nike air trainer',
+    quantity: 1,
+    price: 22300
+  },
+]
+let averagePriceArr = []
+let maxPriceArr = []
+function averagePrice(arrayOfGoods:any){
+  averagePriceArr = arrayOfGoods.map(function(arrayOfGoods:any){
+    return arrayOfGoods.price*3/3
+  })
+  console.log('Средняя сумма всех товаров будет составлять ' + averagePriceArr)
+}
+averagePrice(arrayOfGoods)
+
+
+
+
+
 
 
 
