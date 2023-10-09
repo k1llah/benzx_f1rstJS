@@ -1521,17 +1521,226 @@ let arrayOfGoods = [
     quantity: 1,
     price: 22300
   },
-]
-let averagePriceArr = []
-let maxPriceArr = []
-function averagePrice(arrayOfGoods:any){
-  averagePriceArr = arrayOfGoods.map(function(arrayOfGoods:any){
-    return arrayOfGoods.price*3/3
-  })
-  console.log('Средняя сумма всех товаров будет составлять ' + averagePriceArr)
+] as any
+function averagePrice(arrayOfGoods: any) {
+  const agregate = {
+    sum:0,
+    average:0,
+    max:0
+  }
+  agregate.sum = arrayOfGoods.reduce((sum:number, el:any) => sum += el.quantity * el.price,0)
+  agregate.average = agregate.sum/arrayOfGoods.length
+  agregate.max = Math.max(...arrayOfGoods.map((el:any)=>el.quantity*el.price))
+  return agregate
 }
-averagePrice(arrayOfGoods)
+console.log(averagePrice(arrayOfGoods))
 
+console.log('Object.keys(arrayOfGoods[0])')
+for (let el of Object.keys(arrayOfGoods[0])) {
+  console.log(el, arrayOfGoods[0][el])
+}
+console.log('Object.values(arrayOfGoods[0])')
+for (let el of Object.values(arrayOfGoods[0])) {
+  console.log(el)
+}
+console.log('Object.entries(arrayOfGoods[0])', Object.entries(arrayOfGoods[0]))
+for (let el of Object.entries(arrayOfGoods[0])) {
+  console.log(el, el[0], el[1])
+}
+
+
+
+// Написать функцию, которая проверяет, является ли пере-
+// данная строка палиндромом.
+
+
+let str = 'Стол'
+function palindromCheck(str:string){
+  const i = Math.floor(str.length/2) 
+  if(str.length % 2 == 0){
+    return str.slice(0,i) == str.slice(i + 1).split('').reverse().join('')
+  }
+  else{
+    return str.slice(0,i) == str.slice(i).split('').reverse().join('')
+  }
+  
+}
+console.log(palindromCheck(str))
+
+
+// 7
+// Написать функцию, которая считает количество слов в
+// предложении.
+
+
+let sentence = 'Привет мир'
+
+function countWords(sentence:string){
+  let letters = sentence.slice()
+  console.log(letters.length)
+}
+countWords(sentence)
+
+
+
+
+// Фильтрация с помощью функции
+// важность: 5
+// У нас есть встроенный метод arr.filter(f) для массивов. Он фильтрует все элементы с помощью функции f. Если она возвращает true, то элемент добавится в возвращаемый массив.
+// Сделайте набор «готовых к употреблению» фильтров:
+
+// inBetween(a, b) – между a и b (включительно).
+// inArray([...]) – находится в данном массиве.
+// Они должны использоваться таким образом:
+
+// arr.filter(inBetween(3,6)) – выбирает только значения между 3 и 6 (включительно).
+function inBetween(a:number,b:number){
+  return function(x:any){
+    return x>= a && x<=b
+  }
+}
+let arr = [1, 2, 3, 4, 5, 6, 7,8,9];
+let filteredArray = arr.filter(inBetween(5,9))
+console.log(filteredArray)
+// arr.filter(inArray([1,2,3])) – выбирает только элементы, совпадающие с одним из элементов массива
+let filterArr = [1,2,5]as any
+function inArray(arrToFilter:any,filterArr:any){
+  return arrToFilter.filter(function(el:any){
+    return filterArr.includes(el)
+  })
+}
+
+let filteredInArr = inArray(arrToFilter,filterArr)
+console.log(filteredInArr)
+
+
+
+
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  for(let j = i; j < 10; j++) {
+    let shooter = function() { // функция shooter
+      console.log(j) // должна выводить порядковый номер
+    }
+    shooters.push(shooter) // и добавлять стрелка в массив
+    
+  }
+
+  // ...а в конце вернуть массив из всех стрелков
+  return shooters;
+}
+
+let army = makeArmy();
+
+// все стрелки выводят 10 вместо их порядковых номеров (0, 1, 2, 3...)
+army[0](); // 10 от стрелка с порядковым номером 0
+army[1](); // 10 от стрелка с порядковым номером 1
+army[2](); // 10 ...и т.д.
+
+
+
+
+// Обратный порядок: Напишите функцию, которая переворачивает порядок элементов в массиве.
+let arrayReverse = [2,3,1,8,6,4,7,4,9]
+
+function filterReverse(arrayReverse:any){
+  arrayReverse.sort((a:any,b:any)=> b-a)
+  console.log(arrayReverse)
+}
+filterReverse(arrayReverse)
+
+
+// 8
+// Написать функцию, которая возвращает самое длинное
+// слово из предложения.
+
+let phrase = 'Привет я недопрограммист помогите мне изучить js'
+function mostLenghtWord(phrase:string){
+  let lenghtW = phrase.split(' ')
+  let resultWord = ''
+  lenghtW.forEach(el => {
+    if(el.length > resultWord.length){
+      resultWord = el
+    }
+  });
+  return resultWord
+}
+const resultWord = mostLenghtWord(phrase)
+console.log(`Это слово самое длинное - '${resultWord}'`)
+
+
+
+// Создать массив, описывающий чек в магазине. Каждый эле-
+// мент массива состоит из названия товара, количества и цены за
+// единицу товара. Написать следующие функции.
+let cheque = [
+  {
+    name:'Наушники airpods max',
+    quantity: 1,
+    price: 55000,
+  },
+  {
+    name:'Iphone 14 PRO 128',
+    quantity: 1,
+    price: 55000,
+  },
+  {
+    name:'Charger',
+    quantity: 2,
+    price: 4500,
+  }
+]
+// 1 Распечатка чека на экран.
+function chequeOutput(cheque:any){
+  alert(`  Название вашего товара ${cheque[0].name},
+  Количество: ${cheque[0].quantity},
+  Цена товара - ${cheque[0].price},
+
+  Название вашего товара ${cheque[1].name},
+  Количество: ${cheque[1].quantity},
+  Цена товара - ${cheque[1].price},
+
+  Название вашего товара ${cheque[2].name},
+  Количество: ${cheque[2].quantity},
+  Цена товара - ${cheque[2].price}`)
+}
+chequeOutput(cheque)
+
+// 2 Подсчет общей суммы покупки.
+function totalAmount(cheque:any){
+  let totalPrice = 0
+  cheque.forEach(element => {
+    totalPrice += element.quantity * element.price
+  });
+  alert(`Сумма вашей покупки составит - ${totalPrice}`)
+}
+totalAmount(cheque)
+// 3 Получение самой дорогой покупки в чеке.
+function mostExpensive(cheque:any){
+  let mostExpensiveGood = null as any
+  cheque.forEach(element => {
+   if(!mostExpensiveGood || element.price > mostExpensiveGood.price){
+    mostExpensiveGood = element
+   }
+  });
+  return mostExpensiveGood
+}
+
+const mostExpensiveItem = mostExpensive(cheque);
+
+if (mostExpensiveItem) {
+  alert(`Самая дорогая покупка: ${mostExpensiveItem.name}, Цена: ${mostExpensiveItem.price} руб.`);
+} else {
+  alert('Чек пуст.');
+}
+// 4 Подсчет средней стоимости одного товара в чеке.
+function averageAmount(cheque:any){
+  let averagePrice = cheque.price / 2 
+  alert(`Средняя цена за товар составит - ${averagePrice}`)
+}
+averageAmount(cheque)
 
 
 
