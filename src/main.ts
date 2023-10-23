@@ -1675,72 +1675,532 @@ console.log(`Это слово самое длинное - '${resultWord}'`)
 // Создать массив, описывающий чек в магазине. Каждый эле-
 // мент массива состоит из названия товара, количества и цены за
 // единицу товара. Написать следующие функции.
-let cheque = [
-  {
-    name:'Наушники airpods max',
-    quantity: 1,
-    price: 55000,
-  },
-  {
-    name:'Iphone 14 PRO 128',
-    quantity: 1,
-    price: 55000,
-  },
-  {
-    name:'Charger',
-    quantity: 2,
-    price: 4500,
+// let cheque = [
+//   {
+//     name:'Наушники airpods max',
+//     quantity: 1,
+//     price: 55000,
+//   },
+//   {
+//     name:'Iphone 14 PRO 128',
+//     quantity: 1,
+//     price: 55000,
+//   },
+//   {
+//     name:'Charger',
+//     quantity: 2,
+//     price: 4500,
+//   }
+// ]
+// // 1 Распечатка чека на экран.
+// function chequeOutput(cheque:any){
+//   alert(`  Название вашего товара ${cheque[0].name},
+//   Количество: ${cheque[0].quantity},
+//   Цена товара - ${cheque[0].price},
+
+//   Название вашего товара ${cheque[1].name},
+//   Количество: ${cheque[1].quantity},
+//   Цена товара - ${cheque[1].price},
+
+//   Название вашего товара ${cheque[2].name},
+//   Количество: ${cheque[2].quantity},
+//   Цена товара - ${cheque[2].price}`)
+// }
+// chequeOutput(cheque)
+
+// // 2 Подсчет общей суммы покупки.
+// function totalAmount(cheque:any){
+//   let totalPrice = 0
+//   cheque.forEach(element => {
+//     totalPrice += element.quantity * element.price
+//   });
+//   alert(`Сумма вашей покупки составит - ${totalPrice}`)
+// }
+// totalAmount(cheque)
+// // 3 Получение самой дорогой покупки в чеке.
+// function mostExpensive(cheque:any){
+//   let mostExpensiveGood = null as any
+//   cheque.forEach(element => {
+//    if(!mostExpensiveGood || element.price > mostExpensiveGood.price){
+//     mostExpensiveGood = element
+//    }
+//   });
+//   return mostExpensiveGood
+// }
+
+// const mostExpensiveItem = mostExpensive(cheque);
+
+// if (mostExpensiveItem) {
+//   alert(`Самая дорогая покупка: ${mostExpensiveItem.name}, Цена: ${mostExpensiveItem.price} руб.`);
+// } else {
+//   alert('Чек пуст.');
+// }
+// // 4 Подсчет средней стоимости одного товара в чеке.
+// function averageAmount(cheque:any){
+//   let averagePrice = cheque.price / 2 
+//   alert(`Средняя цена за товар составит - ${averagePrice}`)
+// }
+// averageAmount(cheque)
+
+
+
+
+// Задание 1
+// Реализовать класс, описывающий окружность. В классе долж-
+// ны быть следующие компоненты:
+// ■ поле, хранящее радиус окружности;
+class  circle {
+  private radius = 0 as number
+  constructor(radius:number){
+    this.radius = radius
   }
-]
-// 1 Распечатка чека на экран.
-function chequeOutput(cheque:any){
-  alert(`  Название вашего товара ${cheque[0].name},
-  Количество: ${cheque[0].quantity},
-  Цена товара - ${cheque[0].price},
-
-  Название вашего товара ${cheque[1].name},
-  Количество: ${cheque[1].quantity},
-  Цена товара - ${cheque[1].price},
-
-  Название вашего товара ${cheque[2].name},
-  Количество: ${cheque[2].quantity},
-  Цена товара - ${cheque[2].price}`)
+  // ■ get-свойство, возвращающее радиус окружности;
+  get Radius(){
+    return this.radius
+  }
+  // ■ set-свойство, устанавливающее радиус окружности;
+  set Radius(valR){
+    this.radius+=valR
+  }
+  // ■ get-свойство, возвращающее диаметр окружности;
+  get Diameter(){
+    return this.radius*2
+  }
+  // ■ метод, вычисляющий площадь окружности;
+  calculateArea(){
+    return Math.floor(Math.PI * this.radius * this.radius)
+  }
+  // ■ метод, вычисляющий длину окружности.
+  calculateCircumference(){
+    return Math.floor(2 * Math.PI * this.radius)
+  }
 }
-chequeOutput(cheque)
+const myCircle = new circle(5)
+// Продемонстрировать работу свойств и методов.
+console.log(`Радиус окружности: ${myCircle.Radius}`)
+console.log(`Диаметр окружности: ${myCircle.Diameter}`)
+console.log(`Площадь окружности: ${myCircle.calculateArea()}`)
+console.log(`Длина окружности: ${myCircle.calculateCircumference()}`)
 
-// 2 Подсчет общей суммы покупки.
-function totalAmount(cheque:any){
-  let totalPrice = 0
-  cheque.forEach(element => {
-    totalPrice += element.quantity * element.price
-  });
-  alert(`Сумма вашей покупки составит - ${totalPrice}`)
-}
-totalAmount(cheque)
-// 3 Получение самой дорогой покупки в чеке.
-function mostExpensive(cheque:any){
-  let mostExpensiveGood = null as any
-  cheque.forEach(element => {
-   if(!mostExpensiveGood || element.price > mostExpensiveGood.price){
-    mostExpensiveGood = element
-   }
-  });
-  return mostExpensiveGood
+
+
+
+
+// Задание 2
+// Реализовать класс, описывающий html элемент.
+// Создаем экземпляр класса HtmlElement
+// Добавляем атрибут и стиль
+// ■ метод для добавления вложенного элемента в начало те-
+// кущего элемента;
+// ■ метод getHtml(), который возвращает html код в виде
+// строки, включая html код вложенных элементов.
+// С помощью написанного класса реализовать следующий блок
+// и добавить его на страницу с помощью document.write().
+// Обратите внимание. Чтобы получить весь этот html в виде
+// строки должно быть достаточно вызвать метод getHtml только
+// у тега с идентификатором wrapper.
+class HtmlElement {
+  tag:string
+  paired:boolean
+  text:string
+  attrs:string[] = []
+  styles:string[] = []
+  htmlElements: HtmlElement[] = []
+  constructor(tag:string, paired:boolean, text:string) {
+    this.tag = tag
+    this.paired = paired
+    this.text = text
+  }
+  setAttr(name:string, value:string) {
+    this.attrs.push(`${name}="${value}"`)
+  }
+  setStyle(name:string, value:string) {
+    this.styles.push(`${name}:${value}`)
+  }
+  append(element:HtmlElement) {
+    this.htmlElements.push(element)
+  }
+  prepend(element:HtmlElement) {
+    this.htmlElements.unshift(element)
+  }
+  getHtml():string {
+    if (this.styles.length) {
+      this.setAttr('style', this.styles.join(';'))
+    }
+    if (this.paired) {
+      return `<${this.tag} ${this.attrs.join(' ')}>${this.text}
+${this.htmlElements.map(el => el.getHtml()).join('')} 
+</${this.tag}>`
+    } else {
+      return `<${this.tag} ${this.attrs.join(' ')}>`
+    }
+  }
 }
 
-const mostExpensiveItem = mostExpensive(cheque);
+const wrapper = new HtmlElement('div', true, '')
+wrapper.setAttr('id', 'wrapper')
 
-if (mostExpensiveItem) {
-  alert(`Самая дорогая покупка: ${mostExpensiveItem.name}, Цена: ${mostExpensiveItem.price} руб.`);
-} else {
-  alert('Чек пуст.');
+const innerDiv = new HtmlElement('div', true, '')
+
+const h3 = new HtmlElement('h3', true, 'What is Lorem Ipsum?')
+const img = new HtmlElement('img', false, '')
+img.setAttr('src', 'https://img.goodfon.com/original/1280x1024/7/9a/cvety-cvetok-buket-priroda.jpg')
+img.setAttr('alt', 'Lorem Ipsum')
+
+const p = new HtmlElement('p', true, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias harum fuga magni quasi ex pariatur reprehenderit laudantium esse. Veritatis maiores qui fugiat nostrum, quo nihil sit recusandae aspernatur incidunt dolore.')
+
+const href = new HtmlElement('a', true, 'More...')
+href.setAttr('href', 'https://www.lipsum.com/')
+href.setAttr('target', '_blank')
+
+p.append(href)
+innerDiv.append(h3)
+innerDiv.append(img)
+innerDiv.append(p)
+wrapper.append(innerDiv)
+wrapper.append(innerDiv)
+document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
+
+
+
+// Реализовать класс, который описывает css класс.
+// Класс CssClass должен содержать внутри себя:
+// ■ название css класса;
+// ■ массив стилей;
+// ■ метод для установки стиля;
+// ■ метод для удаления стиля;
+// ■ метод getCss(), который возвращает css код в виде стро-
+// ки.
+
+class CssClass {
+  nameClass:string 
+  arrStyles:string[] = []
+  constructor(nameClass:string){
+    this.nameClass = nameClass
+  }
+  setStyle(key:any,value:any){
+    this.arrStyles.push(`${key}:${value};`)
+  }
+  deleteStyle(key:any,value:any){
+    const i = this.arrStyles.indexOf(`${key}:${value}`)
+    if(i!=-1) this.arrStyles.splice(i,1)
+  }
+  getCss():string{
+    return `.${this.nameClass} {${this.arrStyles.join('')}}`
+  }
 }
-// 4 Подсчет средней стоимости одного товара в чеке.
-function averageAmount(cheque:any){
-  let averagePrice = cheque.price / 2 
-  alert(`Средняя цена за товар составит - ${averagePrice}`)
+const dFlex = new CssClass('wrap')
+dFlex.setStyle('display','flex')
+console.log(dFlex.getCss())
+
+
+// class HtmlBlock{
+//   cssClasses: [] = CssClass[] = []
+//   rootElement:HtmlElement | null = null
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Сколько сегодня прошло секунд?
+// важность: 5
+// Напишите функцию getSecondsToday(), возвращающую количество секунд с начала сегодняшнего дня.
+
+// Например, если сейчас 10:00, и не было перехода на зимнее/летнее время, то:
+
+
+function getSecondsToday(date:Date){
+  return date.getHours()*3600 +
+    date.getMinutes()*60 +
+    date.getSeconds()
 }
-averageAmount(cheque)
+function getSecondsTodayRemaining(date:Date){
+  return 24*3600 - getSecondsToday(date)
+}
+function getHoursToday(date:Date){
+  return 24 - date.getHours() 
+}
+function getHoursTodayRemaining(date:Date){
+  return 24 - getHoursToday(date)
+}
+
+
+console.log(`Секунд в данный момент прошло с начала дня - ${getSecondsToday(new Date())}`)
+console.log(`Секунд осталось до конца дня - ${getSecondsTodayRemaining(new Date())}`)
+
+console.log(`Часов в данный момент прошло с начала дня - ${getHoursToday(new Date())}`)
+console.log(`Часов осталось до конца дня - ${getHoursTodayRemaining(new Date())}`)
+
+
+
+
+
+// Форматирование относительной даты
+// важность: 4
+// Напишите функцию formatDate(date), форматирующую date по следующему принципу:
+// function formatDate(date:Date){
+//   // Если спустя date прошло менее 1 секунды, вывести "прямо сейчас".
+
+
+function formatDate(date: Date) {
+  const now = Date.now();
+  const diff = now - date.getTime();
+
+  if (diff < 5 * 60 * 1000) {
+    return `${Math.floor(diff / 1000)} прямо сейчас`;
+  } else if (diff < 60 * 1000) {
+    return `${Math.floor(diff / 1000)} сек. назад`;
+  } else if (diff < 60 * 60 * 1000) {
+    return `${Math.floor(diff / (60 * 1000))} мин. назад`;
+  } else {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    
+    return `${year}.${month}.${day} ${hours}:${minutes}`;
+  }
+}
+
+console.log( formatDate(new Date(new Date().getTime() - 1)) ); // "прямо сейчас"
+
+console.log( formatDate(new Date(new Date().getTime() - 30 * 1000)) ); // "30 сек. назад"
+
+console.log( formatDate(new Date(new Date().getTime() - 5 * 60 * 1000)) ); // "5 мин. назад"
+
+// console.log(formatDate(newDate(new Date().getTime)))
+// вчерашняя дата вроде 31.12.2016, 20:00
+console.log( formatDate(new Date(new Date().getTime() - 86400 * 1000)) );
+// В противном случае, если с date прошло меньше 1 минуты, вывести "n сек. назад".
+// В противном случае, если меньше часа, вывести "m мин. назад".
+// В противном случае, полная дата в формате "DD.MM.YY HH:mm". А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
+
+
+
+
+
+
+
+// Последнее число месяца?
+// важность: 5
+// Напишите функцию getLastDayOfMonth(year, month), возвращающую последнее число месяца. Иногда это 30, 31 или даже февральские 28/29.
+
+// Параметры:
+
+// year – год из четырёх цифр, например, 2012.
+// month – месяц от 0 до 11.
+// К примеру, getLastDayOfMonth(2012, 1) = 29 (високосный год, февраль).
+function getLastDayOfMonth(year:number, month:number){
+ let date = new Date(year,month + 1, 0)
+ return date.getDate()
+}
+console.log(getLastDayOfMonth(2012, 2))
+
+
+
+
+function getDateAgo(date:Date, days:any){
+  date.setDate(date.getDate() - days)
+  return date.getDate()
+}
+let date = new Date(2015,0,2)
+console.log(getDateAgo(date,2))
+
+
+
+// // Форматирование даты: Создайте функцию, которая принимает объект Date и возвращает дату в более человекочитаемом формате, 
+// например, "12 октября 2023 года".
+function formatDate2(date1: Date) {
+  const day = date1.getDate();
+  const month = date1.toLocaleString('ru', { month: 'long' });
+  const year = date1.getFullYear();
+
+  return `${day} ${month} ${year} года`;
+}
+
+const date1 = new Date();
+console.log(formatDate2(date1));
+
+
+
+// Проверка на наступившую дату:
+// Напишите функцию, которая принимает дату и проверяет, наступила ли она уже.
+function isDateNow (targetDate:any){
+  let dateT = new Date()
+  if(targetDate < dateT || targetDate > dateT){
+    return false
+  }
+  else if(targetDate == dateT){
+    return true 
+  }
+}
+const eventDate = new Date()
+const result = isDateNow(eventDate)
+isDateNow(eventDate)
+if(result){
+  console.log('Ваша дата еще не наступила')
+}
+else{
+  console.log('УРА, ваша дата наступила')
+}
+
+
+class Animal {
+  name 
+  speed
+  constructor(name:string) {
+    this.speed = 0;
+    this.name = name;
+  }
+  run(speed:number) {
+    this.speed = speed;
+    console.log(`${this.name} бежит со скоростью ${this.speed}.`);
+  }
+  stop() {
+    this.speed = 0;
+    console.log(`${this.name} стоит неподвижно.`);
+  }
+}
+
+let animal = new Animal("Мой питомец");
+
+class Rabbit extends Animal {
+  hide() {
+    console.log(`${this.name} прячется!`);
+  }
+}
+
+let rabbit = new Rabbit("Белый кролик");
+
+
+console.log(rabbit.name)
+console.log(rabbit.speed)
+rabbit.run(5); // Белый кролик бежит со скоростью 5.
+rabbit.hide(); // Белый кролик прячется!
+
+
+
+
+// Задание 1
+// Реализовать класс Button, который содержит ширину, высоту,
+// текст кнопки и метод showBtn(), который выводит кнопку на экран
+// с помощью тега button и функции document.write().
+// Реализовать класс BootstrapButton, унаследовав его от класса
+// Button. Добавить поле color и переопределить метод showBtn()
+// так, чтобы кнопка выводилась со стилями и указанным цветом.
+const buttonsDiv = document.getElementById('buttons') as HTMLDivElement
+
+class Button {
+  width
+  height
+  textButton
+  constructor(width:number,height:number, textButton:string ){
+    this.width = width
+    this.height = height
+    this.textButton = textButton
+  }
+  showBtn(){
+    buttonsDiv.innerHTML+=`<button style="width: ${this.width}px; height:${this.height}px">${this.textButton}</button>`
+  }
+}
+class BootstrapButton extends Button{
+  color
+  constructor(width:number,height:number, textButton:string,color:string){
+    super(width,height, textButton)
+    this.color = color
+  }
+  showBtn(){
+    buttonsDiv.innerHTML+=`<button style="width: ${this.width}px; height:${this.height}px; background-color: ${this.color};">${this.textButton}</button>`
+  }
+}
+const btn1 = new Button(50,50,'red')
+btn1.showBtn()
+const btn2 = new BootstrapButton(50,50,'red', 'red')
+btn2.showBtn()
+
+
+
+// Реализовать класс, описывающий геометрическую фигуру со
+// свойствами и методами:
+// ■ get-свойство для получения названия фигуры;
+// ■ метод для вывода информации о фигуре (стороны и их
+// длина);
+// ■ метод для вычисления площади фигуры;
+// ■ метод для вычисления периметра фигуры.
+// Реализуйте классы-наследники: квадрат, прямоугольник и
+// треугольник. Переопределите методы вывода и вычислений в
+// классах-наследниках.
+// Создайте массив с различными фигурами и выведите инфор-
+// мацию о каждой фигуре, включая площадь и периметр.
+
+
+class Figure{
+  get name(){
+    return ''
+  }
+  getSquare():null|number{
+    return null
+  }
+  getPerimeter():null|number{
+    return null
+  }
+  getInfo(){
+    return ''
+  }
+}
+class Square extends Figure{
+  _name = 'square'
+  side
+  constructor(side:number){
+    super()
+    this.side = side
+  }
+  get name(){
+    return this._name
+  }
+  getSquare(){
+    return this.side**2
+  }
+  getPerimeter(){
+    return this.side*4
+  }
+  getInfo(){
+    return `${this._name} width side ${this.side} square = ${this.getSquare()} perimeter = ${this.getPerimeter()}` 
+  }
+}
+const squareCall = new Square(12)
+console.log(squareCall.getInfo())
+
+
+
+
+
 
 
 
