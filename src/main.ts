@@ -2198,10 +2198,121 @@ const squareCall = new Square(12)
 console.log(squareCall.getInfo())
 
 
+// Реализовать класс, описывающий простой маркер. В классе
+// должны быть следующие компоненты:
+// ■ поле, которое хранит цвет маркера;
+// ■ поле, которое хранит количество чернил в маркере (в про-
+// центах);
+// ■ метод для печати (метод принимает строку и выводит
+// текст соответствующим цветом; текст выводится до тех
+// пор, пока в маркере есть чернила; один не пробельный
+// символ – это 0,5% чернил в маркере).
+// Реализовать класс, описывающий заправляющийся маркер,
+// унаследовав его от простого маркера и добавив метод для заправки
+// маркера.
+// Продемонстрировать работу написанных методов.
+const markerInput = document.getElementById('marker') as HTMLInputElement
+const typeMarker = document.getElementById('type_marker') as HTMLDivElement
+const refuillButton = document.getElementById('refill')as HTMLButtonElement
+class Marker {
+  color
+  ink = 100
+  constructor(color:string, ink:number){
+    this.color = color
+    this.ink = ink
+  }
+  draw(data:string){
+    typeMarker.innerHTML += `<span style="opacity: ${this.ink/100}; color:${this.color}">${data}</span>`
+    if(data != ' ') this.ink -=0.5
+  }
+  refuill(){
+    console.log(this.ink)
+    this.ink=100
+  }
+}
+const myMarker = new Marker("red", 80);
+
+document.addEventListener('click',(e)=>{
+  // @ts-ignore
+  if (e.target.id == 'refill') {
+    
+    console.log(myMarker.ink)
+    myMarker.refuill()
+
+  }
+})
+
+
+markerInput.addEventListener('input',(e)=>{
+  const inputEvent = e as InputEvent
+  if(inputEvent.inputType == 'insertText'){
+    if (typeof inputEvent.data == 'string') myMarker.draw(inputEvent.data)
+  }
+})
+// При вызове typeMarker() цвет будет установлен в синий
 
 
 
 
+// Реализуйте класс ExtendedDate, унаследовав его от стандарт-
+// ного класса Date и добавив следующие возможности:
+// ■ метод для вывода даты (числа и месяца) текстом;
+// ■ метод для проверки – это прошедшая дата или будущая
+// (если прошедшая, то метод возвращает false; если буду-
+// щая или текущая, то true);
+// ■ метод для проверки – високосный год или нет;
+// ■ метод, возвращающий следующую дату.
+// Создайте объект класса ExtendedDate и выведите на экран
+// результаты работы новых методов.
+
+
+class ExtendedDate extends Date{
+ 
+  printText(){
+    const day = this.getDate();
+    const months = [
+      'Январь', 'Февраль', 'Март', 'Апрель',
+      'Май', 'Июнь', 'Июль', 'Август',
+      'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+    console.log(this)
+  }
+}
+
+console.log((new ExtendedDate).printText)
+
+
+
+
+
+let omg  = (null + 'a').split('ll').join('tell')
+console.log(omg)
+
+
+
+let createCounter = function(n:number) {
+  let count = n
+  let isFalse  = false 
+  return function() {
+    return isFalse ? (count += 1) : (isFalse = true, count)
+  }
+}
+const counter = createCounter(10)
+console.log(counter())
+console.log(counter())
+console.log(counter())
+console.log(counter())
+
+
+
+//     if(isFalse){
+//       isFalse = false 
+//       return count
+//   }
+//   else{
+// count += 1
+// return count
+//   }
 
 
 

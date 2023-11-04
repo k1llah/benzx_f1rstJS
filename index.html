@@ -5,15 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
-  </head>
-  <body>
     <style style="display: block;
     white-space: pre;" contenteditable="">
-      h1{
-        font-size: 20px;
-      }
+    h1{
+      font-size: 20px;
+    }
     </style>
-    ;saudhflhgfilauhefliuahg
+  </head>
+  <body>
+    <input type="text" id="marker" autofocus>
+    <button id="refill">Заполнить маркер</button>
+    <div id="type_marker">
+    </div>
+
+
+
+
+      ;saudhflhgfilauhefliuahg
     <div id="app"></div>
     <input id="name" type="text" placeholder="Наименование">
     <input id="quantity" type="text" placeholder="Количество">
@@ -26,8 +34,18 @@
       </div>
 
 
+      
+      
+      
+      <div id="buttons"></div>
+      
+    </div>
+        
 
-<div id="buttons"></div>
+
+
+
+
 
 
     <div style="display: grid; grid-template-columns: 2fr 1fr; height: 500px;">
@@ -62,7 +80,67 @@
     </div>
 
 
+    <div class="iphone">
+      <div class="top_info">
+        <p class="operator">
+          Tilt operator
+        </p>
+        <div class="dynamic_island">
 
+        </div>
+        <div class="battery">
+          <p class="lte">LTE</p>
+          <img src="battery.png" alt="" class="battery_img">
+        </div>
+      </div>
+      <div class="all">
+        <div class="time_and_date">
+          <p class="date">Thu 2 Another day</p>
+          <p class="time">6:56</p>
+        </div>
+        <div class="sc_part">
+          <div class="widgets">
+            <p class="omg">Я крут!</p>
+            <p class="opium">𖤐✞*!</p>
+          </div>
+          <div class="message">
+            <div class="img_dude">
+              <img src="user (1).png" alt="" class="dude">
+            </div>
+            <div class="message_part">
+              <div class="from_who_and_when">
+                <p class="Mega">Megafon OFD</p>
+                <p class="when">now?</p>
+              </div>
+              <div class="text_message"><p id="text_ms">Ваш чек доступен по ссылке:
+                ofd.ru/b/</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="stripe"></div>
+      </div>
+    </div>
+    <div class="password_input">
+      <input type="password_input" maxlength="6"> 
+      <div class="password">
+        <div class="stripe_p">
+          <button class="circle">1</button>
+          <button class="circle">2</button>
+          <button class="circle">3</button>
+        </div>
+        <div class="stripe_p">
+          <button class="circle">4</button>
+          <button class="circle">5</button>
+          <button class="circle">6</button>
+        </div>
+        <div class="stripe_p">
+          <button class="circle">7</button>
+          <button class="circle">8</button>
+          <button class="circle">9</button>
+        </div>
+        <button class="circle zero">0
+      </div>
+    </div>
     
     <script type="module" src="/src/main.ts"></script>
   </body>
