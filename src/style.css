@@ -25,7 +25,7 @@ body{
     width: 320px;
     height: 600px;
     margin-bottom: 50px;
-    background-image: url(IMG_3672.JPG);
+    background-image: url(/public/IMG_3672.JPG);
     border-radius: 30px;
 }
 p{
