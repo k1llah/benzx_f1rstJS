@@ -2316,6 +2316,41 @@ console.log(counter())
 
 
 
+const digitsDiv = document.querySelector('.password') as HTMLDivElement
+const inputDiv = document.querySelector('div.password_input') as HTMLDivElement
+const pushPassStatus = document.querySelector('.window_info_password') as HTMLDivElement
+const showTrueMessage = document.querySelector('.text_message') as HTMLDivElement
+const messageTrueStr = document.querySelector('.messageTrue') as HTMLParagraphElement
+const circlePass = document.querySelector('.circle') as HTMLButtonElement
+let pass = ''
+const correctPassword = '552820'
+digitsDiv.addEventListener('click', (e)=>{
+  const target = e.target as HTMLElement
+  if(pass.length < 6 || pass.length == 5){
+    if (target.tagName=='BUTTON') {
+      if (target.dataset.val) pass += target.dataset.val
+    }
+  }
+
+  if (target.dataset.action) pass = pass.slice(0, pass.length-1) 
+  
+   inputDiv.textContent = '*'.repeat(pass.length)
+  
+  if(pass === correctPassword){
+    pushPassStatus.innerHTML = `<h3 class = "passCheck"> Password is correct! </h3>`
+    showTrueMessage.innerHTML = `<p class = "messageTrue">Ваш чек доступен по ссылке: ofd.ru/b/ee8a9ba606d4e580374f51e7d401f830</p> `
+  }
+  else if(pass.length == 6 && pass !== correctPassword ){
+    pass = ''
+    pushPassStatus.innerHTML = `<h3 class = "passCheck2"> Password is incorrect! </h3>`
+    showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
+    
+  }
+  
+  console.log(pass)
+})
+
+showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
 
 
 
