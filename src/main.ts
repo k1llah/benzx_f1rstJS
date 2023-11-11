@@ -820,7 +820,7 @@ import './style.css'
 //   const pElelement = document.createElement('p')
 //   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
 //   if (appDiv) appDiv.appendChild(pElelement) 
-  
+
 //   const button = document.createElement('button')
 //   button.textContent = isLogin ? 'LogOut' : 'Login'
 //   button.addEventListener('click', ()=>{
@@ -831,11 +831,11 @@ import './style.css'
 //   if (appDiv) appDiv.appendChild(button) 
 //   if (isLogin) {
 //     const olElement = document.createElement('ol')
-    // for (let i=0;i<toDos.length;i++) {
-    //   const listElement = document.createElement('li')
-    //   listElement.textContent = toDos[i]
-    //   olElement.appendChild(listElement)
-    // }
+// for (let i=0;i<toDos.length;i++) {
+//   const listElement = document.createElement('li')
+//   listElement.textContent = toDos[i]
+//   olElement.appendChild(listElement)
+// }
 //     for (let el of toDos) {
 //       const listElement = document.createElement('li')
 //       listElement.textContent = el
@@ -860,7 +860,7 @@ import './style.css'
 //   const reversedStr = numStr.split('').reverse('').join('')
 //   const reversedNum = parseFloat(reversedStr)
 //   return reversedNum as any
-  
+
 // }
 // const reversed = revertFunction(userNumbInt);
 // alert('Вот ваше число наоборот: ' + reversed);
@@ -872,7 +872,7 @@ import './style.css'
 // let result:any
 // function solveDegree (result:any){
 //   if(number == 1){
-    
+
 //   } else{
 //     result = number**number
 //   }
@@ -1196,13 +1196,13 @@ const quantityInput = document.getElementById('quantity') as HTMLInputElement
 const addButton = document.getElementById('add') as HTMLElement
 const purshasesDiv = document.getElementById('purshases') as HTMLElement
 
-purshasesDiv.addEventListener('click', (event)=>{
+purshasesDiv.addEventListener('click', (event) => {
   const target = event.target as HTMLElement
   if (target.tagName != 'BUTTON') return
   togglePurchased(listProducts, target.dataset.name)
 })
 
-addButton.addEventListener('click', ()=>{
+addButton.addEventListener('click', () => {
   addPurchase(listProducts, nameInput.value, +quantityInput.value)
   nameInput.value = ''
   quantityInput.value = ''
@@ -1210,7 +1210,7 @@ addButton.addEventListener('click', ()=>{
 
 function showProducts(listProducts: any) {
   purshasesDiv.innerHTML = ''
-   // Вывод некупленных продуктов
+  // Вывод некупленных продуктов
   purshasesDiv.innerHTML += '<p>Некупленные продукты:</p><ol>'
   for (let product of listProducts) {
     if (!product.purchased)
@@ -1218,7 +1218,7 @@ function showProducts(listProducts: any) {
     <button data-name="${product.name}">V</button></li>`
   }
   purshasesDiv.innerHTML += '</ol>'
-  
+
   // Вывод купленных продуктов
   purshasesDiv.innerHTML += '<p>Купленные продукты:</p><ol>'
   for (let product of listProducts) {
@@ -1237,7 +1237,7 @@ showProducts(listProducts)
 // покупки с уже существующим в списке продуктом, необ-
 // ходимо увеличивать количество в существующей покупке,
 // а не добавлять новую.    
-function addPurchase(listProducts: any, productName: string, quantity:number) {
+function addPurchase(listProducts: any, productName: string, quantity: number) {
   for (let product of listProducts) {
     if (product.name == productName) {
       product.quantity += quantity
@@ -1375,15 +1375,15 @@ function togglePurchased(listProducts: any, productName: string | undefined) {
 
 // Многократные прогоны через shuffle могут привести к разным последовательностям элементов. 
 
-function shuffle(arr:any){
-  for(let i = arr.length-1; i>0; i--){
-    let j = Math.floor(Math.random() * (i+1));
+function shuffle(arr: any) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
     let temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
   }
 }
-let arr2 = [1,2,3]
+let arr2 = [1, 2, 3]
 shuffle(arr2)
 console.log(arr2)
 
@@ -1395,20 +1395,20 @@ console.log(arr2)
 
 let arr3 = ["HTML", "JavaScript", "CSS"];
 
-function copySortedArr(arr3:any){
+function copySortedArr(arr3: any) {
   const newArray = arr3.slice().sort()
   console.log(newArray)
-    return newArray
+  return newArray
 
 }
 copySortedArr(arr3)
 
-  // Сортировать в порядке по убыванию
-  // важность: 4
+// Сортировать в порядке по убыванию
+// важность: 4
 let arrToSort = [5, 2, 1, -10, 8];
-function sorting(arrToSort:any){
-  arrToSort.sort(function(a,b){
-    return b-a
+function sorting(arrToSort: any) {
+  arrToSort.sort(function (a, b) {
+    return b - a
   })
   console.log(arrToSort)
 }
@@ -1423,37 +1423,37 @@ sorting(arrToSort)
 let arrToFilter = [5, 3, 8, 1];
 let a = 2
 let b = 5
-function filterFunc(arrToFilter:any,a:any,b:any){
-  let filtered = arrToFilter.filter(function(item:any){
-    return item >=a && item <= b;
+function filterFunc(arrToFilter: any, a: any, b: any) {
+  let filtered = arrToFilter.filter(function (item: any) {
+    return item >= a && item <= b;
   })
-  
+
   console.log(filtered)
 }
-filterFunc(arrToFilter,a,b)
+filterFunc(arrToFilter, a, b)
 console.log(arrToFilter)
 
 
 // Слияние массивов с условием: У вас есть два массива чисел. Создайте новый массив, в котором будут только те элементы, которые есть и в первом, и во втором массиве.
-let arrNumbs = [1,2,3,4,5,6,7,8,9,29,14,30,25,90]
-let arrNumbs2 = [2,5,7,20,25,29,30,70,87]
+let arrNumbs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 29, 14, 30, 25, 90]
+let arrNumbs2 = [2, 5, 7, 20, 25, 29, 30, 70, 87]
 
-let newArrOfNumbs = []as any
-function mergeArrays(arrNumbs:any,arrNumbs2:any){
-   arrNumbs.forEach(element => {
-   if(arrNumbs2.includes(element) && !newArrOfNumbs.includes(element)){
-    newArrOfNumbs.push(element)
-   }
+let newArrOfNumbs = [] as any
+function mergeArrays(arrNumbs: any, arrNumbs2: any) {
+  arrNumbs.forEach(element => {
+    if (arrNumbs2.includes(element) && !newArrOfNumbs.includes(element)) {
+      newArrOfNumbs.push(element)
+    }
   });
   // или можно юзать indexOf
   console.log(newArrOfNumbs)
 }
-mergeArrays(arrNumbs,arrNumbs2)
+mergeArrays(arrNumbs, arrNumbs2)
 
 // Обратный порядок: Создайте функцию, которая принимает массив и возвращает новый массив, элементы которого идут в обратном порядке.
 
-let arrRev = [1,2,3,4,5,6,7]
-function reverse(arrRev){
+let arrRev = [1, 2, 3, 4, 5, 6, 7]
+function reverse(arrRev) {
   arrRev.reverse()
   console.log(arrRev)
 }
@@ -1462,34 +1462,34 @@ reverse(arrRev)
 // Карта объектов в массив: Преобразуйте массив объектов в массив значений определенного свойства объектов. Например, если у вас есть массив объектов с свойством "возраст", создайте массив, содержащий все значения возрастов.
 let users = [
   {
-    name:'john',
-    city:'sochi',
-    age:15,
-    sex:'male',
+    name: 'john',
+    city: 'sochi',
+    age: 15,
+    sex: 'male',
   },
   {
-    name:'Roman',
-    city:'Krasnodar',
+    name: 'Roman',
+    city: 'Krasnodar',
     age: 19,
-    sex:'male',
+    sex: 'male',
   },
   {
-    name:'Ann',
-    city:'Italy',
+    name: 'Ann',
+    city: 'Italy',
     age: 30,
-    sex:'female',
+    sex: 'female',
   },
   {
-    name:'James',
-    city:'new york',
+    name: 'James',
+    city: 'new york',
     age: 20,
-    sex:'male',
+    sex: 'male',
   }
 ]
 let ageArr = [] as any
-function pushAgeArr(users:any){
+function pushAgeArr(users: any) {
   ageArr = users.map(el => el.age)
-    console.log(ageArr)
+  console.log(ageArr)
 }
 pushAgeArr(users)
 
@@ -1507,30 +1507,30 @@ pushAgeArr(users)
 // Найдите сумму, среднее и максимальное значение этих числовых данных.
 let arrayOfGoods = [
   {
-    name:'vans knew school',
+    name: 'vans knew school',
     quantity: 1,
     price: 15600
   },
   {
-    name:'adidas campus',
+    name: 'adidas campus',
     quantity: 1,
     price: 17400
   },
   {
-    name:'nike air trainer',
+    name: 'nike air trainer',
     quantity: 1,
     price: 22300
   },
 ] as any
 function averagePrice(arrayOfGoods: any) {
   const agregate = {
-    sum:0,
-    average:0,
-    max:0
+    sum: 0,
+    average: 0,
+    max: 0
   }
-  agregate.sum = arrayOfGoods.reduce((sum:number, el:any) => sum += el.quantity * el.price,0)
-  agregate.average = agregate.sum/arrayOfGoods.length
-  agregate.max = Math.max(...arrayOfGoods.map((el:any)=>el.quantity*el.price))
+  agregate.sum = arrayOfGoods.reduce((sum: number, el: any) => sum += el.quantity * el.price, 0)
+  agregate.average = agregate.sum / arrayOfGoods.length
+  agregate.max = Math.max(...arrayOfGoods.map((el: any) => el.quantity * el.price))
   return agregate
 }
 console.log(averagePrice(arrayOfGoods))
@@ -1555,15 +1555,15 @@ for (let el of Object.entries(arrayOfGoods[0])) {
 
 
 let str = 'Стол'
-function palindromCheck(str:string){
-  const i = Math.floor(str.length/2) 
-  if(str.length % 2 == 0){
-    return str.slice(0,i) == str.slice(i + 1).split('').reverse().join('')
+function palindromCheck(str: string) {
+  const i = Math.floor(str.length / 2)
+  if (str.length % 2 == 0) {
+    return str.slice(0, i) == str.slice(i + 1).split('').reverse().join('')
   }
-  else{
-    return str.slice(0,i) == str.slice(i).split('').reverse().join('')
+  else {
+    return str.slice(0, i) == str.slice(i).split('').reverse().join('')
   }
-  
+
 }
 console.log(palindromCheck(str))
 
@@ -1575,7 +1575,7 @@ console.log(palindromCheck(str))
 
 let sentence = 'Привет мир'
 
-function countWords(sentence:string){
+function countWords(sentence: string) {
   let letters = sentence.slice()
   console.log(letters.length)
 }
@@ -1594,23 +1594,23 @@ countWords(sentence)
 // Они должны использоваться таким образом:
 
 // arr.filter(inBetween(3,6)) – выбирает только значения между 3 и 6 (включительно).
-function inBetween(a:number,b:number){
-  return function(x:any){
-    return x>= a && x<=b
+function inBetween(a: number, b: number) {
+  return function (x: any) {
+    return x >= a && x <= b
   }
 }
-let arr = [1, 2, 3, 4, 5, 6, 7,8,9];
-let filteredArray = arr.filter(inBetween(5,9))
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let filteredArray = arr.filter(inBetween(5, 9))
 console.log(filteredArray)
 // arr.filter(inArray([1,2,3])) – выбирает только элементы, совпадающие с одним из элементов массива
-let filterArr = [1,2,5]as any
-function inArray(arrToFilter:any,filterArr:any){
-  return arrToFilter.filter(function(el:any){
+let filterArr = [1, 2, 5] as any
+function inArray(arrToFilter: any, filterArr: any) {
+  return arrToFilter.filter(function (el: any) {
     return filterArr.includes(el)
   })
 }
 
-let filteredInArr = inArray(arrToFilter,filterArr)
+let filteredInArr = inArray(arrToFilter, filterArr)
 console.log(filteredInArr)
 
 
@@ -1620,12 +1620,12 @@ function makeArmy() {
   let shooters = [];
 
   let i = 0;
-  for(let j = i; j < 10; j++) {
-    let shooter = function() { // функция shooter
+  for (let j = i; j < 10; j++) {
+    let shooter = function () { // функция shooter
       console.log(j) // должна выводить порядковый номер
     }
     shooters.push(shooter) // и добавлять стрелка в массив
-    
+
   }
 
   // ...а в конце вернуть массив из всех стрелков
@@ -1643,10 +1643,10 @@ army[2](); // 10 ...и т.д.
 
 
 // Обратный порядок: Напишите функцию, которая переворачивает порядок элементов в массиве.
-let arrayReverse = [2,3,1,8,6,4,7,4,9]
+let arrayReverse = [2, 3, 1, 8, 6, 4, 7, 4, 9]
 
-function filterReverse(arrayReverse:any){
-  arrayReverse.sort((a:any,b:any)=> b-a)
+function filterReverse(arrayReverse: any) {
+  arrayReverse.sort((a: any, b: any) => b - a)
   console.log(arrayReverse)
 }
 filterReverse(arrayReverse)
@@ -1657,11 +1657,11 @@ filterReverse(arrayReverse)
 // слово из предложения.
 
 let phrase = 'Привет я недопрограммист помогите мне изучить js'
-function mostLenghtWord(phrase:string){
+function mostLenghtWord(phrase: string) {
   let lenghtW = phrase.split(' ')
   let resultWord = ''
   lenghtW.forEach(el => {
-    if(el.length > resultWord.length){
+    if (el.length > resultWord.length) {
       resultWord = el
     }
   });
@@ -1749,29 +1749,29 @@ console.log(`Это слово самое длинное - '${resultWord}'`)
 // Реализовать класс, описывающий окружность. В классе долж-
 // ны быть следующие компоненты:
 // ■ поле, хранящее радиус окружности;
-class  circle {
+class circle {
   private radius = 0 as number
-  constructor(radius:number){
+  constructor(radius: number) {
     this.radius = radius
   }
   // ■ get-свойство, возвращающее радиус окружности;
-  get Radius(){
+  get Radius() {
     return this.radius
   }
   // ■ set-свойство, устанавливающее радиус окружности;
-  set Radius(valR){
-    this.radius+=valR
+  set Radius(valR) {
+    this.radius += valR
   }
   // ■ get-свойство, возвращающее диаметр окружности;
-  get Diameter(){
-    return this.radius*2
+  get Diameter() {
+    return this.radius * 2
   }
   // ■ метод, вычисляющий площадь окружности;
-  calculateArea(){
+  calculateArea() {
     return Math.floor(Math.PI * this.radius * this.radius)
   }
   // ■ метод, вычисляющий длину окружности.
-  calculateCircumference(){
+  calculateCircumference() {
     return Math.floor(2 * Math.PI * this.radius)
   }
 }
@@ -1800,30 +1800,30 @@ console.log(`Длина окружности: ${myCircle.calculateCircumference(
 // строки должно быть достаточно вызвать метод getHtml только
 // у тега с идентификатором wrapper.
 class HtmlElement {
-  tag:string
-  paired:boolean
-  text:string
-  attrs:string[] = []
-  styles:string[] = []
+  tag: string
+  paired: boolean
+  text: string
+  attrs: string[] = []
+  styles: string[] = []
   htmlElements: HtmlElement[] = []
-  constructor(tag:string, paired:boolean, text:string) {
+  constructor(tag: string, paired: boolean, text: string) {
     this.tag = tag
     this.paired = paired
     this.text = text
   }
-  setAttr(name:string, value:string) {
+  setAttr(name: string, value: string) {
     this.attrs.push(`${name}="${value}"`)
   }
-  setStyle(name:string, value:string) {
+  setStyle(name: string, value: string) {
     this.styles.push(`${name}:${value}`)
   }
-  append(element:HtmlElement) {
+  append(element: HtmlElement) {
     this.htmlElements.push(element)
   }
-  prepend(element:HtmlElement) {
+  prepend(element: HtmlElement) {
     this.htmlElements.unshift(element)
   }
-  getHtml():string {
+  getHtml(): string {
     if (this.styles.length) {
       this.setAttr('style', this.styles.join(';'))
     }
@@ -1859,7 +1859,7 @@ innerDiv.append(img)
 innerDiv.append(p)
 wrapper.append(innerDiv)
 wrapper.append(innerDiv)
-document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
+document.body.insertAdjacentHTML('beforeend', wrapper.getHtml())
 
 
 
@@ -1873,24 +1873,24 @@ document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
 // ки.
 
 class CssClass {
-  nameClass:string 
-  arrStyles:string[] = []
-  constructor(nameClass:string){
+  nameClass: string
+  arrStyles: string[] = []
+  constructor(nameClass: string) {
     this.nameClass = nameClass
   }
-  setStyle(key:any,value:any){
+  setStyle(key: any, value: any) {
     this.arrStyles.push(`${key}:${value};`)
   }
-  deleteStyle(key:any,value:any){
+  deleteStyle(key: any, value: any) {
     const i = this.arrStyles.indexOf(`${key}:${value}`)
-    if(i!=-1) this.arrStyles.splice(i,1)
+    if (i != -1) this.arrStyles.splice(i, 1)
   }
-  getCss():string{
+  getCss(): string {
     return `.${this.nameClass} {${this.arrStyles.join('')}}`
   }
 }
 const dFlex = new CssClass('wrap')
-dFlex.setStyle('display','flex')
+dFlex.setStyle('display', 'flex')
 console.log(dFlex.getCss())
 
 
@@ -1934,18 +1934,18 @@ console.log(dFlex.getCss())
 // Например, если сейчас 10:00, и не было перехода на зимнее/летнее время, то:
 
 
-function getSecondsToday(date:Date){
-  return date.getHours()*3600 +
-    date.getMinutes()*60 +
+function getSecondsToday(date: Date) {
+  return date.getHours() * 3600 +
+    date.getMinutes() * 60 +
     date.getSeconds()
 }
-function getSecondsTodayRemaining(date:Date){
-  return 24*3600 - getSecondsToday(date)
+function getSecondsTodayRemaining(date: Date) {
+  return 24 * 3600 - getSecondsToday(date)
 }
-function getHoursToday(date:Date){
-  return 24 - date.getHours() 
+function getHoursToday(date: Date) {
+  return 24 - date.getHours()
 }
-function getHoursTodayRemaining(date:Date){
+function getHoursTodayRemaining(date: Date) {
   return 24 - getHoursToday(date)
 }
 
@@ -1983,20 +1983,20 @@ function formatDate(date: Date) {
     const day = date.getDate();
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    
+
     return `${year}.${month}.${day} ${hours}:${minutes}`;
   }
 }
 
-console.log( formatDate(new Date(new Date().getTime() - 1)) ); // "прямо сейчас"
+console.log(formatDate(new Date(new Date().getTime() - 1))); // "прямо сейчас"
 
-console.log( formatDate(new Date(new Date().getTime() - 30 * 1000)) ); // "30 сек. назад"
+console.log(formatDate(new Date(new Date().getTime() - 30 * 1000))); // "30 сек. назад"
 
-console.log( formatDate(new Date(new Date().getTime() - 5 * 60 * 1000)) ); // "5 мин. назад"
+console.log(formatDate(new Date(new Date().getTime() - 5 * 60 * 1000))); // "5 мин. назад"
 
 // console.log(formatDate(newDate(new Date().getTime)))
 // вчерашняя дата вроде 31.12.2016, 20:00
-console.log( formatDate(new Date(new Date().getTime() - 86400 * 1000)) );
+console.log(formatDate(new Date(new Date().getTime() - 86400 * 1000)));
 // В противном случае, если с date прошло меньше 1 минуты, вывести "n сек. назад".
 // В противном случае, если меньше часа, вывести "m мин. назад".
 // В противном случае, полная дата в формате "DD.MM.YY HH:mm". А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
@@ -2016,21 +2016,21 @@ console.log( formatDate(new Date(new Date().getTime() - 86400 * 1000)) );
 // year – год из четырёх цифр, например, 2012.
 // month – месяц от 0 до 11.
 // К примеру, getLastDayOfMonth(2012, 1) = 29 (високосный год, февраль).
-function getLastDayOfMonth(year:number, month:number){
- let date = new Date(year,month + 1, 0)
- return date.getDate()
+function getLastDayOfMonth(year: number, month: number) {
+  let date = new Date(year, month + 1, 0)
+  return date.getDate()
 }
 console.log(getLastDayOfMonth(2012, 2))
 
 
 
 
-function getDateAgo(date:Date, days:any){
+function getDateAgo(date: Date, days: any) {
   date.setDate(date.getDate() - days)
   return date.getDate()
 }
-let date = new Date(2015,0,2)
-console.log(getDateAgo(date,2))
+let date = new Date(2015, 0, 2)
+console.log(getDateAgo(date, 2))
 
 
 
@@ -2051,34 +2051,34 @@ console.log(formatDate2(date1));
 
 // Проверка на наступившую дату:
 // Напишите функцию, которая принимает дату и проверяет, наступила ли она уже.
-function isDateNow (targetDate:any){
+function isDateNow(targetDate: any) {
   let dateT = new Date()
-  if(targetDate < dateT || targetDate > dateT){
+  if (targetDate < dateT || targetDate > dateT) {
     return false
   }
-  else if(targetDate == dateT){
-    return true 
+  else if (targetDate == dateT) {
+    return true
   }
 }
 const eventDate = new Date()
 const result = isDateNow(eventDate)
 isDateNow(eventDate)
-if(result){
+if (result) {
   console.log('Ваша дата еще не наступила')
 }
-else{
+else {
   console.log('УРА, ваша дата наступила')
 }
 
 
 class Animal {
-  name 
+  name
   speed
-  constructor(name:string) {
+  constructor(name: string) {
     this.speed = 0;
     this.name = name;
   }
-  run(speed:number) {
+  run(speed: number) {
     this.speed = speed;
     console.log(`${this.name} бежит со скоростью ${this.speed}.`);
   }
@@ -2120,28 +2120,28 @@ class Button {
   width
   height
   textButton
-  constructor(width:number,height:number, textButton:string ){
+  constructor(width: number, height: number, textButton: string) {
     this.width = width
     this.height = height
     this.textButton = textButton
   }
-  showBtn(){
-    buttonsDiv.innerHTML+=`<button style="width: ${this.width}px; height:${this.height}px">${this.textButton}</button>`
+  showBtn() {
+    buttonsDiv.innerHTML += `<button style="width: ${this.width}px; height:${this.height}px">${this.textButton}</button>`
   }
 }
-class BootstrapButton extends Button{
+class BootstrapButton extends Button {
   color
-  constructor(width:number,height:number, textButton:string,color:string){
-    super(width,height, textButton)
+  constructor(width: number, height: number, textButton: string, color: string) {
+    super(width, height, textButton)
     this.color = color
   }
-  showBtn(){
-    buttonsDiv.innerHTML+=`<button style="width: ${this.width}px; height:${this.height}px; background-color: ${this.color};">${this.textButton}</button>`
+  showBtn() {
+    buttonsDiv.innerHTML += `<button style="width: ${this.width}px; height:${this.height}px; background-color: ${this.color};">${this.textButton}</button>`
   }
 }
-const btn1 = new Button(50,50,'red')
+const btn1 = new Button(50, 50, 'red')
 btn1.showBtn()
-const btn2 = new BootstrapButton(50,50,'red', 'red')
+const btn2 = new BootstrapButton(50, 50, 'red', 'red')
 btn2.showBtn()
 
 
@@ -2160,38 +2160,38 @@ btn2.showBtn()
 // мацию о каждой фигуре, включая площадь и периметр.
 
 
-class Figure{
-  get name(){
+class Figure {
+  get name() {
     return ''
   }
-  getSquare():null|number{
+  getSquare(): null | number {
     return null
   }
-  getPerimeter():null|number{
+  getPerimeter(): null | number {
     return null
   }
-  getInfo(){
+  getInfo() {
     return ''
   }
 }
-class Square extends Figure{
+class Square extends Figure {
   _name = 'square'
   side
-  constructor(side:number){
+  constructor(side: number) {
     super()
     this.side = side
   }
-  get name(){
+  get name() {
     return this._name
   }
-  getSquare(){
-    return this.side**2
+  getSquare() {
+    return this.side ** 2
   }
-  getPerimeter(){
-    return this.side*4
+  getPerimeter() {
+    return this.side * 4
   }
-  getInfo(){
-    return `${this._name} width side ${this.side} square = ${this.getSquare()} perimeter = ${this.getPerimeter()}` 
+  getInfo() {
+    return `${this._name} width side ${this.side} square = ${this.getSquare()} perimeter = ${this.getPerimeter()}`
   }
 }
 const squareCall = new Square(12)
@@ -2213,29 +2213,29 @@ console.log(squareCall.getInfo())
 // Продемонстрировать работу написанных методов.
 const markerInput = document.getElementById('marker') as HTMLInputElement
 const typeMarker = document.getElementById('type_marker') as HTMLDivElement
-const refuillButton = document.getElementById('refill')as HTMLButtonElement
+const refuillButton = document.getElementById('refill') as HTMLButtonElement
 class Marker {
   color
   ink = 100
-  constructor(color:string, ink:number){
+  constructor(color: string, ink: number) {
     this.color = color
     this.ink = ink
   }
-  draw(data:string){
-    typeMarker.innerHTML += `<span style="opacity: ${this.ink/100}; color:${this.color}">${data}</span>`
-    if(data != ' ') this.ink -=0.5
+  draw(data: string) {
+    typeMarker.innerHTML += `<span style="opacity: ${this.ink / 100}; color:${this.color}">${data}</span>`
+    if (data != ' ') this.ink -= 0.5
   }
-  refuill(){
+  refuill() {
     console.log(this.ink)
-    this.ink=100
+    this.ink = 100
   }
 }
 const myMarker = new Marker("red", 80);
 
-document.addEventListener('click',(e)=>{
+document.addEventListener('click', (e) => {
   // @ts-ignore
   if (e.target.id == 'refill') {
-    
+
     console.log(myMarker.ink)
     myMarker.refuill()
 
@@ -2243,9 +2243,9 @@ document.addEventListener('click',(e)=>{
 })
 
 
-markerInput.addEventListener('input',(e)=>{
+markerInput.addEventListener('input', (e) => {
   const inputEvent = e as InputEvent
-  if(inputEvent.inputType == 'insertText'){
+  if (inputEvent.inputType == 'insertText') {
     if (typeof inputEvent.data == 'string') myMarker.draw(inputEvent.data)
   }
 })
@@ -2266,9 +2266,9 @@ markerInput.addEventListener('input',(e)=>{
 // результаты работы новых методов.
 
 
-class ExtendedDate extends Date{
- 
-  printText(){
+class ExtendedDate extends Date {
+
+  printText() {
     const day = this.getDate();
     const months = [
       'Январь', 'Февраль', 'Март', 'Апрель',
@@ -2285,15 +2285,15 @@ console.log((new ExtendedDate).printText)
 
 
 
-let omg  = (null + 'a').split('ll').join('tell')
+let omg = (null + 'a').split('ll').join('tell')
 console.log(omg)
 
 
 
-let createCounter = function(n:number) {
+let createCounter = function (n: number) {
   let count = n
-  let isFalse  = false 
-  return function() {
+  let isFalse = false
+  return function () {
     return isFalse ? (count += 1) : (isFalse = true, count)
   }
 }
@@ -2317,45 +2317,172 @@ console.log(counter())
 
 
 const digitsDiv = document.querySelector('.password') as HTMLDivElement
-const inputDiv = document.querySelector('div.password_input') as HTMLDivElement
+let inputDiv = document.querySelector('div.password_input') as HTMLDivElement
 const pushPassStatus = document.querySelector('.window_info_password') as HTMLDivElement
 const showTrueMessage = document.querySelector('.text_message') as HTMLDivElement
-const messageTrueStr = document.querySelector('.messageTrue') as HTMLParagraphElement
-const circlePass = document.querySelector('.circle') as HTMLButtonElement
+const pTime = document.querySelector('.time') as HTMLParagraphElement
+const pDate = document.querySelector('.date') as HTMLParagraphElement
+const lockButton = document.querySelector('.lock') as HTMLButtonElement
 let pass = ''
+function getDateAndTime() {
+  const newD = new Date()
+  let hours = newD.getHours()
+  let minutes = newD.getMinutes()
+  let hoursString = (hours < 10) ? "0" + hours : hours.toString();
+  let minutesString = (minutes < 10) ? "0" + minutes : minutes.toString();
+
+
+  pTime.innerHTML = `${hoursString}:${minutesString}`
+
+}
+function getDate(){
+  const newD = new Date()
+  let options: Intl.DateTimeFormatOptions = { weekday: 'long' }
+  let dayNow = newD.toLocaleDateString('en-US', options)
+  let getDateNumb = newD.getDate()
+  pDate.innerHTML = `${dayNow} ${getDateNumb} Another day`
+  setInterval(getDate,10000)
+}
+getDate()
+
+setInterval(getDateAndTime, 1000);
+getDateAndTime()
+console.log(getDateAndTime())
+pTime.innerHTML = ``
+const enterText = 'Enter your Password'
 const correctPassword = '552820'
-digitsDiv.addEventListener('click', (e)=>{
+digitsDiv.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
-  if(pass.length < 6 || pass.length == 5){
-    if (target.tagName=='BUTTON') {
+  if (pass.length < 6 || pass.length == 5) {
+    if (target.tagName == 'BUTTON') {
       if (target.dataset.val) pass += target.dataset.val
     }
   }
 
-  if (target.dataset.action) pass = pass.slice(0, pass.length-1) 
+  if (target.dataset.action) pass = pass.slice(0, pass.length - 1)
+
+  inputDiv.textContent = '*'.repeat(pass.length)
+
   
-   inputDiv.textContent = '*'.repeat(pass.length)
-  
-  if(pass === correctPassword){
+  if (pass === correctPassword) {
     pushPassStatus.innerHTML = `<h3 class = "passCheck"> Password is correct! </h3>`
     showTrueMessage.innerHTML = `<p class = "messageTrue">Ваш чек доступен по ссылке: ofd.ru/b/ee8a9ba606d4e580374f51e7d401f830</p> `
+    lockButton.addEventListener('click',()=>{
+      showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
+      pushPassStatus.innerHTML = `<h3 class = "passCheck3"> ${enterText} </h3>`
+      pass = ''
+    })
   }
-  else if(pass.length == 6 && pass !== correctPassword ){
+
+  else if (pass.length == 6 && pass !== correctPassword) {
     pass = ''
     pushPassStatus.innerHTML = `<h3 class = "passCheck2"> Password is incorrect! </h3>`
     showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
-    
+
   }
-  
+
+
   console.log(pass)
 })
+if(pass === ''){
+  pushPassStatus.innerHTML = `<h3 class = "passCheck3"> ${enterText} </h3>`
+  
+}
+
 
 showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
 
 
+// class ButtonCount {
+//   realValueParagraph = 0
+//    countParagraph = document.querySelector('.count') 
+//    transitionImage = document.querySelector('.like_img') 
+//    buttonCount = document.querySelector('.like_count')
+//    constructor(countParagraph:HTMLParagraphElement, transitionImage:HTMLImageElement, buttonCount:HTMLButtonElement,realValueParagraph:number){
+//     this.countParagraph = countParagraph
+//     this.transitionImage = transitionImage
+//     this.buttonCount = buttonCount
+//     this.realValueParagraph = realValueParagraph
+//    }
+//    onClick(){
+//     this.buttonCount?.addEventListener('click',()=>{
+//       this.realValueParagraph += 1
+//     })
+//    }
+//    push(){
+//     this.countParagraph.innerHTML = ``
+//   }
+  
+// }
 
 
 
+    let realValueParagraph = 0
+    const countParagraph = document.querySelector('.count') as HTMLParagraphElement
+    const transitionImage = document.querySelector('.like_img') as HTMLImageElement
+    const buttonCount = document.querySelector('.like_count') as HTMLButtonElement
+    const clearButton = document.querySelector('.clear') as HTMLButtonElement
+    function onClick(){
+      transitionImage.classList.add('like_img')
+      buttonCount.addEventListener('click',()=>{
+        realValueParagraph += 1
+        countParagraph.innerHTML = `${realValueParagraph}`
+        transitionImage.classList.remove('like_img')
+        transitionImage.classList.add('animation')
+        setTimeout(() => {
+          transitionImage.classList.remove('animation');
+      }, 250);
+      })
+        clearButton.addEventListener('click',()=>{
+          realValueParagraph = 0
+          countParagraph.innerHTML = `${realValueParagraph}`
+        })
+        
+    }
+    onClick()
+    countParagraph.innerHTML = `${realValueParagraph}`
+   
+
+    
+    // Задание 3
+    // Реализовать класс Employee, описывающий работника, и со-
+    // здать массив работников банка.
+    // Реализовать класс EmpTable для генерации html кода таблицы
+    // со списком работников банка. Массив работников необходимо
+    // передавать через конструктор, а получать html код с помощью
+    // метода getHtml().
+    // Создать объект класса EmpTable и вывести на экран результат
+    // работы метода getHtml().
+    class Employee{
+      arrayOfEmployes = [
+        {
+          id: 1,
+          name: 'Санек',
+          salary: 40_000,
+        },
+        {
+          id: 2,
+          name: 'Леха',
+          salary: 40_000,
+        },
+        {
+          id: 3,
+          name: 'Никитос',
+          salary: 60_000,
+        },
+        {
+          id: 4,
+          name: 'Андрюха',
+          salary: 30_000,
+        },
+        {
+          id: 5,
+          name: 'Ванечка',
+          salary: 50_000,
+        },
+      ]
+      // constructor
+    }
 
 
 

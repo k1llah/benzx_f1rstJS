@@ -163,6 +163,11 @@ p{
     display: flex;
     align-items: center;
     font-size: 20px;
+    transition: 0.30s;
+}
+.circle:active{
+    background-color: rgb(238, 204, 153);
+    transition: 0.30s;
 }
 
 .passCheck{
@@ -193,4 +198,95 @@ p{
     white-space: nowrap; /* Запрещаем перенос строк */
     overflow: hidden; /* Обрезаем все, что не помещается в область */
     text-overflow: ellipsis; /* Добавляем многоточие */
+}
+.lock_phone{
+    display: flex;
+    justify-content: flex-end;
+}
+.lock{
+    margin-right: 150px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    background-color: cadetblue;
+    font-size: 14px;
+    color: azure;
+    border-radius: 10px;
+    transition: 0.4s linear;
+}
+.lock:hover{
+    transform: scale(1.1);
+    transition: 0.6s linear;
+}
+
+.passCheck3{
+    color: tan;
+    text-align: center;
+}
+.like{
+    width: 100%;
+    margin-top: 200px;
+}
+.like_count{
+    background-color: #2e98ff;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid skyblue;
+    justify-content: space-around;
+    align-items: center;
+    margin:  0 auto;
+    margin-bottom: 50px;
+}
+.like_count:active{
+    background-color: skyblue;
+    transition: 0.2s;
+}
+.count{
+    font-size: 18px;
+    font-weight: 600;
+}
+.animation{
+    transform: scale(1.5);
+    transition: 0.3s linear;
+    
+}
+.shadow{
+    
+}
+.like_img{
+    transform: unset;
+    transition: 0.3s linear;
+}
+.clear{
+    background-color: slateblue;
+    display: flex;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid forestgreen;
+    justify-content: center;
+    align-items: center;
+    margin:  0 auto;
+    margin-bottom: 50px;
+    color: white;
+}
+.emp{
+    border: 3px solid darkblue;
+    margin-left: 10px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
 }
