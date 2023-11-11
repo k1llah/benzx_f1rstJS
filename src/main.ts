@@ -2444,17 +2444,69 @@ showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
    
 
     
-    // Задание 3
-    // Реализовать класс Employee, описывающий работника, и со-
-    // здать массив работников банка.
-    // Реализовать класс EmpTable для генерации html кода таблицы
-    // со списком работников банка. Массив работников необходимо
-    // передавать через конструктор, а получать html код с помощью
-    // метода getHtml().
-    // Создать объект класса EmpTable и вывести на экран результат
-    // работы метода getHtml().
-    class Employee{
-      arrayOfEmployes = [
+  //   Задание 3
+  //   Реализовать класс Employee, описывающий работника, и со-
+  //   здать массив работников банка.
+  //   Реализовать класс EmpTable для генерации html кода таблицы
+  //   со списком работников банка. Массив работников необходимо
+  //   передавать через конструктор, а получать html код с помощью
+  //   метода getHtml().
+  //   Создать объект класса EmpTable и вывести на экран результат
+  //   работы метода getHtml().
+    // class Employee{
+      
+    //    arrayOfEmployees = [
+    //     {
+    //       id: 1,
+    //       name: 'Санек',
+    //       salary: 40_000,
+    //     },
+    //     {
+    //       id: 2,
+    //       name: 'Леха',
+    //       salary: 40_000,
+    //     },
+    //     {
+    //       id: 3,
+    //       name: 'Никитос',
+    //       salary: 60_000,
+    //     },
+    //     {
+    //       id: 4,
+    //       name: 'Андрюха',
+    //       salary: 30_000,
+    //     },
+    //     {
+    //       id: 5,
+    //       name: 'Ванечка',
+    //       salary: 50_000,
+    //     },
+    //   ]
+    //   addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement
+    //   idTd = document.querySelector('.id') as HTMLTableCellElement
+    //   nameTd = document.querySelector('.name') as HTMLTableCellElement
+    //   salaryTd = document.querySelector('.salary') as HTMLTableCellElement
+    //   constructor(arrayOfEmployees:{id: number; name: string; salary: number;}[],addButtonEmploye:HTMLButtonElement,idTd:HTMLTableCellElement,nameTd:HTMLTableCellElement,salaryTd:HTMLTableCellElement){
+    //     this.arrayOfEmployees = arrayOfEmployees
+    //     this.addButtonEmploye = addButtonEmploye
+    //     this.idTd = idTd
+    //     this.nameTd = nameTd
+    //     this.salaryTd = salaryTd
+    //   }
+    //   getEmployeeProperties(){
+    //    this.arrayOfEmployees[0]?.id
+    //    console.log(this.arrayOfEmployees[0]?.id)
+    //   }
+    // }
+    // new Employee()
+    let addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement;
+      let idTd = document.querySelector('.id') as HTMLTableCellElement;
+      let nameTd = document.querySelector('.name_emp') as HTMLTableCellElement;
+      let salaryTd = document.querySelector('.salary') as HTMLTableCellElement;
+      let tr = document.querySelector('.tr_property') as HTMLTableRowElement
+    
+    class Employee {
+      arrayOfEmployees = [
         {
           id: 1,
           name: 'Санек',
@@ -2480,10 +2532,50 @@ showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
           name: 'Ванечка',
           salary: 50_000,
         },
-      ]
-      // constructor
-    }
-
-
-
-
+      ];
+    
+       addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement;
+       idTd = document.querySelector('.id') as HTMLTableCellElement;
+       nameTd = document.querySelector('.name_emp') as HTMLTableCellElement;
+       salaryTd = document.querySelector('.salary') as HTMLTableCellElement;
+       tr = document.querySelector('.tr_property') as HTMLTableRowElement
+      constructor(addButtonEmploye:HTMLButtonElement,idTd:HTMLTableCellElement,nameTd:HTMLTableCellElement,salaryTd:HTMLTableCellElement) {
+        this.addButtonEmploye = addButtonEmploye
+        this.idTd = idTd
+        this.nameTd = nameTd
+        this.salaryTd = salaryTd
+      }
+      hasCorrectStructure =
+      this.tr.querySelector('.id') == null &&
+      this.tr.querySelector('.name_emp') == null &&
+      this.tr.querySelector('.salary') == null;
+  
+      getEmployeeProperties() {
+        for(const firstEmployee of this.arrayOfEmployees){
+          const existingIdTd = document.querySelector(`.id[data-id="${firstEmployee.id}"]`);
+        if (existingIdTd) {
+          const newTr = this.tr.cloneNode(true) as HTMLTableRowElement;
+          newTr.querySelector.innerHTML = `${firstEmployee.id}`;
+          newTr.innerHTML = `${firstEmployee.name}`;
+          newTr.innerHTML = `${firstEmployee.salary}`;
+          this.tr.parentNode?.appendChild(newTr);
+        }
+        else {
+          // Если элемента с таким id нет, добавляем данные в существующий tr
+          if (this.hasCorrectStructure) {
+            this.idTd.innerHTML += `<td class="id" data-id="${firstEmployee.id}">${firstEmployee.id}</td>`;
+            this.salaryTd.innerHTML += `<td class="salary">${firstEmployee.salary}</td>`;
+            this.nameTd.innerHTML += `<td class="name">${firstEmployee.name}</td>`;
+          } 
+      
+        else {
+          console.log("No employees found");
+          console.log(this.idTd)
+          return null; // Или возвращаем null, если массив пустой
+        }
+      }
+        }
+      }
+    // const employeeInstance = new Employee(addButtonEmploye,idTd,nameTd,salaryTd);
+    // employeeInstance.getEmployeeProperties();
+  
