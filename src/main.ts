@@ -2453,129 +2453,200 @@ showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
   //   метода getHtml().
   //   Создать объект класса EmpTable и вывести на экран результат
   //   работы метода getHtml().
-    // class Employee{
-      
-    //    arrayOfEmployees = [
-    //     {
-    //       id: 1,
-    //       name: 'Санек',
-    //       salary: 40_000,
-    //     },
-    //     {
-    //       id: 2,
-    //       name: 'Леха',
-    //       salary: 40_000,
-    //     },
-    //     {
-    //       id: 3,
-    //       name: 'Никитос',
-    //       salary: 60_000,
-    //     },
-    //     {
-    //       id: 4,
-    //       name: 'Андрюха',
-    //       salary: 30_000,
-    //     },
-    //     {
-    //       id: 5,
-    //       name: 'Ванечка',
-    //       salary: 50_000,
-    //     },
-    //   ]
-    //   addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement
-    //   idTd = document.querySelector('.id') as HTMLTableCellElement
-    //   nameTd = document.querySelector('.name') as HTMLTableCellElement
-    //   salaryTd = document.querySelector('.salary') as HTMLTableCellElement
-    //   constructor(arrayOfEmployees:{id: number; name: string; salary: number;}[],addButtonEmploye:HTMLButtonElement,idTd:HTMLTableCellElement,nameTd:HTMLTableCellElement,salaryTd:HTMLTableCellElement){
-    //     this.arrayOfEmployees = arrayOfEmployees
-    //     this.addButtonEmploye = addButtonEmploye
-    //     this.idTd = idTd
-    //     this.nameTd = nameTd
-    //     this.salaryTd = salaryTd
-    //   }
-    //   getEmployeeProperties(){
-    //    this.arrayOfEmployees[0]?.id
-    //    console.log(this.arrayOfEmployees[0]?.id)
-    //   }
-    // }
-    // new Employee()
-    let addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement;
-      let idTd = document.querySelector('.id') as HTMLTableCellElement;
-      let nameTd = document.querySelector('.name_emp') as HTMLTableCellElement;
-      let salaryTd = document.querySelector('.salary') as HTMLTableCellElement;
-      let tr = document.querySelector('.tr_property') as HTMLTableRowElement
+    class Employee{
+      static id = localStorage.staticId || 1
+      id
+      name
+      salary
+      constructor(name: string, salary: number){
+        this.id = Employee.id++
+        this.name = name
+        this.salary = salary
+        localStorage.staticId = Employee.id
+      }
+    }
     
-    class Employee {
-      arrayOfEmployees = [
-        {
-          id: 1,
-          name: 'Санек',
-          salary: 40_000,
-        },
-        {
-          id: 2,
-          name: 'Леха',
-          salary: 40_000,
-        },
-        {
-          id: 3,
-          name: 'Никитос',
-          salary: 60_000,
-        },
-        {
-          id: 4,
-          name: 'Андрюха',
-          salary: 30_000,
-        },
-        {
-          id: 5,
-          name: 'Ванечка',
-          salary: 50_000,
-        },
-      ];
+    const empArr = localStorage.empArr ? JSON.parse(localStorage.empArr) : [
+      new Employee('Санек',40_000,),
+      new Employee('Леха',40_000,),
+      new Employee('Никитос',60_000,),
+      new Employee('Андрюха',40_000,),
+      new Employee('Ванечка',50_000,),
+    ]
     
-       addButtonEmploye = document.querySelector('.addEmploye') as HTMLButtonElement;
-       idTd = document.querySelector('.id') as HTMLTableCellElement;
-       nameTd = document.querySelector('.name_emp') as HTMLTableCellElement;
-       salaryTd = document.querySelector('.salary') as HTMLTableCellElement;
-       tr = document.querySelector('.tr_property') as HTMLTableRowElement
-      constructor(addButtonEmploye:HTMLButtonElement,idTd:HTMLTableCellElement,nameTd:HTMLTableCellElement,salaryTd:HTMLTableCellElement) {
-        this.addButtonEmploye = addButtonEmploye
-        this.idTd = idTd
-        this.nameTd = nameTd
-        this.salaryTd = salaryTd
-      }
-      hasCorrectStructure =
-      this.tr.querySelector('.id') == null &&
-      this.tr.querySelector('.name_emp') == null &&
-      this.tr.querySelector('.salary') == null;
-  
-      getEmployeeProperties() {
-        for(const firstEmployee of this.arrayOfEmployees){
-          const existingIdTd = document.querySelector(`.id[data-id="${firstEmployee.id}"]`);
-        if (existingIdTd) {
-          const newTr = this.tr.cloneNode(true) as HTMLTableRowElement;
-          newTr.querySelector.innerHTML = `${firstEmployee.id}`;
-          newTr.innerHTML = `${firstEmployee.name}`;
-          newTr.innerHTML = `${firstEmployee.salary}`;
-          this.tr.parentNode?.appendChild(newTr);
+    let addEmploye = document.querySelector('.addEmploye') as HTMLButtonElement
+    let buttonState = 'add'
+    let empId = document.querySelector('.id') as HTMLInputElement
+    let empName = document.querySelector('.name') as HTMLInputElement
+    let empSalary = document.querySelector('.salary') as HTMLInputElement
+    let table = document.querySelector('.table') as HTMLDivElement
+    
+    addEmploye.addEventListener('click', ()=>{
+      if (empName.value && empSalary.value) {
+        if (buttonState == 'add') {
+          empTable.addEmployee(new Employee(empName.value, parseInt(empSalary.value)))
+        } else {
+          empTable.editEmployee(+empId.value, empName.value, parseInt(empSalary.value))
         }
-        else {
-          // Если элемента с таким id нет, добавляем данные в существующий tr
-          if (this.hasCorrectStructure) {
-            this.idTd.innerHTML += `<td class="id" data-id="${firstEmployee.id}">${firstEmployee.id}</td>`;
-            this.salaryTd.innerHTML += `<td class="salary">${firstEmployee.salary}</td>`;
-            this.nameTd.innerHTML += `<td class="name">${firstEmployee.name}</td>`;
-          } 
-      
-        else {
-          console.log("No employees found");
-          console.log(this.idTd)
-          return null; // Или возвращаем null, если массив пустой
+        empId.value = ''
+        empName.value = ''
+        empSalary.value = ''
+        empTable.render()
+        addEmploye.textContent = 'Добавить'
+        buttonState = 'add'
+      }
+    })
+    
+    table.onmouseover = function(event) {
+      let target = event.target as HTMLElement
+      if (target.tagName=='TD') target.style.background = 'pink'
+    }
+    
+    table.onmouseout = function(event) {
+      let target = event.target as HTMLElement
+      if (target.tagName=='TD') target.style.background = ''
+    };
+    
+    table.addEventListener('click', (e)=>{
+      const target = e.target as HTMLElement
+      if (target.dataset.action == 'delete') {
+        if (target.dataset.id) empTable.removeEmployee(+target.dataset.id)
+        empTable.render()
+      }
+      if (target.dataset.action == 'edit') {
+        addEmploye.textContent = 'Сохранить'
+        buttonState = 'edit'
+        if (target.dataset.id) {
+          const el = empTable.getEmployeeData(+target.dataset.id)
+          empId.value = el?.id.toString() || ''
+          empName.value = el?.name || ''
+          empSalary.value = el?.salary.toString() || ''
         }
       }
-        }
+    })
+    
+    class EmployeeTable {
+      table
+      constructor(table:Employee[]) {
+        this.table = table
       }
-    // const employeeInstance = new Employee(addButtonEmploye,idTd,nameTd,salaryTd);
-    // employeeInstance.getEmployeeProperties();
-  
+      addEmployee(el:Employee) {
+        this.table.push(el)
+      }
+      editEmployee(id:number, name:string, salary:number) {
+        const i = this.table.findIndex(emp => emp.id == id)
+        this.table[i].name = name
+        this.table[i].salary = salary
+      }
+      removeEmployee(id:number) {
+        const i = this.table.findIndex(el => el.id == id)
+        this.table.splice(i,1)
+      }
+      getEmployeeData(id:number) {
+        return this.table.find(el => el.id == id)
+      }
+      getHtml() {
+        let tableHtml = `<table><thead><tr><th>ID</th><th>Name</th><th>Salary</th><th>action</th></tr></thead><tbody>`
+        this.table.forEach(el=>{
+          tableHtml += `<tr><td>${el.id}</td><td>${el.name}</td><td>${el.salary}</td><td>
+          <button data-action="edit" data-id="${el.id}">✎</button>
+          <button data-action="delete" data-id="${el.id}">☠</button>
+          </td></tr>`
+        })
+        tableHtml += `</tbody></table>`
+        return tableHtml
+      }
+      render() {
+        table.innerHTML = this.getHtml()   
+        localStorage.empArr = JSON.stringify(this.table) 
+      }
+    }
+    
+    class styledEmpTable extends EmployeeTable {
+      getHtml(): string {
+        let stringHtml = `
+        <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        </style>` 
+        stringHtml += super.getHtml()
+        return stringHtml
+      }
+    }
+
+    // const empTable = new EmployeeTable(empArr)
+    const empTable = new styledEmpTable(empArr)
+    empTable.render()
+    
+    let user  = {
+      name: ' vasya',
+      age : 35
+    }
+    let user2 = JSON.parse(JSON.stringify(user))
+   Object.freeze(user)
+   console.log(user)
+
+
+   let categories = document.querySelector('.Categories') as HTMLDivElement
+   let dresses = document.querySelector('.dresses') as HTMLDivElement
+   categories.addEventListener('click',()=>{
+    dresses.classList.toggle('hide')
+   })
+
+   
+   let trafficCircle = document.querySelectorAll('.circle_lights') as NodeListOf<HTMLDivElement>
+   let buttonNext = document.querySelector('.next') as HTMLButtonElement
+
+   let active = 0
+   buttonNext.addEventListener('click',()=>{
+      const current = trafficCircle[active] as HTMLDivElement
+      current.classList.remove('light')
+      active = current.dataset.val ? +current.dataset.val : 0
+      trafficCircle[active].classList.add('light')
+    })
+
+
+
+
+//     Создать html-страницу со вкладками. С левой стороны страни-
+// цы отображается несколько вкладок, по которым можно переклю-
+// чаться. У каждой вкладки есть свое содержимое, но в один момент
+// времени отображается содержимое только активной вкладки.
+
+let objectParam = {
+  html:'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+  css:'Hypertext Markup Language (CSS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+  js:'Hypertext Markup Language (JS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.'
+}
+   let cols = document.querySelector('.left_cols') as HTMLDivElement
+   let text = document.querySelector('.right_text') as HTMLDivElement
+   
+
+   Object.keys(objectParam).forEach((el, i)=>{
+    cols.innerHTML += `<p class="direct"${i==0?'class="active"':''}>${el}</p>`
+   })
+   text.innerHTML = `<p>${objectParam['html']}</p>`
+   cols.addEventListener('click', (e)=>{
+     const target = e.target as HTMLElement
+     if (target.tagName == 'P') {
+       for (let el of cols.children) {
+         el.classList.remove('active')
+         target.classList.add('active')
+         const key = target.textContent
+         text.innerHTML = `<p>${objectParam[key]}</p>`
+        
+      }
+    }
+   })
