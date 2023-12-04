@@ -2626,10 +2626,10 @@ showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
 // времени отображается содержимое только активной вкладки.
 
 let objectParam = {
-  html:'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
-  css:'Hypertext Markup Language (CSS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
-  js:'Hypertext Markup Language (JS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.'
-}
+  Html:'Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+  Css:'Hypertext Markup Language (CSS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.',
+  Js:'Hypertext Markup Language (JS) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.'
+} as any
    let cols = document.querySelector('.left_cols') as HTMLDivElement
    let text = document.querySelector('.right_text') as HTMLDivElement
    
@@ -2637,16 +2637,63 @@ let objectParam = {
    Object.keys(objectParam).forEach((el, i)=>{
     cols.innerHTML += `<p class="direct"${i==0?'class="active"':''}>${el}</p>`
    })
-   text.innerHTML = `<p>${objectParam['html']}</p>`
+   text.innerHTML = `<p>${objectParam['Html']}</p>`
    cols.addEventListener('click', (e)=>{
      const target = e.target as HTMLElement
      if (target.tagName == 'P') {
        for (let el of cols.children) {
          el.classList.remove('active')
          target.classList.add('active')
-         const key = target.textContent
+         const key = target.textContent as string
          text.innerHTML = `<p>${objectParam[key]}</p>`
         
       }
     }
    })
+
+
+   document.addEventListener('click', e =>{console.log(e)})
+
+  //  Задание 5
+  //  Создать html-страницу, на которой пользователь может вве-
+  //  сти номер месяца, год, и получить календарь на указанный месяц.
+  //  Календарь можно генерировать с помощью таблицы. Начальный
+  //  день недели всегда должен быть понедельник.
+
+   let generateButton = document.querySelector('.generate') as HTMLButtonElement
+   let monthUser = document.querySelector('.monthI')
+   let yearUser = document.querySelector('.yearI')
+   function generateCalendar(){
+
+   
+   let firstDay = new Date(yearUser, monthUser - 1, 1);
+   let elements = document.querySelectorAll('.calendar') 
+   let calendarTable = '<table>'
+   calendarTable += ` <thead>
+   <tr>
+     <th class="tthead">Пн</th>
+     <th class="tthead">Вт</th>
+     <th class="tthead">Ср</th>
+     <th class="tthead">Чт</th>
+     <th class="tthead">Пт</th>
+     <th class="tthead">Сб</th>
+     <th class="tthead">Вс</th>
+   </tr>
+ </thead>`
+ calendarTable += `<tbody class="calendar">`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ calendarTable += '</tbody></table>'
+   }

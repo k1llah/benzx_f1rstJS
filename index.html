@@ -115,7 +115,7 @@
               <p class="when">now?</p>
             </div>
             <div class="text_message">
-            
+
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
     <button class="lock">Lock your phone</button>
   </div>
   <div class="window_info_password">
-    
+
   </div>
   <div class="password_input"> </div>
   <div class="password">
@@ -151,36 +151,37 @@
   </div>
 
   <div class="like">
-    <button class="like_count"> <img src="./public/like.png" alt="" class="like_img animation shadow"> Like <p class="count"></p></button>
+    <button class="like_count"> <img src="./public/like.png" alt="" class="like_img animation shadow"> Like <p
+        class="count"></p></button>
     <button class="clear">Очистить счетчик лайков</button>
   </div>
 
 
-  
+
   <div class="table">
-      
+
   </div>
   <input style="display: none;" type="text" class="id" disabled>
   <input type="text" class="name" placeholder="Введите имя нового работника">
   <input type="text" class="salary" placeholder="Введите зарплату">
   <button class="addEmploye">Добавить</button>
   <div class="list_block">
-  <div class="list_menu">
-    <div class="menu">Menu</div>
-    <div class="menu Categories">Categories
-      
+    <div class="list_menu">
+      <div class="menu">Menu</div>
+      <div class="menu Categories">Categories
+
+      </div>
+      <div class="menu">About</div>
+      <div class="menu">Contact</div>
+
     </div>
-    <div class="menu">About</div>
-    <div class="menu">Contact</div>
-    
+    <div class="dresses hide">
+      <div class="dress d">Dresses</div>
+      <div class="dress">Shirts</div>
+      <div class="dress">Jeans</div>
+      <div class="dress">Shoes</div>
+    </div>
   </div>
-  <div class="dresses hide">
-        <div class="dress d">Dresses</div>
-        <div class="dress">Shirts</div>
-        <div class="dress">Jeans</div>
-        <div class="dress">Shoes</div>
-  </div>
-</div>
   <div class="traffic_lights">
     <div class="inner">
       <div data-val="1" class="circle_lights red light"></div>
@@ -194,14 +195,91 @@
   </div>
   <button class="next">Next</button>
   <div class="all_2">
-  <div class="left_cols">
-    
+    <div class="left_cols">
+
+    </div>
+    <div class="right_text">
+
+    </div>
+
   </div>
-  <div class="right_text">
-    
+  <h2>Календарь</h2>
+  <div class="create">
+    <div class="top">
+      <div class="month">
+        <label for="monthI">Enter Month</label>
+        <input type="number" maxlength="2" placeholder="08" name="month" class="monthI">
+
+      </div>
+      <div class="year">
+        <label for="yearI">Enter a FULL year</label>
+        <input type="number" maxlength="4" placeholder="2027" name="year" class="yearI">
+      </div>
+    </div>
+    <button class="generate">
+      Generate
+    </button>
   </div>
-</div>
+  <table class="dd">
+   
+    
+      <!-- Ваш JavaScript-код может генерировать ячейки таблицы для каждого дня месяца -->
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- Продолжайте заполнять остальные строки таблицы в зависимости от дней месяца -->
+      <!-- Например, для следующей недели -->
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+      </tr>
+
+      <tr>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+     
+    </tbody>
+  </table>
+  <div id="calendarContainer"></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
-
-
