@@ -220,66 +220,93 @@
       Generate
     </button>
   </div>
-  <table class="dd">
-   
-    
-      <!-- Ваш JavaScript-код может генерировать ячейки таблицы для каждого дня месяца -->
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <!-- Продолжайте заполнять остальные строки таблицы в зависимости от дней месяца -->
-      <!-- Например, для следующей недели -->
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
 
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-      </tr>
-
-      <tr>
-
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-     
-    </tbody>
-  </table>
   <div id="calendarContainer"></div>
+
+
+
+  <div class="list_div">
+    <ul class="tree" id="tree">
+      <li><span>Животные
+        </span>
+        <ul>
+          <li><span>Млекопитающие
+            </span>
+            <ul>
+              <li><span>Коровы</span></li>
+              <li><span>Ослы</span></li>
+              <li><span>Собаки</span></li>
+              <li><span>Тигры</span></li>
+            </ul>
+          </li>
+          <li><span>Другие
+            </span>
+            <ul>
+              <li><span>Змеи</span></li>
+              <li><span>Птицы</span></li>
+              <li><span>Ящерицы</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><span>Рыбы
+        </span>
+        <ul>
+          <li><span>Аквариумные
+            </span>
+            <ul>
+              <li><span>Гуппи</span></li>
+              <li><span>Скалярии</span></li>
+            </ul>
+          </li>
+          <li>
+            <span>Морские</span>
+            <ul>
+              <li><span>Морская форель</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="sort_table">
+    <table id="grid">
+      <thead class="tth">
+        <tr>
+          <th data-type="number">Возраст</th>
+          <th data-type="string">Имя</th>
+        </tr>
+      </thead>
+      <tbody class="ttb">
+        <tr>
+          <td class="tddd">3</td>
+          <td>Маша</td>
+        </tr>
+        <tr>
+          <td class="tddd">2</td>
+          <td>Саша</td>
+        </tr>
+        <tr>
+          <td class="tddd">4</td>
+          <td>Лена</td>
+        </tr>
+        <tr>
+          <td class="tddd">5</td>
+          <td>Вася</td>
+        </tr>
+        <tr>
+          <td class="tddd">10</td>
+          <td>Петя</td>
+        </tr>
+        ...
+      </tbody>
+    </table>
+  </div>
+
+
   <script type="module" src="/src/main.ts"></script>
 </body>

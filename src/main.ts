@@ -1407,7 +1407,7 @@ copySortedArr(arr3)
 // важность: 4
 let arrToSort = [5, 2, 1, -10, 8];
 function sorting(arrToSort: any) {
-  arrToSort.sort(function (a, b) {
+  arrToSort.sort(function (a:any, b:any) {
     return b - a
   })
   console.log(arrToSort)
@@ -1452,8 +1452,8 @@ mergeArrays(arrNumbs, arrNumbs2)
 
 // Обратный порядок: Создайте функцию, которая принимает массив и возвращает новый массив, элементы которого идут в обратном порядке.
 
-let arrRev = [1, 2, 3, 4, 5, 6, 7]
-function reverse(arrRev) {
+let arrRev = [1, 2, 3, 4, 5, 6, 7] 
+function reverse(arrRev:any) {
   arrRev.reverse()
   console.log(arrRev)
 }
@@ -2088,7 +2088,6 @@ class Animal {
   }
 }
 
-let animal = new Animal("Мой питомец");
 
 class Rabbit extends Animal {
   hide() {
@@ -2232,7 +2231,7 @@ class Marker {
 }
 const myMarker = new Marker("red", 80);
 
-document.addEventListener('click', (e) => {
+refuillButton.addEventListener('click', (e) => {
   // @ts-ignore
   if (e.target.id == 'refill') {
 
@@ -2275,7 +2274,7 @@ class ExtendedDate extends Date {
       'Май', 'Июнь', 'Июль', 'Август',
       'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
     ];
-    console.log(this)
+    console.log(this,day,months)
   }
 }
 
@@ -2595,6 +2594,7 @@ showTrueMessage.innerHTML = `<p class = "messageTrue">Text Message</p> `
       age : 35
     }
     let user2 = JSON.parse(JSON.stringify(user))
+    user2
    Object.freeze(user)
    console.log(user)
 
@@ -2652,7 +2652,7 @@ let objectParam = {
    })
 
 
-   document.addEventListener('click', e =>{console.log(e)})
+  //  document.addEventListener('click', e =>{console.log(e)})
 
   //  Задание 5
   //  Создать html-страницу, на которой пользователь может вве-
@@ -2660,14 +2660,10 @@ let objectParam = {
   //  Календарь можно генерировать с помощью таблицы. Начальный
   //  день недели всегда должен быть понедельник.
 
-   let generateButton = document.querySelector('.generate') as HTMLButtonElement
-   let monthUser = document.querySelector('.monthI')
-   let yearUser = document.querySelector('.yearI')
-   function generateCalendar(){
-
    
-   let firstDay = new Date(yearUser, monthUser - 1, 1);
-   let elements = document.querySelectorAll('.calendar') 
+   let calendarContainer = document.querySelector('#calendarContainer') as HTMLDivElement
+   let firstDay = new Date('12/1/2023')
+   function generateCalendar(){
    let calendarTable = '<table>'
    calendarTable += ` <thead>
    <tr>
@@ -2682,18 +2678,73 @@ let objectParam = {
  </thead>`
  calendarTable += `<tbody class="calendar">`
 
+    let currentDate = new Date('12/1/2023')
+    console.log(currentDate)
+      
+      while(currentDate.getMonth() == firstDay.getMonth()){
+        calendarTable += '<tr>'
+        for(let i = 0; i < 7; i++){
+          if(currentDate.getDay() == i || (i === 0 && currentDate.getDate() > 1)){
+            calendarTable += '<td>' + currentDate.getDate() + '</td>'
+            currentDate.setDate(currentDate.getDate() + 1)
+          }
+          else {
+            calendarTable += '<td></td>';
+          }
+        }
+        calendarTable += '</tr>';
+        
+      } 
+      calendarTable += '</tbody></table>';
+      calendarContainer.innerHTML += `${calendarTable}`
+  }
+generateCalendar()
+
+
+
+
+ let ulTree = document.querySelector('.tree') as HTMLUListElement
+  ulTree.addEventListener('click',(e)=>{
+    const target = e.target as HTMLElement
+    if(target.tagName == 'SPAN'){
+      const li = target.parentElement
+      const ul = li?.querySelector('ul')
+      
+      
+      if(ul){
+        ul.hidden = !ul.hidden
+      }
+    }
+    
+  })
+
+
+
+  let gridTable = document.querySelector('#grid') as HTMLTableElement
+
+  gridTable.addEventListener('click',(event)=>{
+    const target = event.target as HTMLElement
+    if(target.dataset.type == 'number'){
+    let tBody = document.querySelector('.ttb') as HTMLTableElement
+    let cells = Array.from(tBody?.querySelectorAll('.tddd'))
+    let values = cells.map(cell => {
+      if (cell.textContent !== null) {
+          return parseInt(cell.textContent, 10)
+      } else {
+           return 0;
+      }
+    })
+    values.sort((a:any,b:any) => a-b)
+    cells.forEach((cell, index) => {
+      cell.textContent = values[index].toString()
+  })
+  
+    }
+  })
 
 
 
 
 
 
-
-
-
-
-
-
-
- calendarTable += '</tbody></table>'
-   }
+   

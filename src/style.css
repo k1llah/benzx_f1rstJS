@@ -482,3 +482,10 @@ td{
 .generate{
     max-width: 100px;
 }
+.tddd{
+    background-color: whitesmoke;
+}
+
+#grid{
+    width: 200px;
+}
