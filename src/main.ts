@@ -2738,9 +2738,25 @@ generateCalendar()
     cells.forEach((cell, index) => {
       cell.textContent = values[index].toString()
   })
-  
+
     }
   })
+
+
+  let confirmDiv = document.querySelector('.confirm_div') as HTMLDivElement
+  function fade(){
+  confirmDiv.addEventListener('click',(event)=>{
+    let target = event.target as HTMLElement
+    if(target.tagName == 'A'){
+      if(confirm('Перейти по ссылке?')){
+
+      } else {
+        event.preventDefault()
+      }
+    }
+  })
+  }
+  fade()
 
 
 

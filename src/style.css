@@ -489,3 +489,12 @@ td{
 #grid{
     width: 200px;
 }
+.gallary_div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main{
+    width: 500px;
+    height: ;
+}
