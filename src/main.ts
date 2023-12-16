@@ -1799,67 +1799,67 @@ console.log(`Длина окружности: ${myCircle.calculateCircumference(
 // Обратите внимание. Чтобы получить весь этот html в виде
 // строки должно быть достаточно вызвать метод getHtml только
 // у тега с идентификатором wrapper.
-class HtmlElement {
-  tag: string
-  paired: boolean
-  text: string
-  attrs: string[] = []
-  styles: string[] = []
-  htmlElements: HtmlElement[] = []
-  constructor(tag: string, paired: boolean, text: string) {
-    this.tag = tag
-    this.paired = paired
-    this.text = text
-  }
-  setAttr(name: string, value: string) {
-    this.attrs.push(`${name}="${value}"`)
-  }
-  setStyle(name: string, value: string) {
-    this.styles.push(`${name}:${value}`)
-  }
-  append(element: HtmlElement) {
-    this.htmlElements.push(element)
-  }
-  prepend(element: HtmlElement) {
-    this.htmlElements.unshift(element)
-  }
-  getHtml(): string {
-    if (this.styles.length) {
-      this.setAttr('style', this.styles.join(';'))
-    }
-    if (this.paired) {
-      return `<${this.tag} ${this.attrs.join(' ')}>${this.text}
-${this.htmlElements.map(el => el.getHtml()).join('')} 
-</${this.tag}>`
-    } else {
-      return `<${this.tag} ${this.attrs.join(' ')}>`
-    }
-  }
-}
+// class HtmlElement {
+//   tag: string
+//   paired: boolean
+//   text: string
+//   attrs: string[] = []
+//   styles: string[] = []
+//   htmlElements: HtmlElement[] = []
+//   constructor(tag: string, paired: boolean, text: string) {
+//     this.tag = tag
+//     this.paired = paired
+//     this.text = text
+//   }
+//   setAttr(name: string, value: string) {
+//     this.attrs.push(`${name}="${value}"`)
+//   }
+//   setStyle(name: string, value: string) {
+//     this.styles.push(`${name}:${value}`)
+//   }
+//   append(element: HtmlElement) {
+//     this.htmlElements.push(element)
+//   }
+//   prepend(element: HtmlElement) {
+//     this.htmlElements.unshift(element)
+//   }
+//   getHtml(): string {
+//     if (this.styles.length) {
+//       this.setAttr('style', this.styles.join(';'))
+//     }
+//     if (this.paired) {
+//       return `<${this.tag} ${this.attrs.join(' ')}>${this.text}
+// ${this.htmlElements.map(el => el.getHtml()).join('')} 
+// </${this.tag}>`
+//     } else {
+//       return `<${this.tag} ${this.attrs.join(' ')}>`
+//     }
+//   }
+// }
 
-const wrapper = new HtmlElement('div', true, '')
-wrapper.setAttr('id', 'wrapper')
+// const wrapper = new HtmlElement('div', true, '')
+// wrapper.setAttr('id', 'wrapper')
 
-const innerDiv = new HtmlElement('div', true, '')
+// const innerDiv = new HtmlElement('div', true, '')
 
-const h3 = new HtmlElement('h3', true, 'What is Lorem Ipsum?')
-const img = new HtmlElement('img', false, '')
-img.setAttr('src', 'https://img.goodfon.com/original/1280x1024/7/9a/cvety-cvetok-buket-priroda.jpg')
-img.setAttr('alt', 'Lorem Ipsum')
+// const h3 = new HtmlElement('h3', true, 'What is Lorem Ipsum?')
+// const img = new HtmlElement('img', false, '')
+// img.setAttr('src', 'https://img.goodfon.com/original/1280x1024/7/9a/cvety-cvetok-buket-priroda.jpg')
+// img.setAttr('alt', 'Lorem Ipsum')
 
-const p = new HtmlElement('p', true, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias harum fuga magni quasi ex pariatur reprehenderit laudantium esse. Veritatis maiores qui fugiat nostrum, quo nihil sit recusandae aspernatur incidunt dolore.')
+// const p = new HtmlElement('p', true, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias harum fuga magni quasi ex pariatur reprehenderit laudantium esse. Veritatis maiores qui fugiat nostrum, quo nihil sit recusandae aspernatur incidunt dolore.')
 
-const href = new HtmlElement('a', true, 'More...')
-href.setAttr('href', 'https://www.lipsum.com/')
-href.setAttr('target', '_blank')
+// const href = new HtmlElement('a', true, 'More...')
+// href.setAttr('href', 'https://www.lipsum.com/')
+// href.setAttr('target', '_blank')
 
-p.append(href)
-innerDiv.append(h3)
-innerDiv.append(img)
-innerDiv.append(p)
-wrapper.append(innerDiv)
-wrapper.append(innerDiv)
-document.body.insertAdjacentHTML('beforeend', wrapper.getHtml())
+// p.append(href)
+// innerDiv.append(h3)
+// innerDiv.append(img)
+// innerDiv.append(p)
+// wrapper.append(innerDiv)
+// wrapper.append(innerDiv)
+// document.body.insertAdjacentHTML('beforeend', wrapper.getHtml())
 
 
 
@@ -2758,6 +2758,44 @@ generateCalendar()
   }
   fade()
 
+
+
+  let gallaryDiv = document.querySelector('.gallary_div') as HTMLDivElement
+  let changeMainPic = document.querySelector('.main') as HTMLImageElement
+  gallaryDiv.addEventListener('click',(event)=>{
+    let target = event.target as HTMLImageElement
+    if(target.tagName == 'IMG'){
+      // target as HTMLImageElement
+      changeMainPic.src = target.src
+    }
+  })
+  let marginLeft = document.querySelector('.bim') as HTMLDivElement
+  let sliderDiv = document.querySelector('.slider_div') as HTMLDivElement
+  let currentIndex = 0
+ 
+  sliderDiv.addEventListener('click',(event)=>{
+    let target = event.target as HTMLElement
+    if(target.classList.contains('fs') && currentIndex>0){
+      marginLeft.style.marginLeft = '0px'
+      marginLeft.style.marginRight = '0px'
+      currentIndex-- 
+      console.log(currentIndex)
+    }
+    if (target.classList.contains('sc')) {
+      marginLeft.style.marginLeft = '-725px'
+      currentIndex++
+      console.log(currentIndex)
+      
+    }
+    if(currentIndex >= 2 && target.classList.contains('sc')){
+      marginLeft.style.marginRight = '-880px'
+      
+      console.log(currentIndex)
+      console.log('congrats')
+  }
+  console.log(target)
+  })
+  
 
 
 
