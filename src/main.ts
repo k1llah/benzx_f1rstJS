@@ -2769,33 +2769,86 @@ generateCalendar()
       changeMainPic.src = target.src
     }
   })
+  const imgArr = [
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+    '8.jpg',
+    '9.jpg',
+  ]
+  
+  const renderSlider = (arr:string[]) => {
+    let htmlString = `<div id="slider_div" class="slider_div">
+        <div class="arrow fs">←</div>
+        <div class="arrow sc">→</div>`
+    for (let i=0; i<arr.length; i+=3) {
+      if (i==0) {
+        htmlString += `<div class="three_imgs bim" style="margin-left: 90px;" data-type="active">`
+      } else {
+        htmlString += `<div class="three_imgs">`
+      }
+      let to = (i + 2 < arr.length) ? i+2 : arr.length-1
+      for (let a = i; a<=to; a++) {
+        htmlString += `<img src="${arr[a]}" alt="" class="slider_img">`
+      }
+      htmlString += `</div>`
+    }
+    htmlString += `</div>`
+    document.body.insertAdjacentHTML('beforeend', htmlString)
+  }
+  
+  renderSlider(imgArr)
+  
   let marginLeft = document.querySelector('.bim') as HTMLDivElement
   let sliderDiv = document.querySelector('.slider_div') as HTMLDivElement
   let currentIndex = 0
- 
-  sliderDiv.addEventListener('click',(event)=>{
+  const maxIndex = 2
+  sliderDiv.addEventListener('click', (event) => {
     let target = event.target as HTMLElement
-    if(target.classList.contains('fs') && currentIndex>0){
-      marginLeft.style.marginLeft = '0px'
-      marginLeft.style.marginRight = '0px'
-      currentIndex-- 
-      console.log(currentIndex)
+    if (target.classList.contains('fs')) {
+      if (currentIndex==0) {
+        currentIndex = maxIndex
+        marginLeft.style.marginLeft = 2*-800 + 90 +'px'
+      } else {
+        marginLeft.style.marginLeft = parseInt(marginLeft.style.marginLeft) + 800 +'px'
+        currentIndex--
+      }
     }
     if (target.classList.contains('sc')) {
-      marginLeft.style.marginLeft = '-725px'
-      currentIndex++
-      console.log(currentIndex)
-      
-    }
-    if(currentIndex >= 2 && target.classList.contains('sc')){
-      marginLeft.style.marginRight = '-880px'
-      
-      console.log(currentIndex)
-      console.log('congrats')
-  }
-  console.log(target)
-  })
+      if (currentIndex == maxIndex) {
+        currentIndex = 0
+        marginLeft.style.marginLeft = 90 + 'px'
   
+      } else {
+        marginLeft.style.marginLeft = parseInt(marginLeft.style.marginLeft) + -800 + 'px'
+        currentIndex++
+      }
+    }
+  })
+
+
+let ul = document.querySelector('#ul') as HTMLUListElement
+
+ul.addEventListener('click',(event)=>{
+  let target = event.target as HTMLElement
+  if(target.dataset.value == 'active'){
+    target.classList.toggle('background_changed')
+  }
+  if(event.metaKey || event.ctrlKey && target.classList.contains('color_based')){
+    let elements = document.querySelectorAll('[data-value="active"]');
+    elements.forEach((el)=>{
+      return el.classList.toggle('background_changed')
+    })
+  }
+})
+
+
+
+
 
 
 
