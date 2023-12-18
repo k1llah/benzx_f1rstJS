@@ -2839,9 +2839,9 @@ ul.addEventListener('click',(event)=>{
     target.classList.toggle('background_changed')
   }
   if(event.metaKey || event.ctrlKey && target.classList.contains('color_based')){
-    let elements = document.querySelectorAll('[data-value="active"]');
+    let elements = document.querySelectorAll('.color_based');
     elements.forEach((el)=>{
-      return el.classList.toggle('background_changed')
+       el.classList.toggle('background_changed')
     })
   }
 })
