@@ -579,4 +579,202 @@ td{
   .background_changed{
     background-color: #2e98ff;
   }
-  
+  /* form block part */
+  .form_block{
+    width: 1000px;
+    background-color: #d2defd;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    height: 500px;
+    border-radius: 20px;
+    -webkit-box-shadow: -1px 5px 8px 11px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: -1px 5px 8px 11px rgba(0, 0, 0, 0.22);
+    box-shadow: -1px 5px 8px 11px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+  }
+  .first_part, .second_part{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    transition: all 0.9s;
+  }
+  .second_part{
+    margin-left: 450px;
+    transition: all 0.7s;
+   
+}
+.hide{
+    margin-right: 600px;
+    transition: all 0.8s;
+  }
+  .first_part{
+    position: absolute;
+    margin: 50px 500px 0px 0px;
+  }
+  .sign_in{
+    font-size: 35px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .social{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .social_ahref{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .use{
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+  }
+  .input_form{
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #a4a4a4;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+  .forgot{
+    font-size: 16px;
+    color: grey;
+    outline: unset;
+    text-decoration: unset;
+    padding: 15px 0px 15px 0px;
+  }
+  .sign{
+    width: 160px;
+    background-color: #523ba4;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 800;
+    color: white;
+    border-radius: 8px;
+    border: unset;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .kk{
+    margin-top: 5px;
+  }
+  .hide_toggler{
+    position: absolute;
+    height: 100%;
+    width: 500px;
+    background-color: #5943ad;
+    margin-left: 500px;
+    border-radius: 150px 0px 0px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s;
+  }
+  .hide_title{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    color: white;
+  }
+  .text_toggler{
+    font-size: 20px;
+    margin: 0;
+  }
+  .switcher{
+    width: 200px;
+    height: 45px;
+    font-size: 17px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid white;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+  .bonus{
+    /* left: 0;  с ним анимация лагает еще надо margin 0 ставить*/
+    margin-left: -500px;
+    border-radius: 0px 150px 150px 0px;
+    transition: all 0.7s;
+  }
+  .hide_first{
+    margin-left: 900px;
+    transition: all 0.7s;
+  }
+  .z_index{
+    z-index: -1;
+  }
+
+
+
+
+  /* Другая штука */
+  .block_list{
+    margin: 100px auto 0px auto;
+    width: fit-content;
+  }
+  .info_list{
+    width: 600px;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .inside_block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .web{
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+  }
+  .toggle{
+    width: 80px;
+    height: 40px;
+    border: 1px solid darkred;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    transition: all 0.7ss;
+  }
+  .circle_toggle{
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  .hidden_info{
+    display: none;
+  }
+.toggle_active{
+    margin-left: 45px;
+}
+.back_change{
+    background-color: #363a3c;
+}

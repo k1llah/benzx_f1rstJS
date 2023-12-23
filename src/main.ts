@@ -2849,9 +2849,73 @@ ul.addEventListener('click',(event)=>{
 
 
 
+let form = document.querySelector('.form_block') as HTMLDivElement
+let first = document.querySelector('.first_part') as HTMLDivElement
+let second = document.querySelector('.second_part') as HTMLDivElement
+let hideBlock = document.querySelector('.hide_toggler') as HTMLDivElement
+let hideH2 = document.querySelector('.hide_title') as HTMLHeadingElement
+let hideP = document.querySelector('.text_toggler') as HTMLParagraphElement
+let counterSwitches = 0
+form.addEventListener('click',(event)=>{
+  let target = event.target as HTMLElement
+  if(target.classList.contains('switcher') && counterSwitches == 0){
+    hideBlock.classList.add('bonus')
+    first.classList.add('hide_first')
+    setTimeout(()=> first.classList.add('z_index'), 250)
+    counterSwitches++
+    second.classList.remove('hide')
+    setTimeout(()=> second.classList.remove('z_index'),200)
+    if(counterSwitches == 1){
+      hideH2.textContent = 'Welcome back!'
+      hideP.textContent = 'Enter your personal details to use all of site Tearlirec'
+    }
+  }
+  else if(target.classList.contains('switcher') && counterSwitches == 1){
+    hideBlock.classList.remove('bonus')
+    first.classList.remove('hide_first')
+    setTimeout(()=> second.classList.add('z_index'), 250)
+    second.classList.add('hide')
+    setTimeout(()=> first.classList.remove('z_index'), 200)
+    counterSwitches--
+  }
+  if(counterSwitches == 0){
+    hideH2.textContent = 'Hello friend!'
+    hideP.textContent = 'Register with your personal details to use all of site features'
+  }
+})
+
+
+
+let blockList = document.querySelector('.block_list') as HTMLDivElement
+blockList.addEventListener('click', (event) => {
+  let target = event.target as HTMLElement
+  if (target.classList.contains('circle_toggle')) {
+      let infoList = target.closest('.info_list') as HTMLElement
+      let hiddenBlock = infoList.querySelector('.hidden_info') as HTMLDivElement
+      target.classList.toggle('toggle_active')
+      hiddenBlock.style.display = target.classList.contains('toggle_active') ? 'unset' : 'none'
+  }
+})
+
+
+let tooltipElement = document.querySelector('.toggle') as HTMLDivElement
+function tooltipShow(){
+  tooltipElement.addEventListener('mouseover',(event)=>{
+  let target = event.target as HTMLElement
+  if(target.dataset.tooltip){
+    console.log('askdlfj')
+  }
+  })
+}
+tooltipShow()
+function tooltipHide(){
+  tooltipElement.addEventListener('mouseout',(event)=>{
+    console.log('lkajf')
+  })
+}
+tooltipHide()
 
 
 
 
 
-   
