@@ -728,11 +728,12 @@ td{
 
 
   /* Другая штука */
-  .block_list{
+  .block_list {
     margin: 100px auto 0px auto;
     width: fit-content;
   }
-  .info_list{
+
+  .info_list {
     width: 600px;
     background-color: #000000;
     color: white;
@@ -741,17 +742,20 @@ td{
     padding-left: 10px;
     font-family: Arial, Helvetica, sans-serif;
   }
-  .inside_block{
+
+  .inside_block {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .web{
+
+  .web {
     font-size: 30px;
     font-weight: 800;
     color: white;
   }
-  .toggle{
+
+  .toggle {
     width: 80px;
     height: 40px;
     border: 1px solid darkred;
@@ -761,7 +765,8 @@ td{
     margin-right: 50px;
     transition: all 0.7ss;
   }
-  .circle_toggle{
+
+  .circle_toggle {
     width: 25px;
     height: 25px;
     background-color: white;
@@ -769,12 +774,47 @@ td{
     margin-left: 10px;
     transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   }
-  .hidden_info{
-    display: none;
+
+  .hidden_info {
+    overflow: hidden;
   }
-.toggle_active{
+
+  .toggle_active {
     margin-left: 45px;
-}
-.back_change{
+  }
+
+  .back_change {
     background-color: #363a3c;
-}
+  }
+  .inf_list {
+    margin: 0;
+  }
+  .tooltip {
+    position: absolute;
+    background: white;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    transition: opacity 1s;
+  }
+  .top::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+  }
+  .bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }

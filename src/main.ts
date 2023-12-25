@@ -2890,32 +2890,63 @@ let blockList = document.querySelector('.block_list') as HTMLDivElement
 blockList.addEventListener('click', (event) => {
   let target = event.target as HTMLElement
   if (target.classList.contains('circle_toggle')) {
-      let infoList = target.closest('.info_list') as HTMLElement
-      let hiddenBlock = infoList.querySelector('.hidden_info') as HTMLDivElement
-      target.classList.toggle('toggle_active')
-      hiddenBlock.style.display = target.classList.contains('toggle_active') ? 'unset' : 'none'
+    let infoList = target.closest('.info_list') as HTMLElement
+    let hiddenBlock = infoList.querySelector('.hidden_info') as HTMLDivElement
+    target.classList.toggle('toggle_active')
+    hiddenBlock.dataset.hidden = hiddenBlock.dataset.hidden=='0' ? '1' : '0'
+    if (hiddenBlock.dataset.hidden == '0') {
+      const rect = hiddenBlock.children[0].getBoundingClientRect()
+      hiddenBlock.style.height = rect.height + 'px'
+      hiddenBlock.style.color = 'white'
+      hiddenBlock.style.transition = 'height 1s, color 1s 0.3s'  
+    } else {
+      hiddenBlock.style.height = '0'
+      hiddenBlock.style.color = 'transparent'
+      hiddenBlock.style.transition = 'height 0.7s 0.1s, color 0.3s'
+    }
   }
 })
 
+let timer:number
+let tooltip = document.createElement('div')
+tooltip.className = 'tooltip'
+tooltip.style.opacity = '0'
 
 let tooltipElement = document.querySelector('.toggle') as HTMLDivElement
-function tooltipShow(){
-  tooltipElement.addEventListener('mouseover',(event)=>{
+tooltipElement.addEventListener('mouseover', (event) => {
+  let rTarget = event.relatedTarget as HTMLElement
+  if (rTarget && rTarget.className.includes('toggle')) return
   let target = event.target as HTMLElement
-  if(target.dataset.tooltip){
-    console.log('askdlfj')
+  const selector = target.closest('.toggle') as HTMLElement | null
+  if (selector?.dataset.tooltip) {
+    timer = setTimeout(()=>{
+      console.log('start')
+      tooltip.textContent = selector.dataset.tooltip as string
+      document.body.append(tooltip)
+      const rect = selector.getBoundingClientRect()
+      const tRect = tooltip.getBoundingClientRect()
+      tooltip.style.left = rect.left - (Math.max(rect.width, tRect.width)-Math.min(rect.width, tRect.width))/2 + 'px'
+      if (rect.top<50) {
+        tooltip.style.top = rect.bottom + window.scrollY + 10 + 'px'
+        tooltip.className = 'tooltip bottom'
+      } else {
+        tooltip.style.top = rect.top + window.scrollY - 40 + 'px'
+        tooltip.className = 'tooltip top'
+      }
+      tooltip.style.opacity = '1'
+    }, 500)
   }
-  })
-}
-tooltipShow()
-function tooltipHide(){
-  tooltipElement.addEventListener('mouseout',(event)=>{
-    console.log('lkajf')
-  })
-}
-tooltipHide()
-
-
-
-
+})
+tooltipElement.addEventListener('mouseout', (event) => {
+  let target = event.relatedTarget as HTMLElement
+  if (target) {
+    const selector = target.closest('.toggle') as HTMLElement | null
+    if (selector) return
+    console.log('end')
+    clearTimeout(timer)
+    tooltip.style.opacity = '0'
+    setTimeout(() => {
+    tooltip.remove()}, 500)
+  }
+})
 
