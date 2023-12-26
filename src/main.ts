@@ -1439,7 +1439,7 @@ let arrNumbs2 = [2, 5, 7, 20, 25, 29, 30, 70, 87]
 
 let newArrOfNumbs = [] as any
 function mergeArrays(arrNumbs: any, arrNumbs2: any) {
-  arrNumbs.forEach(element => {
+  arrNumbs.forEach((element: any) => {
     if (arrNumbs2.includes(element) && !newArrOfNumbs.includes(element)) {
       newArrOfNumbs.push(element)
     }
@@ -1487,7 +1487,7 @@ let users = [
 ]
 let ageArr = [] as any
 function pushAgeArr(users: any) {
-  ageArr = users.map(el => el.age)
+  ageArr = users.map((el: { age: any }) => el.age)
   console.log(ageArr)
 }
 pushAgeArr(users)

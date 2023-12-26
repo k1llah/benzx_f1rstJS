@@ -1,3 +1,3 @@
 export default {
-    base: '/js_way/'
+    base: '/benzx_f1rstJS/'
 }
