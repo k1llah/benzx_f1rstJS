@@ -5,8 +5,7 @@ import './style.css'
 // const numbUser = prompt('Введите число', '0')
 // alert(numbUser**2)
 
-// Запросите у пользователя 2 числа и выведите среднее ариф-
-// метическое этих чисел.
+// Запросите у пользователя 2 числа и выведите среднее арифметическое этих чисел.
 
 // let numbUser = parseFloat(prompt('Введите число', '0') as string)
 // let numbUser2 = parseFloat(prompt('Введите число', '0') as string)
