@@ -5,8 +5,7 @@ import './style.css'
 // const numbUser = prompt('Введите число', '0')
 // alert(numbUser**2)
 
-// Запросите у пользователя 2 числа и выведите среднее ариф-
-// метическое этих чисел.
+// Запросите у пользователя 2 числа и выведите среднее арифметическое этих чисел.
 
 // let numbUser = parseFloat(prompt('Введите число', '0') as string)
 // let numbUser2 = parseFloat(prompt('Введите число', '0') as string)
@@ -1440,7 +1439,7 @@ let arrNumbs2 = [2, 5, 7, 20, 25, 29, 30, 70, 87]
 
 let newArrOfNumbs = [] as any
 function mergeArrays(arrNumbs: any, arrNumbs2: any) {
-  arrNumbs.forEach(element => {
+  arrNumbs.forEach((element: any) => {
     if (arrNumbs2.includes(element) && !newArrOfNumbs.includes(element)) {
       newArrOfNumbs.push(element)
     }
@@ -1488,7 +1487,7 @@ let users = [
 ]
 let ageArr = [] as any
 function pushAgeArr(users: any) {
-  ageArr = users.map(el => el.age)
+  ageArr = users.map((el: { age: any }) => el.age)
   console.log(ageArr)
 }
 pushAgeArr(users)
@@ -2949,3 +2948,5 @@ tooltipElement.addEventListener('mouseout', (event) => {
     tooltip.remove()}, 500)
   }
 })
+
+console.log(1+2+3)
