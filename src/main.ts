@@ -2949,3 +2949,5 @@ tooltipElement.addEventListener('mouseout', (event) => {
     tooltip.remove()}, 500)
   }
 })
+
+console.log(1+2+3)
