@@ -1,5 +1,6 @@
 import './style.css'
-import Scrollbar from 'smooth-scrollbar'
+import gsap from 'gsap'
+import scrollmagic from 'scrollmagic'
 // Запросите у пользователя число, возведите это число во
 // 2-ю степень и выведите на экран.
 
@@ -2957,9 +2958,6 @@ console.log(1+2+3)
 // Великолепный горизонтальный скролл
 let scroll_block = document.querySelector('.track_flex') as HTMLDivElement
 let containerSticky = document.querySelector('.sec_height') as HTMLDivElement
-let scrollbar = Scrollbar.init(containerSticky,{
-  damping: 0,
-})
 function handleIntersection(entries:any, observer:any) {
   entries.forEach((entry:any) => {
     // Проверяем, виден ли элемент
