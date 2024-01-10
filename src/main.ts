@@ -2955,7 +2955,33 @@ console.log(1+2+3)
 
 
 // Великолепный горизонтальный скролл
-let scroll_block = document.querySelector('.horizontal_scroll_block') as HTMLDivElement
+let scroll_block = document.querySelector('.track_flex') as HTMLDivElement
+let containerSticky = document.querySelector('.sec_height') as HTMLDivElement
+let scrollbar = Scrollbar.init(containerSticky,{
+  damping: 0,
+})
+function handleIntersection(entries:any, observer:any) {
+  entries.forEach((entry:any) => {
+    // Проверяем, виден ли элемент
+    if (entry.isIntersecting) {
+      // Получаем имя элемента
+      const elementName = entry.target.id || entry.target.className;
+      console.log('Видимый элемент:', elementName);
+      // Здесь можно добавить код для выполнения определенных действий
+    }
+  });
+}
 
+// Получаем целевой элемент
+const targetElement = scroll_block
 
-  
+// Создаем экземпляр Intersection Observer
+const observer = new IntersectionObserver(handleIntersection, {
+  // Порог видимости (от 0 до 1), например, 0.5 означает, что хотя бы половина элемента должна быть видна
+  threshold: 0.5
+});
+
+// Начинаем отслеживание видимости целевого элемента
+observer.observe(targetElement);
+containerSticky.addEventListener('wheel',(event)=>{
+})
