@@ -2953,3 +2953,10 @@ console.log(1+2+3)
 
 
 
+// Великолепный горизонтальный скролл
+document.addEventListener('scroll',(event) => {
+  if(scrollY == 8452){
+    
+  }
+  
+})
