@@ -898,9 +898,9 @@ td {
 }
 .horizontal_scroll_block{
     display: flex;
-    height: 100%;
     top: 0;
-    height: 2000px;
+    overflow: hidden;
+    position: sticky;
 }
 .film_2{
     margin-left: 15px;
@@ -912,4 +912,19 @@ td {
 }
 .scroll-content{
     height: 2000px;
+}
+.horizontal_scroll_block_2{
+    display: flex;
+    height: 100%;
+    top: 0;
+    height: 2000px;
+}
+.cont_sticky{
+    height: 4500px;
+    position: relative;
+}
+.sticky_end{
+    width: 100%;
+    background-color: white;
+    height: 100px;
 }

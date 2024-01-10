@@ -2956,62 +2956,6 @@ console.log(1+2+3)
 
 // Великолепный горизонтальный скролл
 let scroll_block = document.querySelector('.horizontal_scroll_block') as HTMLDivElement
-let containerScroll = document.querySelector('.horizontal_container') as HTMLDivElement
-let scrollBar = Scrollbar.init(containerScroll,{
-  damping: 0.1,
-})
-scrollBar.addListener((status) => {
-  console.log(window.scrollY)
-  
-  const scrollX = status.offset.x
-  // if(window.scrollY > 8291){
-  //   scroll_block.style.transform = `translateX(${-window.scrollX})`
-  //   scroll_block.style.position = 'sticky'
-  //   scroll_block.style.top = '0'
-  //   console.log('я работаю')
-  // } 
-  // if (status.offset.y > 200) {
-  //   scroll_block.style.transform = `translateX(${-status.offset.x}%)`;
-    
-  //   console.log('я работаю')
-  // } else {
-  //   // Возврат к нормальному положению при прокрутке вверх
-  //   scroll_block.style.position = 'static';
-  //   scroll_block.style.transform = 'translateX(0)%';
-  // }
+
 
   
-})
-// document.addEventListener('DOMContentLoaded', () => {
-//   const containerScroll = document.querySelector('.horizontal_container') as HTMLDivElement;
-//   const scrollBlock = document.querySelector('.horizontal_scroll_block') as HTMLDivElement;
-
-//   if (containerScroll && scrollBlock) {
-//     let scrollbar = Scrollbar.init(containerScroll, {
-//       damping: 0.1,
-//     });
-//     let lastScrollLeft = scrollbar.offset.x;
-//     scrollbar.addListener((status) => {
-//       // Получение текущей позиции скролла
-//       const scrollY = status.offset.y;
-//       const scrollX = status.offset.x
-//       // Фиксация блока, когда пользователь прокручивает достаточно вниз
-//       if (scrollY > 8291) {
-//         scrollBlock.style.position = 'sticky';
-//         scrollBlock.style.top = '0';
-//       scrollBlock.style.transform = `translateX(${scrollX}px)`;
-//       const direction = scrollX > lastScrollLeft ? 'right' : 'left';
-//       lastScrollLeft = scrollX;
-//       if (direction === 'right') {
-//         // Прокрутка влево при прокрутке вниз
-//         scrollBlock.style.transform = `translateX(${scrollX}px)`;
-//       } else {
-//         // Прокрутка вправо при прокрутке вверх
-//         scrollBlock.style.transform = `translateX(-${scrollX}px)`;
-//       }
-//       }  
-//     });
-//   } else {
-//     console.error('Container element not found');
-//   }
-// });
