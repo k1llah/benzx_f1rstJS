@@ -37,35 +37,36 @@ import "./scroll.css";
 //   tl.to(".film_3", { x: "-100%", ease: Power2.easeInOut });
 // });
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger'
-// Активация плагина ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-let horizontalScrollBlock = document.querySelector(".horizontalScroll") as HTMLDivElement
-let containerWidth = horizontalScrollBlock.offsetWidth
-// Создаем анимацию для горизонтального скролла
-const horizontalScroll = gsap.to(horizontalScrollBlock,{
-	xPercent: -100,
+ import ScrollTrigger from 'gsap/ScrollTrigger';
+
+ // Активация плагина ScrollTrigger
+ gsap.registerPlugin(ScrollTrigger);
+ let horizontalScrollBlock = document.querySelector(".horizontalScroll") as HTMLDivElement
+ let elements = gsap.utils.toArray(".horizontalScroll") // Замените '.film' на селектор ваших элементов
+ // Создаем анимацию для горизонтального скролла
+ const horizontalScroll = gsap.timeline({
+	xPercent: -50,
 	ease: 'none',
-	scrollTrigger: {
-		trigger: horizontalScrollBlock,
-		start: 'top top',
-		end:()=>'+=' + containerWidth
-	},
-	scrub: 1,
-	pin: true,
-})
-gsap.utils.toArray('.film').forEach((film, index) => {
-  gsap.to(film, {
-    xPercent: -index * 100, // каждый элемент сдвигается на 100% ширины экрана
-    scrollTrigger: {
-      trigger: horizontalScrollBlock,
-      start: 'top top',
-      end: () => `+=${containerWidth}`,
-      scrub: 1,
-    },
-  });
+   scrollTrigger: {
+     trigger: horizontalScrollBlock,
+     start: "top top",
+     end: () => "+=" + horizontalScrollBlock.offsetWidth,
+     scrub: 1, // Включаем "скруббинг" для плавного скролла
+     pin: true, 
+		 // Закрепляем контейнер в процессе скролла
+   },
+ });
+ elements.forEach((element, index) => {
+  horizontalScroll.to(element, { xPercent: -(index + 1) * 255 }, 0); // Измените 20 на ваш желаемый шаг
 });
-// Добавляем анимации для каждого элемента
+
+ // Добавляем анимации для каждого элемента
+ // Добавляем анимации для каждого элемента
+//  horizontalScroll.to(".horizontalScroll", { xPercent: -50 });
+//  horizontalScroll.to(".horizontalScroll", { xPercent: -70 });
+//  horizontalScroll.to(".horizontalScroll", { xPercent: -90 });
+//  horizontalScroll.to(".horizontalScroll", { xPercent: -110 });
+
 
 // document.addEventListener('DOMContentLoaded',()=>{
 //   let controller = new ScrollMagic.Controller()
