@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "gsap": "^3.12.4",
-    "scrollmagic": "^2.0.8",
-    "scrollmagic-plugin-gsap": "^1.0.4",
-    "smooth-scrollbar": "^8.8.4"
+    "scrollmagic": "^2.0.8"
   }
 }
