@@ -896,62 +896,24 @@ td {
 .fourth{
     height: 100%;
 }
-.horizontal_scroll_block, .scroll-content{
-    display: flex;
-    top: 0;
-    overflow: hidden;
-    position: sticky;
-}
-.bonus_class{
-    position: sticky;
-}
 .film_2{
     margin-left: 15px;
     margin-right: 15px;
 }
-.horizontal_container{
-    height: 2000px;
-    overflow: hidden;
-}
-
 .horizontal_scroll_block_2{
     display: flex;
     height: 100%;
     top: 0;
-    
 }
 .cont_sticky{
     height: 4500px;
-}
+} 
 
-.sticky_end{
-    width: 100%;
-    background-color: white;
-    height: 100px;
-}
 
 .horizontal_scroll_block{
     display: flex;
+    position: sticky;
     top: 0;
-    overflow: hidden;
-    /* position: sticky; */
+    overflow-x: auto;
+    width: auto;
 }
-/* 
-.scroll-content{
-    height: 2000px;
-}
-.horizontal_scroll_block_2{
-    display: flex;
-    height: 100%;
-    top: 0;
-    height: 2000px;
-}
-.cont_sticky{
-    height: 4500px;
-    position: relative;
-}
-.sticky_end{
-    width: 100%;
-    background-color: white;
-    height: 100px;
-}  */
