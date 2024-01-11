@@ -105,4 +105,5 @@
     display: flex;
     top: 0;
     overflow-x: auto;
+    position: sticky;
 }

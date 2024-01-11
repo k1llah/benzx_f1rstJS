@@ -37,27 +37,36 @@ import "./scroll.css";
 //   tl.to(".film_3", { x: "-100%", ease: Power2.easeInOut });
 // });
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
+import ScrollTrigger from 'gsap/ScrollTrigger'
 // Активация плагина ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 let horizontalScrollBlock = document.querySelector(".horizontalScroll") as HTMLDivElement
-
+let containerWidth = horizontalScrollBlock.offsetWidth
 // Создаем анимацию для горизонтального скролла
-const horizontalScroll = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".horizontalScroll",
-    start: "top top",
-    end: () => "+=" + horizontalScrollBlock.offsetWidth,
-    scrub: 1, // Включаем "скруббинг" для плавного скролла
-    pin: true, // Закрепляем контейнер в процессе скролла
-  },
+const horizontalScroll = gsap.to(horizontalScrollBlock,{
+	xPercent: -100,
+	ease: 'none',
+	scrollTrigger: {
+		trigger: horizontalScrollBlock,
+		start: 'top top',
+		end:()=>'+=' + containerWidth
+	},
+	scrub: 1,
+	pin: true,
+})
+gsap.utils.toArray('.film').forEach((film, index) => {
+  gsap.to(film, {
+    xPercent: -index * 100, // каждый элемент сдвигается на 100% ширины экрана
+    scrollTrigger: {
+      trigger: horizontalScrollBlock,
+      start: 'top top',
+      end: () => `+=${containerWidth}`,
+      scrub: 1,
+    },
+  });
 });
-
 // Добавляем анимации для каждого элемента
-horizontalScroll.to(".film_1", { xPercent: -100 });
-horizontalScroll.to(".film_2", { xPercent: -100 });
-horizontalScroll.to(".film_3", { xPercent: -100 });
+
 // document.addEventListener('DOMContentLoaded',()=>{
 //   let controller = new ScrollMagic.Controller()
 //   let containerWidth = containerSticky.offsetWidth;
