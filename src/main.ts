@@ -1,6 +1,5 @@
 import './style.css'
-import gsap from 'gsap';
-import ScrollMagic from 'scrollmagic'
+
 
 // Запросите у пользователя число, возведите это число во
 // 2-ю степень и выведите на экран.
@@ -2956,30 +2955,6 @@ console.log(1+2+3)
 
 
 
-// Великолепный горизонтальный скролл
-let scroll_block = document.querySelector('.horizontal_scroll_block') as HTMLDivElement
-let containerSticky = document.querySelector('.cont_sticky') as HTMLDivElement
 
-document.addEventListener('DOMContentLoaded',()=>{
-  let controller = new ScrollMagic.Controller()
-  let containerWidth = containerSticky.offsetWidth;
-  let contentWidth = scroll_block.scrollWidth;
-  // const horizontalScroll = gsap.to('.horizontal_scroll_block', {
-  //   x: `-${contentWidth - containerWidth}px`,
-  //   ease: 'none',
-  // });
-  new ScrollMagic.Scene({
-    triggerElement: containerSticky,
-    triggerHook: 'onLeave',
-    duration: contentWidth - containerWidth,
-  })
-  .setPin(containerSticky)
-  .addTo(controller)
-  .on('update', (event: any) => {
-    const progress = event.progress;
-    const newPosition = -progress * (contentWidth - containerWidth);
-    gsap.set('.horizontal_scroll_block', { x: newPosition });
-  });
-})
 
 
