@@ -1,6 +1,6 @@
 import './style.css'
-import ScrollMagic, { Scene } from 'scrollmagic'
-import  {  TweenMax, Power2 } from 'gsap'
+import ScrollMagic from 'scrollmagic'
+import gsap from 'gsap'
 // Запросите у пользователя число, возведите это число во
 // 2-ю степень и выведите на экран.
 
