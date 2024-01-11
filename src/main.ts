@@ -1,6 +1,6 @@
 import './style.css'
-import gsap from 'gsap'
-import scrollmagic from 'scrollmagic'
+import ScrollMagic, { Scene } from 'scrollmagic'
+import  {  TweenMax, Power2 } from 'gsap'
 // Запросите у пользователя число, возведите это число во
 // 2-ю степень и выведите на экран.
 
@@ -2956,30 +2956,24 @@ console.log(1+2+3)
 
 
 // Великолепный горизонтальный скролл
-let scroll_block = document.querySelector('.track_flex') as HTMLDivElement
-let containerSticky = document.querySelector('.sec_height') as HTMLDivElement
-function handleIntersection(entries:any, observer:any) {
-  entries.forEach((entry:any) => {
-    // Проверяем, виден ли элемент
-    if (entry.isIntersecting) {
-      // Получаем имя элемента
-      const elementName = entry.target.id || entry.target.className;
-      console.log('Видимый элемент:', elementName);
-      // Здесь можно добавить код для выполнения определенных действий
-    }
-  });
-}
+let scroll_block = document.querySelector('.horizontal_scroll_block') as HTMLDivElement
+let containerSticky = document.querySelector('.cont_sticky') as HTMLDivElement
 
-// Получаем целевой элемент
-const targetElement = scroll_block
-
-// Создаем экземпляр Intersection Observer
-const observer = new IntersectionObserver(handleIntersection, {
-  // Порог видимости (от 0 до 1), например, 0.5 означает, что хотя бы половина элемента должна быть видна
-  threshold: 0.5
-});
-
-// Начинаем отслеживание видимости целевого элемента
-observer.observe(targetElement);
-containerSticky.addEventListener('wheel',(event)=>{
+document.addEventListener('DOMContentLoaded',()=>{
+  let controller = new ScrollMagic.Controller()
+  let containerWidth = containerSticky.offsetWidth;
+  let contentWidth = scroll_block.scrollWidth;
+  const horizontalScroll = gsap.timeline();
+  horizontalScroll
+    .to('.horizontal-scroll-content', { x: '-100%', ease: 'none' });
+  const scene = new ScrollMagic.Scene({
+    triggerElement: containerSticky,
+    triggerHook: 'onLeave',
+    duration: contentWidth - containerWidth,
+  })
+  .setPin(containerSticky)
+  setTween(animation) // Анимация с использованием GSAP
+  .addIndicators({ name: "горизонтальный скролл" }) 
+  .addTo(controller);
+  controller.addScene(scene)
 })
