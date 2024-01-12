@@ -42,7 +42,9 @@ import gsap from 'gsap';
  // Активация плагина ScrollTrigger
  gsap.registerPlugin(ScrollTrigger);
  let horizontalScrollBlock = document.querySelector(".horizontalScroll") as HTMLDivElement
+ let horizontalScroll2 = document.querySelector('.horizontalScroll_2') as HTMLDivElement
  let elements = gsap.utils.toArray(".horizontalScroll") // Замените '.film' на селектор ваших элементов
+ let elements2 = gsap.utils.toArray(".horizontalScroll_2")
  // Создаем анимацию для горизонтального скролла
  const horizontalScroll = gsap.timeline({
 	xPercent: -50,
@@ -57,7 +59,22 @@ import gsap from 'gsap';
    },
  });
  elements.forEach((element, index) => {
-  horizontalScroll.to(element, { xPercent: -(index + 1) * 255 }, 0); // Измените 20 на ваш желаемый шаг
+  horizontalScroll.to(element, { xPercent: -(index + 1) * 115 }, 0); // Измените 20 на ваш желаемый шаг
+});
+const horizontalScrollSecond = gsap.timeline({
+	xPercent: -50,
+	ease: 'none',
+   scrollTrigger: {
+     trigger: horizontalScroll2,
+     start: "top top",
+     end: () => "+=" + horizontalScroll2.offsetWidth,
+     scrub: 1, // Включаем "скруббинг" для плавного скролла
+     pin: true, 
+		 // Закрепляем контейнер в процессе скролла
+   },
+ });
+ elements2.forEach((element, index) => {
+  horizontalScrollSecond.to(element, { xPercent: -(index + 1) * 115 }, 0); // Измените 20 на ваш желаемый шаг
 });
 
  // Добавляем анимации для каждого элемента
