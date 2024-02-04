@@ -1,4 +1,6 @@
 import './style.css'
+
+
 // Запросите у пользователя число, возведите это число во
 // 2-ю степень и выведите на экран.
 
@@ -2950,3 +2952,9 @@ tooltipElement.addEventListener('mouseout', (event) => {
 })
 
 console.log(1+2+3)
+
+
+
+
+
+

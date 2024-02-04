@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/scrollmagic": "^2.0.8",
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.4",
+    "scrollmagic": "^2.0.8"
   }
 }
